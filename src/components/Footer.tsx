@@ -9,6 +9,7 @@ export const Footer: React.FC = () => {
         © {new Date().getFullYear()} Ioritz Tubío Sánchez ·{" "}
         {t.ui.footerBuiltWith}
       </p>
+      <p className="mt-1 text-zinc-700 text-xs font-mono">v1.0</p>
     </footer>
   );
 };
