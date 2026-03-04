@@ -7,6 +7,8 @@ export interface TimelineEvent {
   dateStart: string;
   dateEnd: string; // 'Present' or date
   description: string;
+  highlights?: string[]; // keywords to highlight in the description
+  extra?: boolean; // marks non-tech experience (hidden by default)
 }
 
 export interface Project {
@@ -16,6 +18,9 @@ export interface Project {
   imageUrl: string;
   demoUrl?: string;
   repoUrl?: string;
+  codePrivate?: boolean;
+  codePrivateNote?: string;
+  comingSoon?: boolean;
 }
 
 export interface SocialLink {
