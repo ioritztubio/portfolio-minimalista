@@ -1,28 +1,28 @@
 import { ProfileData, TimelineEvent, Project } from './types';
 
 export const profileData: ProfileData = {
-  name: "Alex Developer",
-  subtitle: "Fullstack Engineer & UI Designer",
+  name: "Ioritz Tubío Sánchez",
+  subtitle: "Junior Software Engineer & Fullstack Developer",
   about: [
-    "I craft digital experiences with a focus on minimalism and performance.",
-    "Passionate about building scalable applications and intuitive user interfaces.",
-    "Based in San Francisco, working globally."
+    "Final-year Computer Engineering student with hands-on experience in software development and autonomous drone technology.",
+    "Currently working as a Junior Software Engineer, focused on writing clean, maintainable code and collaborating in high-performance teams.",
+    "Passionate about growing as a Fullstack Developer while continuously expanding my knowledge across different areas of computer science."
   ],
   avatarUrl: "https://picsum.photos/seed/portfolio-avatar/400/400", // Placeholder
   socials: [
     {
       platform: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/ioritztubio",
       label: "GitHub"
     },
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com",
+      url: "https://linkedin.com/in/ioritztubio",
       label: "LinkedIn"
     },
     {
       platform: "Email",
-      url: "mailto:hello@example.com",
+      url: "mailto:ioritztubio1@gmail.com",
       label: "Email"
     }
   ]
@@ -31,43 +31,35 @@ export const profileData: ProfileData = {
 export const timelineData: TimelineEvent[] = [
   {
     type: "work",
-    title: "Senior Frontend Engineer",
-    organization: "Tech Corp Inc.",
-    dateStart: "2023",
+    title: "Junior Software Engineer",
+    organization: "SKOOTIK (PKF ATTEST AI Department)",
+    dateStart: "July 2025",
     dateEnd: "Present",
-    description: "Leading the frontend migration to React 19. Improved performance by 40% and established a new design system used across 5 products."
+    description: "Working as a Junior Software Engineer within the AI Department. Contributing to software development projects focused on scalable systems, applying best practices in clean architecture, version control and collaborative workflows."
   },
   {
     type: "work",
-    title: "Fullstack Developer",
-    organization: "Creative Agency",
-    dateStart: "2021",
-    dateEnd: "2023",
-    description: "Developed custom e-commerce solutions using Next.js and Shopify. Collaborated directly with clients to define requirements and deliver pixel-perfect designs."
+    title: "Software Developer Intern",
+    organization: "Alerion Technologies",
+    dateStart: "July 2024",
+    dateEnd: "August 2024",
+    description: "Developed software solutions for autonomous drone systems. Worked with TypeScript, Python and Bash. Implemented CI pipelines with Jenkins, managed repositories with Git and Bitbucket, and contributed to mission control software including telemetry processing, connectivity verification and ROS-based middleware communication. Followed Agile methodology with sprint-based development."
   },
   {
     type: "education",
-    title: "Master in Computer Science",
-    organization: "University of Technology",
-    dateStart: "2019",
-    dateEnd: "2021",
-    description: "Specialized in Distributed Systems and Human-Computer Interaction. Thesis on accessible web interfaces for visually impaired users."
-  },
-  {
-    type: "work",
-    title: "Junior Web Developer",
-    organization: "StartUp Hub",
-    dateStart: "2018",
-    dateEnd: "2019",
-    description: "Built landing pages and internal tools using Vue.js and Firebase. Learned the fundamentals of agile development and CI/CD pipelines."
+    title: "Computer Engineering Degree",
+    organization: "University of the Basque Country (UPV/EHU)",
+    dateStart: "September 2021",
+    dateEnd: "Present",
+    description: "Final-year student in Computer Engineering. Focused on software development, problem solving and collaborative engineering practices."
   },
   {
     type: "education",
-    title: "Bachelor of Engineering",
-    organization: "State University",
-    dateStart: "2014",
-    dateEnd: "2018",
-    description: "Graduated with honors. Active member of the coding club and hackathon organizer."
+    title: "High School Diploma",
+    organization: "Pasaia Lezo Lizeoa",
+    dateStart: "September 2019",
+    dateEnd: "June 2021",
+    description: "Completed secondary education with a focus on science and technology."
   }
 ];
 
