@@ -6,18 +6,23 @@ import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { CVDownloadButton } from "./components/CVDownloadButton";
 
+// TODO: set to true when all language translations have been reviewed
+const MULTI_LANG_ENABLED = false;
+
 function TopBar() {
   const { t, toggleLang } = useLanguage();
   return (
     <div className="fixed top-5 right-5 z-50 flex items-center gap-2">
       <CVDownloadButton />
-      <button
-        onClick={toggleLang}
-        className="px-3 py-1.5 text-xs font-mono font-semibold text-zinc-400 border border-zinc-700 rounded-md hover:border-zinc-400 hover:text-white transition-all duration-200 bg-[#0a0a0a]/80 backdrop-blur-sm"
-        aria-label="Switch language"
-      >
-        {t.ui.langToggle}
-      </button>
+      {MULTI_LANG_ENABLED && (
+        <button
+          onClick={toggleLang}
+          className="px-3 py-1.5 text-xs font-mono font-semibold text-zinc-400 border border-zinc-700 rounded-md hover:border-zinc-400 hover:text-white transition-all duration-200 bg-[#0a0a0a]/80 backdrop-blur-sm"
+          aria-label="Switch language"
+        >
+          {t.ui.langToggle}
+        </button>
+      )}
     </div>
   );
 }

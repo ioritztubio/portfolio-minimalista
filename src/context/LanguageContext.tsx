@@ -3,7 +3,7 @@ import { en, es, eu, fr } from "../i18n";
 import { Translation, Lang } from "../i18n/types";
 
 const LANGUAGES: Record<Lang, Translation> = { en, es, eu, fr };
-const CYCLE: Lang[] = ["en", "es", "eu", "fr"];
+const CYCLE: Lang[] = ["es"]; // TODO: restore ["en", "es", "eu", "fr"] when translations are reviewed
 
 interface LanguageContextValue {
   lang: Lang;
@@ -16,7 +16,7 @@ const LanguageContext = createContext<LanguageContextValue | null>(null);
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("es");
 
   const toggleLang = () =>
     setLang((prev) => CYCLE[(CYCLE.indexOf(prev) + 1) % CYCLE.length]);
