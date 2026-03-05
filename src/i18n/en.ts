@@ -20,6 +20,8 @@ export const en: Translation = {
     timeline: {
         sectionTitle: "Experience & Education",
         present: "Present",
+        legendWork: "Work",
+        legendEducation: "Education",
         items: [
             {
                 type: "work",
@@ -28,7 +30,7 @@ export const en: Translation = {
                 dateStart: "July 2025",
                 dateEnd: "Present",
                 description: "Working at PKF Attest — one of Spain's top 10 professional services firms and member of the PKF Global network (150+ countries, 480 offices). Specifically in the AI department, which integrates the offering of Skootik: turning clients' data into sustainable competitive advantage through AI consulting, strategy and development. Building and maintaining production-grade fullstack applications with Next.js, TypeScript, Django and Python, within an agile team applying clean architecture, CI/CD pipelines with Jenkins and scalable system design.",
-                highlights: ["PKF Attest", "Skootik", "AI department"]
+                highlights: ["Spain's top 10", "Skootik", "AI department"]
             },
             {
                 type: "work",
@@ -87,7 +89,7 @@ export const en: Translation = {
     },
     projects: {
         sectionTitle: "Selected Works",
-        sectionSubtitle: "Real projects that have shipped and are used by real people — not side projects that never left localhost.",
+        sectionSubtitle: "Real projects that have shipped, are publicly available and are used by real people — not side projects that never left localhost.",
         privateCodeBadge: "Private code",
         privateCodeTooltip: "Source code is private due to company policies",
         viewDemo: "View live",

@@ -1,6 +1,6 @@
 import { ProfileData, TimelineEvent, Project } from '../data/types';
 
-export type Lang = 'en' | 'es';
+export type Lang = 'en' | 'es' | 'eu' | 'fr';
 
 export interface Translation {
     lang: Lang;
@@ -8,6 +8,8 @@ export interface Translation {
     timeline: {
         sectionTitle: string;
         present: string;
+        legendWork: string;
+        legendEducation: string;
         items: TimelineEvent[];
     };
     projects: {

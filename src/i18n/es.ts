@@ -20,6 +20,8 @@ export const es: Translation = {
     timeline: {
         sectionTitle: "Experiencia & Formación",
         present: "Actualidad",
+        legendWork: "Laboral",
+        legendEducation: "Formación",
         items: [
             {
                 type: "work",
@@ -27,8 +29,8 @@ export const es: Translation = {
                 organization: "PKF Attest — Departamento de IA",
                 dateStart: "Julio 2025",
                 dateEnd: "Actualidad",
-                description: "Trabajo en PKF Attest — una de las diez mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
-                highlights: ["PKF Attest", "Skootik", "Departamento de IA"]
+                description: "Trabajo en PKF Attest — una de las 10 mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
+                highlights: ["10 mejores firmas", "Skootik", "Departamento de IA"]
             },
             {
                 type: "work",
@@ -87,7 +89,7 @@ export const es: Translation = {
     },
     projects: {
         sectionTitle: "Proyectos",
-        sectionSubtitle: "Proyectos reales que han salido a producción y los usan personas reales — no side-projects que nunca salieron del localhost.",
+        sectionSubtitle: "Proyectos reales que han salido a producción, están disponibles públicamente y los usan personas reales — no side-projects que nunca salieron del localhost.",
         privateCodeBadge: "Código privado",
         privateCodeTooltip: "El código fuente es privado por políticas de empresa",
         viewDemo: "Ver en vivo",
@@ -112,7 +114,7 @@ export const es: Translation = {
         ]
     },
     ui: {
-        langToggle: "EN",
+        langToggle: "EU",
         footerBuiltWith: "Hecho con React & Tailwind",
         downloadCV: "Descargar CV",
         birthdayMessage: "🎂 ¡Hoy es mi cumpleaños! Toma un poco de confeti",

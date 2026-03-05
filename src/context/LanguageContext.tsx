@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
-import { en, es } from "../i18n";
+import { en, es, eu, fr } from "../i18n";
 import { Translation, Lang } from "../i18n/types";
+
+const LANGUAGES: Record<Lang, Translation> = { en, es, eu, fr };
+const CYCLE: Lang[] = ["en", "es", "eu", "fr"];
 
 interface LanguageContextValue {
   lang: Lang;
@@ -15,9 +18,10 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [lang, setLang] = useState<Lang>("en");
 
-  const toggleLang = () => setLang((prev) => (prev === "en" ? "es" : "en"));
+  const toggleLang = () =>
+    setLang((prev) => CYCLE[(CYCLE.indexOf(prev) + 1) % CYCLE.length]);
 
-  const t = lang === "en" ? en : es;
+  const t = LANGUAGES[lang];
 
   return (
     <LanguageContext.Provider value={{ lang, t, toggleLang }}>

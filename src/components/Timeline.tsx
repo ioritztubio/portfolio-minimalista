@@ -92,11 +92,11 @@ export const Timeline: React.FC = () => {
       <div className="flex justify-center gap-6 mb-16 text-xs font-mono uppercase tracking-wider text-zinc-500">
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
-          {t.lang === "es" ? "Laboral" : "Work"}
+          {t.timeline.legendWork}
         </span>
         <span className="flex items-center gap-1.5">
           <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
-          {t.lang === "es" ? "Formación" : "Education"}
+          {t.timeline.legendEducation}
         </span>
       </div>
 
