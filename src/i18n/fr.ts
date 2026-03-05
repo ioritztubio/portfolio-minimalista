@@ -34,7 +34,7 @@ export const fr: Translation = {
             },
             {
                 type: "work",
-                title: "Développeur Logiciel Stagiaire",
+                title: "Stagiaire Développeur Logiciel",
                 organization: "Alerion Technologies",
                 dateStart: "Juillet 2024",
                 dateEnd: "Août 2024",
@@ -73,7 +73,7 @@ export const fr: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "Septembre 2022",
                 dateEnd: "Octobre 2023",
-                description: "Le traiteur en événements, c'est là qu'on apprend vraiment à performer sous des contraintes réelles : lieux inconnus, horaires serrés, clients exigeants et aucune marge pour l'erreur. Galas, dîners d'entreprise, célébrations privées — souvent l'un des plus jeunes de l'équipe, toujours au niveau des vétérans. J'ai prouvé que l'adaptabilité et le professionnalisme ne sont pas des traits de personnalité ; ce sont des habitudes que l'on forge en se présentant et en faisant le travail.",
+                description: "Le service traiteur lors d'événements, c'est là qu'on apprend vraiment à être à la hauteur sous des contraintes réelles : lieux inconnus, horaires serrés, clients exigeants et aucune marge pour l'erreur. Galas, dîners d'entreprise, fêtes privées — souvent l'un des plus jeunes de l'équipe, toujours au niveau des vétérans. J'ai prouvé que l'adaptabilité et le professionnalisme ne sont pas des traits de caractère innés ; ce sont des habitudes que l'on construit en étant présent et en faisant le travail.",
                 extra: true
             },
             {
@@ -88,7 +88,7 @@ export const fr: Translation = {
         ]
     },
     projects: {
-        sectionTitle: "Projets Sélectionnés",
+        sectionTitle: "Projets",
         sectionSubtitle: "Des projets publics réels en production, utilisés par de vraies personnes — pas des side-projects qui n'ont jamais quitté localhost.",
         privateCodeBadge: "Code privé",
         privateCodeTooltip: "Le code source est privé en raison des politiques de l'entreprise",
@@ -106,7 +106,7 @@ export const fr: Translation = {
             },
             {
                 title: "Quelque chose se prépare",
-                description: "Il y a toujours quelque chose en cours. D'autres projets en construction — du travail client, des expériences personnelles qui repoussent les limites de ce que je sais. Rien ne reste sur localhost pour toujours.",
+                description: "Il y a toujours quelque chose en cours. D'autres projets en construction — du travail client, des expériences personnelles qui repoussent les limites de ce que je maîtrise. Rien ne reste sur localhost pour toujours.",
                 tags: [],
                 imageUrl: "",
                 comingSoon: true

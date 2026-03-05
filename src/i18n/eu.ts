@@ -6,7 +6,7 @@ export const eu: Translation = {
         name: "Ioritz Tubío Sánchez",
         subtitle: "Software Ingeniari · Fullstack Garatzaile",
         about: [
-            "{age} urte ditut, Euskal Herriko informatika ingeniari naiz, eta gaur egun PKF Attesteko Adimen Artifizialaren sailean lan egiten dut, non jendeak egunero erabiltzen duen produkzio-softwarea garatu dudan.",
+            "{age} urte ditut, Euskal Herriko informatika ingeniaria naiz, eta gaur egun PKF Attesteko Adimen Artifizialaren sailean lan egiten dut, non jendeak egunero erabiltzen duen produkzio-softwarea garatu dudan.",
             "Benetan funtzionatzen duen kodea idazteaz arduratzen naiz, kalitatea ahaztu gabe — sistema mantengarriak garrantzitsuak direlako. Hobetzera bultzatzen nauten pertsonekin lan egitea eta egunero zerbait berria ikastea gustatzen zait.",
             "Neure burua pertsona ezin-egon gisa ikusten dut, egoera berrietara egokitzeko eta etengabe hazten joateko gai dena. Teknologiaz gain, ekintzailetzak liluratu egiten nau eta nire bizitzako uneren batean horretara dedikatzea gustatuko litzaidake."
         ],
@@ -64,7 +64,7 @@ export const eu: Translation = {
                 organization: "Restaurante VaBene",
                 dateStart: "2022ko martxoa",
                 dateEnd: "2022ko iraila",
-                description: "Zerbitzari lana ez da glamourozoa — azkarra, zorrotza eta errukigabea da. Aldi berean hainbat mahai kudeatzen, presioa handiena denean konposaketa mantentzen, eta bezero bakoitza asebeteta joaten ziurtatzen. Gaizki ikasi nuen egunero: presio operazional errealean errendimendu egokia ez da faltsutzen ahal den trebetasuna, eta ez du inongo ikasgelak irakasten.",
+                description: "Zerbitzari lana ez da oso glamurosoa — azkarra, zorrotza eta errukigabea da. Aldi berean hainbat mahai kudeatzen nituen, une gogorretan lasaitasuna mantentzen nuen, eta bezero bakoitza pozik joaten ziurtatu nuen. Goiz ikasi nuen hori: presio operazional errealean ondo aritzea ezin da faltsifikatu, eta inongo ikasgelak ez dizu irakasten.",
                 extra: true
             },
             {
@@ -73,7 +73,7 @@ export const eu: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "2022ko iraila",
                 dateEnd: "2023ko urria",
-                description: "Ekitaldietako catering-a da benetako muga-baldintzetan aritzea: ezezagunak diren espazioak, denbora-tarte estuak, bezero zorrotzak eta akatserako tokirik ez. Gala, enpresa-afari eta ospakizun pribatuetan — batzuetan talderik gazteena, baina beti txapeldunen mailan. Erakutsi nuen egokitasuna eta profesionaltasuna ez direla nortasun ezaugarriak; lana egiteko agertuz eraikitzen diren ohiturak dira.",
+                description: "Ekitaldietako catering-a da benetako baldintza zailetan aritzea ikasteko lekua: ezezagunak diren espazioak, denbora-tarte estuak, bezero zorrotzak eta akatserako tokirik ez. Gala, enpresa-afari eta ospakizun pribatuetan — batzuetan talderik gazteena, baina beti adituenen pare. Frogatu nuen egokitasuna eta profesionaltasuna ez direla nortasun ezaugarri hutsak; agertuz eta lana eginez eraikitzen diren ohiturak dira.",
                 extra: true
             },
             {
@@ -82,13 +82,13 @@ export const eu: Translation = {
                 organization: "MCC Graphics S. Coop",
                 dateStart: "2023ko uztaila",
                 dateEnd: "2023ko uztaila",
-                description: "Hilabete bat inprimate kooperatiba bateko produkzio-lerroan irakaspen batzuk ematen dizkizu graduak ezin dituenak: ingurune industrial errealeko diziplina, kalitate-kontrolak eskatzen duen zehaztasuna, eta hamarkadak horretan dauden pertsonekin besoz beso lan egiteak zer esan nahi duen. Ezein lan ez zait txikia iruditu — materialak, inprimatze-kalitatea eta benetako produkzio-katea lehenengo egunetik.",
+                description: "Hilabete bat inprimaketa kooperatiba bateko produkzio-lerroan irakaspen batzuk ematen dizkizu graduak ezin dituenak: ingurune industrial errealeko diziplina, kalitate-kontrolak eskatzen duen zehaztasuna, eta hamarkadak horretan dauden pertsonekin besoz beso lan egiteak zer esan nahi duen. Ezein lan ez zait txikia iruditu — materialak, inprimatze-kalitatea eta benetako produkzio-katea lehenengo egunetik.",
                 extra: true
             }
         ]
     },
     projects: {
-        sectionTitle: "Lan Hautatuak",
+        sectionTitle: "Proiektuak",
         sectionSubtitle: "Produkziora irten diren eta publikoki eskuragarri dauden proiektu errealak — benetako pertsonek erabiltzen dituzte, ez localhost-etik sekula irten ez diren side-projects.",
         privateCodeBadge: "Kode pribatua",
         privateCodeTooltip: "Iturburu-kodea pribatua da enpresako politikak direla eta",
@@ -106,7 +106,7 @@ export const eu: Translation = {
             },
             {
                 title: "Zerbait prestatzen ari da",
-                description: "Beti dago zerbait martxan. Proiektu gehiago eraikitzen — bezero lanak, bere mugak zeharkatzen dituzten esperimentu pertsonalak. Ezer ez da localhost-ean betirako geratzen.",
+                description: "Beti dago zerbait martxan. Proiektu gehiago eraikitzen ari naiz — bezero lanak, neure mugak gainditzen dituzten esperimentu pertsonalak. Ezer ez da localhost-ean betirako geratzen.",
                 tags: [],
                 imageUrl: "",
                 comingSoon: true

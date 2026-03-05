@@ -31,17 +31,56 @@ const MONTH_NUM: Record<string, number> = {
   octubre: 10,
   noviembre: 11,
   diciembre: 12,
+  // French
+  janvier: 1,
+  février: 2,
+  mars: 3,
+  avril: 4,
+  mai: 5,
+  juin: 6,
+  juillet: 7,
+  août: 8,
+  octobre: 10,
+  novembre: 11,
+  décembre: 12,
+  // Basque
+  urtarrila: 1,
+  otsaila: 2,
+  martxoa: 3,
+  apirila: 4,
+  maiatza: 5,
+  ekaina: 6,
+  uztaila: 7,
+  abuztua: 8,
+  iraila: 9,
+  urria: 10,
+  azaroa: 11,
+  abendua: 12,
 };
 
 function parseDateStart(str: string): number {
-  // "Present" / "Actualidad" → ranked highest
-  if (/present|actualidad/i.test(str)) return 999999;
+  // "Present" / "Actualidad" / "Présent" / "Gaur egun" → ranked highest
+  if (/present|pr[eé]sent|actualidad|gaur egun/i.test(str)) return 999999;
   const yearMatch = str.match(/\d{4}/);
   const year = yearMatch ? parseInt(yearMatch[0]) : 0;
-  const month = str
+  const normalized = str
     .toLowerCase()
-    .split(/\s+/)
-    .reduce<number>((acc, w) => acc || (MONTH_NUM[w] ?? 0), 0);
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+  const month = normalized.split(/\s+/).reduce<number>((acc, w) => {
+    if (acc) return acc;
+    // Try normalized word first, then original lowercased word
+    const orig =
+      str
+        .toLowerCase()
+        .split(/\s+/)
+        .find(
+          (_, i) =>
+            str.toLowerCase().split(/\s+/)[i] ===
+            str.toLowerCase().split(/\s+/)[normalized.split(/\s+/).indexOf(w)],
+        ) ?? w;
+    return MONTH_NUM[orig] ?? MONTH_NUM[w] ?? 0;
+  }, 0);
   return year * 100 + month;
 }
 

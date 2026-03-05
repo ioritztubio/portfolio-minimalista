@@ -38,7 +38,7 @@ export const es: Translation = {
                 organization: "Alerion Technologies",
                 dateStart: "Julio 2024",
                 dateEnd: "Agosto 2024",
-                description: "Desarrollo de software para sistemas de drones autónomos. Soluciones en TypeScript, Python y Bash. Configuración de pipelines CI con Jenkins, gestión de repositorios con Git y Bitbucket, y trabajo en software de control de misión: procesamiento de telemítria, verificación de conectividad y comunicación middleware basada en ROS. Metodología Agile con sprints.",
+                description: "Desarrollo de software para sistemas de drones autónomos. Soluciones en TypeScript, Python y Bash. Configuración de pipelines CI con Jenkins, gestión de repositorios con Git y Bitbucket, y trabajo en software de control de misión: procesamiento de telemetría, verificación de conectividad y comunicación middleware basada en ROS. Metodología Agile con sprints.",
                 highlights: ["drones autónomos"]
             },
             {
@@ -73,7 +73,7 @@ export const es: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "Septiembre 2022",
                 dateEnd: "Octubre 2023",
-                description: "El catering en eventos es donde de verdad aprendes a rendir bajo restricciones reales: espacios desconocidos, horarios ajustíssimos, clientes exigentes y ningún margen para el error. Galas, cenas corporativas, celebraciones privadas — a menudo uno de los más jóvenes del equipo, pero siempre al mismo nivel que los veteranos. Demostré que la adaptabilidad y el profesionalismo no son rasgos de personalidad; son hábitos que construyes apareciendo y haciendo el trabajo.",
+                description: "El catering en eventos es donde de verdad aprendes a rendir bajo restricciones reales: espacios desconocidos, horarios ajustísimos, clientes exigentes y ningún margen para el error. Galas, cenas corporativas, celebraciones privadas — a menudo uno de los más jóvenes del equipo, pero siempre al mismo nivel que los veteranos. Demostré que la adaptabilidad y el profesionalismo no son rasgos de personalidad; son hábitos que construyes apareciendo y haciendo el trabajo.",
                 extra: true
             },
             {

@@ -224,7 +224,8 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
   const sortedTimeline = [...t.timeline.items].sort(
     (a, b) => parseDateEnd(b.dateEnd) - parseDateEnd(a.dateEnd),
   );
-  const workItems = sortedTimeline.filter((e) => e.type === "work");
+  const workItems = sortedTimeline.filter((e) => e.type === "work" && !e.extra);
+  const extraItems = sortedTimeline.filter((e) => e.type === "work" && e.extra);
   const eduItems = sortedTimeline.filter((e) => e.type === "education");
 
   const emailSocial = t.profile.socials.find((s) => s.platform === "Email");
@@ -278,7 +279,15 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
 
         {/* ── Work Experience ── */}
         <SectionLabel
-          label={isEN ? "Work Experience" : "Experiencia Laboral"}
+          label={
+            isEN
+              ? "Work Experience"
+              : t.lang === "eu"
+                ? "Lan Esperientzia"
+                : t.lang === "fr"
+                  ? "Expérience Professionnelle"
+                  : "Experiencia Laboral"
+          }
         />
         {workItems.map((ev, i) => (
           <Entry
@@ -295,7 +304,17 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
         <Rule />
 
         {/* ── Education ── */}
-        <SectionLabel label={isEN ? "Education" : "Formación"} />
+        <SectionLabel
+          label={
+            isEN
+              ? "Education"
+              : t.lang === "eu"
+                ? "Hezkuntza"
+                : t.lang === "fr"
+                  ? "Formation"
+                  : "Formación"
+          }
+        />
         {eduItems.map((ev, i) => (
           <Entry
             key={i}
@@ -310,32 +329,55 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
 
         <Rule />
 
+        {/* ── Additional Experience ── */}
+        {extraItems.length > 0 && (
+          <>
+            <SectionLabel label={t.ui.showExtra} />
+            {extraItems.map((ev, i) => (
+              <Entry
+                key={i}
+                title={ev.title}
+                org={ev.organization}
+                dateStart={ev.dateStart}
+                dateEnd={ev.dateEnd}
+                description={ev.description}
+                isWork
+              />
+            ))}
+            <Rule />
+          </>
+        )}
+
+        <Rule />
+
         {/* ── Projects ── */}
         <SectionLabel label={isEN ? "Projects" : "Proyectos"} />
-        {t.projects.items.map((proj, i) => (
-          <View key={i} style={{ marginBottom: 8 }}>
-            <Text style={s.projectTitle}>{proj.title}</Text>
-            <Text style={s.projectDesc}>{proj.description}</Text>
-            <View style={s.tagsRow}>
-              {proj.tags.map((tag, j) => (
-                <Text key={j} style={s.tag}>
-                  {tag}
-                </Text>
-              ))}
+        {t.projects.items
+          .filter((proj) => !proj.comingSoon)
+          .map((proj, i) => (
+            <View key={i} style={{ marginBottom: 8 }}>
+              <Text style={s.projectTitle}>{proj.title}</Text>
+              <Text style={s.projectDesc}>{proj.description}</Text>
+              <View style={s.tagsRow}>
+                {proj.tags.map((tag, j) => (
+                  <Text key={j} style={s.tag}>
+                    {tag}
+                  </Text>
+                ))}
+              </View>
+              {proj.demoUrl && (
+                <Link
+                  src={proj.demoUrl}
+                  style={[s.contactLink, { marginBottom: 2 }]}
+                >
+                  {proj.demoUrl}
+                </Link>
+              )}
+              {proj.codePrivate && (
+                <Text style={s.privateNote}>🔒 {proj.codePrivateNote}</Text>
+              )}
             </View>
-            {proj.demoUrl && (
-              <Link
-                src={proj.demoUrl}
-                style={[s.contactLink, { marginBottom: 2 }]}
-              >
-                {proj.demoUrl}
-              </Link>
-            )}
-            {proj.codePrivate && (
-              <Text style={s.privateNote}>🔒 {proj.codePrivateNote}</Text>
-            )}
-          </View>
-        ))}
+          ))}
 
         {/* ── Footer ── */}
         <View style={s.footer} fixed>

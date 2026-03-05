@@ -106,7 +106,7 @@ export const en: Translation = {
             },
             {
                 title: "Something's Brewing",
-                description: "There's always something in progress. More projects are being built — some client work, some personal experiments pushing the boundaries of what I know. No localhost forever.",
+                description: "There's always something in progress. More projects are being built — some client work, some personal experiments pushing the boundaries of what I know. Nothing stays on localhost forever.",
                 tags: ["TBD"],
                 imageUrl: "",
                 comingSoon: true
