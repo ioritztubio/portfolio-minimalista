@@ -60,7 +60,6 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
           src={project.imageUrl}
           alt={project.title}
           className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out filter grayscale group-hover:grayscale-0"
-          referrerPolicy="no-referrer"
         />
 
         {/* Overlay Actions (Desktop) */}

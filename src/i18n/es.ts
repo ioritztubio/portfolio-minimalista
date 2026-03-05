@@ -95,9 +95,9 @@ export const es: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Herramienta de prediagnóstico dental impulsada por IA y respaldada por doctores. Los usuarios suben una foto y reciben una evaluación preliminar de su salud bucodental en minutos, generada por un pipeline de IA personalizado. Colaboré tanto en el frontend (Next.js + TypeScript) como en el backend (Django + Python). La aplicación está activa, la usan pacientes reales y está financiada por la UE, el Gobierno de España y el Gobierno Vasco (Eusko Jaurlaritza). El código fuente es privado por políticas de empresa — pero puedes probar la aplicación en vivo.",
+                description: "Herramienta de prediagnóstico dental impulsada por IA y respaldada por doctores, pensada principalmente para móvil. Los usuarios suben una foto y reciben una evaluación preliminar de su salud bucodental en minutos, generada por un pipeline de IA personalizado. Colaboré tanto en el frontend (Next.js + TypeScript) como en el backend (Django + Python). La aplicación está activa, la usan pacientes reales y está financiada por la UE, el Gobierno de España y el Gobierno Vasco (Eusko Jaurlaritza). El código fuente es privado por políticas de empresa — pero puedes probar la aplicación en vivo.",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "IA"],
-                imageUrl: "https://picsum.photos/seed/oris-dental/800/600",
+                imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",
                 codePrivate: true,
                 codePrivateNote: "Código fuente privado por políticas de empresa"
@@ -105,7 +105,7 @@ export const es: Translation = {
             {
                 title: "Algo se está cocinando",
                 description: "Siempre hay algo en marcha. Más proyectos en construcción — trabajo para clientes, experimentos personales que empujan los límites de lo que sé. Nada se queda en el localhost para siempre.",
-                tags: ["TBD"],
+                tags: [],
                 imageUrl: "",
                 comingSoon: true
             }
