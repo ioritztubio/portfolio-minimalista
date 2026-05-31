@@ -18,7 +18,7 @@ export const CVSection: React.FC = () => {
 
   return (
     <>
-      <section className="py-16 px-4 flex flex-col items-center gap-4">
+      <section id="cv" className="py-16 px-4 flex flex-col items-center gap-4">
         {/* Label */}
         <p className="section-label w-full max-w-4xl">
           {lang === "es" ? "Currículum" : "Curriculum Vitae"}

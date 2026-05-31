@@ -3,7 +3,7 @@ import { CVDownloadButton } from "./CVDownloadButton";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-const SECTION_IDS = ["about", "projects", "experience"];
+const SECTION_IDS = ["about", "projects", "experience", "cv"];
 
 export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
     { label: t.ui.navAbout, href: "#about", id: "about" },
     { label: t.ui.navProjects, href: "#projects", id: "projects" },
     { label: t.ui.navExperience, href: "#experience", id: "experience" },
+    { label: t.ui.navCV, href: "#cv", id: "cv" },
   ];
 
   useEffect(() => {

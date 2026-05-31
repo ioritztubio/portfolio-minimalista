@@ -144,6 +144,7 @@ export const eu: Translation = {
         inProgress: "Ikastaro",
         navAbout: "Niri buruz",
         navProjects: "Proiektuak",
-        navExperience: "Esperientzia"
+        navExperience: "Esperientzia",
+        navCV: "CV"
     }
 };

@@ -145,6 +145,7 @@ export const en: Translation = {
         inProgress: "In progress",
         navAbout: "About",
         navProjects: "Projects",
-        navExperience: "Experience"
+        navExperience: "Experience",
+        navCV: "CV"
     }
 };
