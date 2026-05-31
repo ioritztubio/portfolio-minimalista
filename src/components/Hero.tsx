@@ -154,13 +154,8 @@ export const Hero: React.FC = () => {
         >
           <button
             onClick={() => setLightbox(true)}
-            className="group relative overflow-hidden"
-            style={{
-              width: "220px",
-              aspectRatio: "3 / 4",
-              borderRadius: "14px",
-              border: "1px solid var(--border)",
-            }}
+            className="group relative overflow-hidden w-full"
+            style={{ aspectRatio: "3 / 4", borderRadius: "10px 10px 0 0" }}
             aria-label="Enlarge photo"
           >
             <img
@@ -168,23 +163,13 @@ export const Hero: React.FC = () => {
               alt={profile.name}
               className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
-            {/* Vignette — fades edges into background */}
+            {/* Bottom-only vignette — blends into background */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
-                background: `
-                  linear-gradient(to bottom, transparent 55%, var(--bg) 100%),
-                  linear-gradient(to right, var(--bg) 0%, transparent 12%, transparent 88%, var(--bg) 100%)
-                `,
+                background: "linear-gradient(to bottom, transparent 50%, var(--bg) 100%)",
               }}
             />
-            {/* Hover hint */}
-            <div
-              className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-xs uppercase tracking-widest px-2 py-1 rounded"
-              style={{ color: "var(--ink)", backgroundColor: "rgba(13,11,8,0.7)" }}
-            >
-              View
-            </div>
           </button>
         </motion.div>
       </div>
