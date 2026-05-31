@@ -3,7 +3,7 @@ import { Translation } from './types';
 export const es: Translation = {
     lang: 'es',
     profile: {
-        name: "Ioritz Tubío Sánchez",
+        name: "Ioritz Tubio Sanchez",
         subtitle: "Ingeniero de Software · Desarrollador Fullstack",
         about: [
             "Soy ingeniero de software con carrera en Ingeniería Informática y actualmente estoy cursando un máster en Inteligencia Artificial en UNIR.",
@@ -141,6 +141,9 @@ export const es: Translation = {
         extraExperienceTagline: "Antes de la informática, hubo mesas llenas, eventos y turnos de producción.",
         comingSoonBadge: "Próximamente",
         startingSoon: "Próximamente",
-        inProgress: "En curso"
+        inProgress: "En curso",
+        navAbout: "Sobre mí",
+        navProjects: "Proyectos",
+        navExperience: "Experiencia"
     }
 };

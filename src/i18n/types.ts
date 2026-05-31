@@ -32,5 +32,8 @@ export interface Translation {
         comingSoonBadge: string;
         startingSoon: string;
         inProgress: string;
+        navAbout: string;
+        navProjects: string;
+        navExperience: string;
     };
 }

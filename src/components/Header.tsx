@@ -3,16 +3,16 @@ import { CVDownloadButton } from "./CVDownloadButton";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-const NAV_LINKS = [
-  { label: "about", href: "#about" },
-  { label: "projects", href: "#projects" },
-  { label: "experience", href: "#experience" },
-];
-
 export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, toggleLang } = useLanguage();
+
+  const NAV_LINKS = [
+    { label: t.ui.navAbout, href: "#about" },
+    { label: t.ui.navProjects, href: "#projects" },
+    { label: t.ui.navExperience, href: "#experience" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -65,8 +65,23 @@ export const Header: React.FC = () => {
           ))}
         </nav>
 
-        {/* Right: CV + hamburger */}
+        {/* Right: lang toggle + CV + hamburger */}
         <div className="flex items-center gap-3">
+          <button
+            onClick={toggleLang}
+            className="hidden md:inline-flex px-2.5 py-1 text-xs font-mono rounded transition-all duration-200"
+            style={{ color: "var(--ink-3)", border: "0.5px solid var(--border)" }}
+            onMouseEnter={e => {
+              (e.currentTarget as HTMLElement).style.color = "var(--ink)";
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--ink-2)";
+            }}
+            onMouseLeave={e => {
+              (e.currentTarget as HTMLElement).style.color = "var(--ink-3)";
+              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
+            }}
+          >
+            {t.ui.langToggle}
+          </button>
           <CVDownloadButton />
           <button
             className="md:hidden p-1.5 transition-colors"
@@ -96,14 +111,18 @@ export const Header: React.FC = () => {
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNav(link.href); }}
                 className="font-mono text-sm py-2.5 uppercase tracking-widest transition-colors"
-                style={{
-                  color: "var(--ink-2)",
-                  borderBottom: "0.5px solid var(--border)",
-                }}
+                style={{ color: "var(--ink-2)", borderBottom: "0.5px solid var(--border)" }}
               >
                 {link.label}
               </a>
             ))}
+            <button
+              onClick={() => { toggleLang(); setOpen(false); }}
+              className="font-mono text-sm py-2.5 uppercase tracking-widest text-left transition-colors"
+              style={{ color: "var(--ink-3)" }}
+            >
+              {t.ui.langToggle}
+            </button>
           </nav>
         </div>
       )}
