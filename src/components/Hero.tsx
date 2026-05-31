@@ -161,7 +161,7 @@ export const Hero: React.FC = () => {
             <img
               src={profile.avatarUrl}
               alt={profile.name}
-              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
             {/* Bottom-only vignette — blends into background */}
             <div
