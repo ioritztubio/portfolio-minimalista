@@ -366,10 +366,6 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
   const linkedinSocial = t.profile.socials.find(
     (sc) => sc.platform === "LinkedIn",
   );
-  const websiteSocial = t.profile.socials.find(
-    (sc) => sc.platform === "Website",
-  );
-
   return (
     <Document
       title={`CV — ${t.profile.name}`}
@@ -398,12 +394,6 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
             {linkedinSocial && (
               <Link src={linkedinSocial.url} style={s.contactLink}>
                 {linkedinSocial.url.replace("https://", "")}
-              </Link>
-            )}
-            {linkedinSocial && websiteSocial && <ContactSep />}
-            {websiteSocial && (
-              <Link src={websiteSocial.url} style={s.contactLink}>
-                {websiteSocial.url.replace("https://", "")}
               </Link>
             )}
           </View>
