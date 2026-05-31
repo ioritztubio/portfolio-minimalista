@@ -83,12 +83,12 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="md:col-span-2 md:order-last flex justify-center md:justify-end"
+          className="md:col-span-2 md:order-last flex justify-center md:justify-end mb-16 md:mb-0"
         >
           <button
             onClick={() => setLightbox(true)}
             className="group relative overflow-hidden
-              w-40 rounded-full
+              w-48 rounded-full
               md:w-full md:max-w-[290px] md:rounded-[10px_10px_0_0]
               [aspect-ratio:1] md:[aspect-ratio:3/4]"
             aria-label="Enlarge photo"

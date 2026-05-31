@@ -156,13 +156,22 @@ export const Header: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <button
-              onClick={() => { toggleLang(); setOpen(false); }}
-              className="font-mono text-sm py-2.5 uppercase tracking-widest text-left transition-colors"
-              style={{ color: "var(--ink-3)" }}
-            >
-              {t.ui.langToggle}
-            </button>
+            <div className="flex items-center gap-2 py-2.5">
+              {(["en", "es"] as const).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => { if (l !== lang) { toggleLang(); setOpen(false); } }}
+                  className="px-3 py-1 text-xs font-mono uppercase tracking-widest rounded transition-all duration-200"
+                  style={{
+                    color: lang === l ? "var(--bg)" : "var(--ink-3)",
+                    backgroundColor: lang === l ? "var(--ink)" : "transparent",
+                    border: `0.5px solid ${lang === l ? "var(--ink)" : "var(--border)"}`,
+                  }}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
           </nav>
         </div>
       )}
