@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
         {/* Left: text */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
