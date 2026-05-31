@@ -7,6 +7,7 @@ import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
 import { Cursor } from "./components/Cursor";
 import { BackgroundDecor } from "./components/BackgroundDecor";
+import { CVSection } from "./components/CVSection";
 
 function AppContent() {
   return (
@@ -22,6 +23,7 @@ function AppContent() {
           <Hero />
           <Projects />
           <Timeline />
+          <CVSection />
         </main>
         <Footer />
       </div>
