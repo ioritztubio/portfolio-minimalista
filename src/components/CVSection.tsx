@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { Expand } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { CVHTMLDocument } from "./CVHTMLDocument";
 import { CVModal } from "./CVModal";
+import { CVDownloadBar } from "./CVDownloadBar";
 
 // Card dimensions
 const CARD_W = 260;   // px — displayed card width
@@ -72,19 +72,7 @@ export const CVSection: React.FC = () => {
             transition={{ duration: 0.2 }}
             style={{ background: "rgba(13,11,8,0.25)" }}
           >
-            <div
-              className="flex items-center gap-1.5 font-mono uppercase tracking-widest rounded-full px-3 py-1.5"
-              style={{
-                fontSize: "10px",
-                color: "var(--ink)",
-                backgroundColor: "rgba(13,11,8,0.7)",
-                border: "0.5px solid var(--border)",
-                backdropFilter: "blur(4px)",
-              }}
-            >
-              <Expand style={{ width: "11px", height: "11px" }} />
-              {lang === "es" ? "Ver CV" : "View CV"}
-            </div>
+            <CVDownloadBar onPreviewClick={() => setModalOpen(true)} />
           </motion.div>
 
           {/* ── Year badge ── */}
@@ -104,7 +92,7 @@ export const CVSection: React.FC = () => {
 
         {/* Hint */}
         <p className="font-mono" style={{ fontSize: "10px", color: "var(--ink-3)", letterSpacing: "0.06em" }}>
-          {lang === "es" ? "Click para ver completo" : "Click to view full document"}
+          {lang === "es" ? "Hover para descargar" : "Hover to download"}
         </p>
       </section>
 

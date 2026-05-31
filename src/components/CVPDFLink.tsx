@@ -1,5 +1,5 @@
 // This file is lazy-loaded — @react-pdf/renderer is only bundled in this chunk
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { BlobProvider } from "@react-pdf/renderer";
 import { Download } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
@@ -10,6 +10,7 @@ interface AutoDownloadProps {
   loading: boolean;
   fileName: string;
   label: string;
+  onDownloadClick?: () => void;
 }
 
 const AutoDownload: React.FC<AutoDownloadProps> = ({
@@ -17,38 +18,45 @@ const AutoDownload: React.FC<AutoDownloadProps> = ({
   loading,
   fileName,
   label,
+  onDownloadClick,
 }) => {
-  const linkRef = useRef<HTMLAnchorElement>(null);
-  const downloaded = useRef(false);
-
-  useEffect(() => {
-    if (blob && !loading && !downloaded.current && linkRef.current) {
-      downloaded.current = true;
+  const handleDownload = () => {
+    if (blob) {
       const url = URL.createObjectURL(blob);
-      linkRef.current.href = url;
-      linkRef.current.click();
-      // Revoke after a short delay to allow the browser to start the download
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
       setTimeout(() => URL.revokeObjectURL(url), 10_000);
     }
-  }, [blob, loading]);
+    onDownloadClick?.();
+  };
 
   return (
-    <>
-      <a ref={linkRef} download={fileName} style={{ display: "none" }} />
-      <button
-        disabled={loading}
-        className="inline-flex items-center px-3 py-1.5 text-xs font-mono font-semibold border border-zinc-700 rounded-md text-zinc-400 hover:text-white hover:border-zinc-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-wait bg-[#0a0a0a]/80 backdrop-blur-sm"
-      >
-        <Download className="w-3.5 h-3.5 mr-1.5" />
-        {loading ? "…" : label}
-      </button>
-    </>
+    <button
+      onClick={handleDownload}
+      disabled={loading}
+      className="inline-flex items-center px-3 py-1.5 text-xs font-mono font-semibold border border-zinc-700 rounded-md text-zinc-400 hover:text-white hover:border-zinc-400 transition-all duration-200 disabled:opacity-50 disabled:cursor-wait bg-[#0a0a0a]/80 backdrop-blur-sm"
+    >
+      <Download className="w-3.5 h-3.5 mr-1.5" />
+      {loading ? "…" : label}
+    </button>
   );
 };
 
-const CVPDFLink: React.FC = () => {
+interface CVPDFLinkProps {
+  onDownloadClick?: () => void;
+}
+
+const CVPDFLink: React.FC<CVPDFLinkProps> = ({ onDownloadClick }) => {
   const { t } = useLanguage();
-  const fileName = `CV_Ioritz_Tubio_${t.lang.toUpperCase()}.pdf`;
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, '0');
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear();
+  const fileName = `cv-ioritz-tubio-${day}-${month}-${year}.pdf`;
 
   return (
     <BlobProvider document={<CVDocument t={t} />}>
@@ -58,6 +66,7 @@ const CVPDFLink: React.FC = () => {
           loading={loading}
           fileName={fileName}
           label={t.ui.downloadCV}
+          onDownloadClick={onDownloadClick}
         />
       )}
     </BlobProvider>
