@@ -1,502 +1,416 @@
 import React from "react";
-import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Link,
-} from "@react-pdf/renderer";
+import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
 import { Translation } from "../i18n/types";
 
-// ─── Professional Palette ───────────────────────────────────────────────────
-const C = {
-  black: "#1a1a1a",
-  dark: "#2d2d2d",
-  body: "#333333",
-  muted: "#555555",
-  subtle: "#888888",
-  border: "#cccccc",
-  borderLight: "#e5e5e5",
-  white: "#ffffff",
-  accent: "#1a1a1a",
-};
+// ─── Fonts ────────────────────────────────────────────────────────────────────
+const SERIF  = "Times-Roman";
+const BOLD   = "Times-Bold";
+const ITALIC = "Times-Italic";
 
-const FONT_SANS = "Helvetica";
-const FONT_BOLD = "Helvetica-Bold";
+// ─── Colours ─────────────────────────────────────────────────────────────────
+const INK  = "#000000";
+const MUTED = "#333333";
+const LINK  = "#1a56c4";
 
 // ─── Styles ──────────────────────────────────────────────────────────────────
 const s = StyleSheet.create({
   page: {
-    backgroundColor: C.white,
-    paddingTop: 40,
-    paddingBottom: 40,
-    paddingHorizontal: 50,
-    fontFamily: FONT_SANS,
-    fontSize: 9,
-    color: C.body,
-    lineHeight: 1.5,
-  },
-
-  // Header
-  header: {
-    marginBottom: 6,
-    borderBottomWidth: 2,
-    borderBottomColor: C.black,
-    paddingBottom: 12,
-  },
-  name: {
-    fontSize: 20,
-    fontFamily: FONT_BOLD,
-    color: C.black,
-    letterSpacing: 1,
-    textTransform: "uppercase",
-    marginBottom: 12,
-  },
-  subtitle: {
+    backgroundColor: "#ffffff",
+    paddingTop: 42,
+    paddingBottom: 42,
+    paddingHorizontal: 51,
+    fontFamily: SERIF,
     fontSize: 10,
-    color: C.muted,
-    marginBottom: 8,
+    color: INK,
+    lineHeight: 1.3,
   },
-  contactRow: {
-    flexDirection: "row",
-    gap: 6,
-    flexWrap: "wrap",
-    alignItems: "center",
-  },
-  contactItem: { fontSize: 8, color: C.muted },
-  contactLink: { fontSize: 8, color: C.muted, textDecoration: "none" },
-  contactSep: { fontSize: 8, color: C.border },
 
-  // Section
-  section: { marginTop: 14, marginBottom: 2 },
-  sectionSpaced: { marginTop: 18, marginBottom: 24 },
-  sectionHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  sectionLabel: {
-    fontSize: 9,
-    fontFamily: FONT_BOLD,
-    color: C.black,
-    letterSpacing: 1.4,
+  // ── Header
+  name: {
+    fontSize: 15,
+    fontFamily: BOLD,
+    textAlign: "center",
     textTransform: "uppercase",
-  },
-  sectionRule: {
-    flex: 1,
-    borderBottomWidth: 0.75,
-    borderBottomColor: C.border,
-    marginLeft: 8,
-    marginBottom: 2,
-  },
-
-  // Summary / About
-  aboutText: {
-    fontSize: 8.5,
-    color: C.body,
-    lineHeight: 1.6,
-    marginBottom: 3,
-    textAlign: "justify",
-  },
-
-  // Timeline entry — two-column layout
-  entryRow: {
-    flexDirection: "row",
-    marginBottom: 10,
-  },
-  entryDateCol: {
-    width: 100,
-    paddingRight: 10,
-    paddingTop: 1,
-  },
-  entryDate: {
-    fontSize: 7.5,
-    color: C.subtle,
-    textAlign: "right",
-    lineHeight: 1.4,
-  },
-  entryBodyCol: {
-    flex: 1,
-    borderLeftWidth: 0.75,
-    borderLeftColor: C.borderLight,
-    paddingLeft: 12,
-  },
-  entryTitle: {
-    fontSize: 9.5,
-    fontFamily: FONT_BOLD,
-    color: C.black,
-    marginBottom: 1,
-  },
-  entryOrg: {
-    fontSize: 8.5,
-    color: C.muted,
-    marginBottom: 3,
-  },
-  entryDesc: {
-    fontSize: 8,
-    color: C.body,
-    lineHeight: 1.55,
-    textAlign: "justify",
-  },
-
-  // Languages
-  langRow: {
-    flexDirection: "row",
+    letterSpacing: 1.2,
     marginBottom: 5,
   },
-  langName: {
+  contact: {
     fontSize: 9,
-    fontFamily: FONT_BOLD,
-    color: C.black,
-    width: 120,
+    textAlign: "center",
+    color: MUTED,
+    marginBottom: 14,
   },
-  langLevel: {
-    fontSize: 8.5,
-    color: C.muted,
+  contactLink: { fontSize: 9, color: LINK, textDecoration: "underline" },
+
+  // ── Section
+  sectionWrap: { marginTop: 10 },
+  sectionTitle: {
+    fontSize: 11,
+    fontFamily: BOLD,
+    textTransform: "uppercase",
+    marginBottom: 2,
+  },
+  sectionRule: {
+    borderBottomWidth: 0.75,
+    borderBottomColor: INK,
+    marginBottom: 6,
   },
 
-  // Footer
-  footer: {
-    position: "absolute",
-    bottom: 20,
-    left: 50,
-    right: 50,
-    borderTopWidth: 0.5,
-    borderTopColor: C.borderLight,
-    paddingTop: 6,
+  // ── Entry rows
+  entryTop: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 1,
   },
-  footerText: { fontSize: 7, color: C.subtle, textAlign: "center" },
+  entryCompany: { fontSize: 11, fontFamily: BOLD, flex: 1 },
+  entryLocation: { fontSize: 11, fontFamily: BOLD },
+  entrySub: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 4,
+  },
+  entryRole: { fontSize: 10, fontFamily: ITALIC, flex: 1 },
+  entryDates: { fontSize: 10, fontFamily: ITALIC },
+  entryWrap: { marginTop: 7 },
+
+  // ── Bullets
+  bullet: { flexDirection: "row", paddingLeft: 10, marginBottom: 2 },
+  bulletDash: { fontSize: 10, marginRight: 5, lineHeight: 1.35 },
+  bulletText: { fontSize: 10, flex: 1, lineHeight: 1.35, textAlign: "justify" },
+
+  // ── Skills two-column
+  skillsRow: { flexDirection: "row", gap: 20 },
+  skillCol: { flex: 1 },
+  skillLine: { flexDirection: "row", flexWrap: "wrap", marginBottom: 3 },
+  skillCat: { fontSize: 10, fontFamily: BOLD },
+  skillVal: { fontSize: 10 },
+
+  // ── Footer
+  footer: {
+    position: "absolute", bottom: 20, left: 51, right: 51,
+    borderTopWidth: 0.4, borderTopColor: "#cccccc", paddingTop: 5,
+  },
+  footerText: { fontSize: 7, color: "#999999", textAlign: "center" },
 });
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-function getAge(): number {
-  const birth = new Date(2003, 10, 7);
-  const today = new Date();
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-  return age;
-}
+// ─── CV data ──────────────────────────────────────────────────────────────────
+type Lang = "en" | "es";
 
-const MONTH_NUM: Record<string, number> = {
-  january: 1,
-  february: 2,
-  march: 3,
-  april: 4,
-  may: 5,
-  june: 6,
-  july: 7,
-  august: 8,
-  september: 9,
-  october: 10,
-  november: 11,
-  december: 12,
-  enero: 1,
-  febrero: 2,
-  marzo: 3,
-  abril: 4,
-  mayo: 5,
-  junio: 6,
-  julio: 7,
-  agosto: 8,
-  septiembre: 9,
-  octubre: 10,
-  noviembre: 11,
-  diciembre: 12,
-  urtarrilak: 1,
-  otsailak: 2,
-  martxoak: 3,
-  apirilak: 4,
-  maiatza: 5,
-  ekaina: 6,
-  uztaila: 7,
-  abuztua: 8,
-  iraila: 9,
-  urria: 10,
-  azaroa: 11,
-  abendua: 12,
-  janvier: 1,
-  février: 2,
-  mars: 3,
-  avril: 4,
-  mai: 5,
-  juin: 6,
-  juillet: 7,
-  août: 8,
-  septembre: 9,
-  octobre: 10,
-  novembre: 11,
-  décembre: 12,
+const DATA: Record<Lang, {
+  sections: Record<string, string>;
+  experience: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
+  education: { institution: string; location: string; degree: string; dates: string; bullets: string[] }[];
+  additional: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
+  skills: { left: { cat: string; val: string }[]; right: { cat: string; val: string }[] };
+}> = {
+  en: {
+    sections: {
+      experience: "Professional Experience",
+      education: "Education",
+      additional: "Additional Experience",
+      skills: "Skills & Interests",
+    },
+    experience: [
+      {
+        company: "PKF Attest — Skootik",
+        location: "Donostia, Spain",
+        role: "Junior Software Engineer · AI Department",
+        dates: "Jul 2025 – Present",
+        bullets: [
+          "Designed and developed Oris Dental Scan end-to-end: an EU- and government-funded AI dental pre-diagnosis tool in production, used by real patients. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
+          "Built and maintained multiple client-facing fullstack applications within an Agile/Scrum team: clean architecture, REST APIs, CI/CD pipelines with Jenkins, scalable system design on AWS.",
+        ],
+      },
+      {
+        company: "Alerion Technologies",
+        location: "Donostia, Spain",
+        role: "Software Developer Intern",
+        dates: "Jul 2024 – Aug 2024",
+        bullets: [
+          "Developed mission control software for autonomous drone systems: real-time telemetry processing, connectivity verification and ROS-based middleware communication in TypeScript, Python and Bash.",
+          "Set up CI pipelines with Jenkins; managed repositories with Git and Bitbucket in a sprint-based Agile workflow.",
+        ],
+      },
+    ],
+    education: [
+      {
+        institution: "UNIR — Universidad Internacional de La Rioja",
+        location: "Online",
+        degree: "Master's in Artificial Intelligence (upcoming)",
+        dates: "Jun 2026 – May 2027",
+        bullets: [
+          "60 ECTS online programme: machine learning, deep learning, NLP, computer vision and AI engineering.",
+        ],
+      },
+      {
+        institution: "University of the Basque Country (UPV/EHU)",
+        location: "Donostia, Spain",
+        degree: "Bachelor's in Computer Engineering",
+        dates: "Sep 2021 – Feb 2026",
+        bullets: [
+          "GPA: 6.2 / 10.",
+          "Final Degree Project (8.5 / 10): designed and built a complete academic resource management platform for FP Cebanc centre, integrated with Skootik. Stack: Next.js · Django · PostgreSQL · Celery · AWS · Jenkins CI/CD.",
+        ],
+      },
+    ],
+    additional: [
+      {
+        company: "Restaurante VaBene",
+        location: "Donostia, Spain",
+        role: "Waiter",
+        dates: "Mar 2022 – Sep 2022",
+        bullets: [
+          "Managed multiple tables simultaneously during peak hours in a high-footfall Donostia restaurant, maintaining service quality under sustained operational pressure.",
+        ],
+      },
+      {
+        company: "Muka, Ixo Restauración SL",
+        location: "Donostia, Spain",
+        role: "Catering Waiter",
+        dates: "Sep 2022 – Oct 2023",
+        bullets: [
+          "Table service at catering events — galas, corporate dinners and private celebrations — across long, demanding shifts maintaining consistent professional standards.",
+        ],
+      },
+      {
+        company: "MCC Graphics S. Coop",
+        location: "Donostia, Spain",
+        role: "Print Production Worker",
+        dates: "Jul 2023 – Aug 2023",
+        bullets: [
+          "Material handling, print quality control and production line support in a printing cooperative.",
+        ],
+      },
+    ],
+    skills: {
+      left: [
+        { cat: "Languages: ", val: "TypeScript, Python, JavaScript, Bash" },
+        { cat: "Frontend: ", val: "React, Next.js, Tailwind CSS" },
+        { cat: "Backend: ", val: "Django REST Framework, REST APIs" },
+        { cat: "Databases: ", val: "PostgreSQL, SQL" },
+        { cat: "Cloud & DevOps: ", val: "AWS (EC2, S3, RDS), Jenkins (CI/CD)" },
+      ],
+      right: [
+        { cat: "Version Control: ", val: "Git, Bitbucket" },
+        { cat: "Methodologies: ", val: "Agile / Scrum" },
+        { cat: "Languages: ", val: "Spanish (native), Basque (C1), English (intermediate)" },
+        { cat: "Interests: ", val: "Sport, entrepreneurship, family and friends" },
+      ],
+    },
+  },
+
+  es: {
+    sections: {
+      experience: "Experiencia Profesional",
+      education: "Educación",
+      additional: "Experiencia Adicional",
+      skills: "Habilidades e Intereses",
+    },
+    experience: [
+      {
+        company: "PKF Attest — Skootik",
+        location: "Donostia, España",
+        role: "Ingeniero de Software Junior · Departamento de IA",
+        dates: "Jul 2025 – Actualidad",
+        bullets: [
+          "Diseño y desarrollo completo de Oris Dental Scan: herramienta de prediagnóstico dental con IA, financiada por la UE, el Gobierno de España y el Gobierno Vasco, en producción con pacientes reales. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
+          "Desarrollo y mantenimiento de aplicaciones web orientadas a cliente en equipo ágil (Scrum): arquitectura limpia, APIs REST, pipelines CI/CD con Jenkins y diseño de sistemas escalables en AWS.",
+        ],
+      },
+      {
+        company: "Alerion Technologies",
+        location: "Donostia, España",
+        role: "Desarrollador de Software en Prácticas",
+        dates: "Jul 2024 – Ago 2024",
+        bullets: [
+          "Desarrollo de software de control de misiones para drones autónomos: procesamiento de telemetría en tiempo real, verificación de conectividad y comunicación middleware basada en ROS en TypeScript, Python y Bash.",
+          "Configuración de pipelines CI con Jenkins; gestión de repositorios en entorno Agile por sprints con Git y Bitbucket.",
+        ],
+      },
+    ],
+    education: [
+      {
+        institution: "UNIR — Universidad Internacional de La Rioja",
+        location: "Online",
+        degree: "Máster en Inteligencia Artificial (próximamente)",
+        dates: "Jun 2026 – May 2027",
+        bullets: [
+          "Máster online de 60 ECTS: machine learning, deep learning, NLP, visión por computador e ingeniería de IA.",
+        ],
+      },
+      {
+        institution: "Universidad del País Vasco (UPV/EHU)",
+        location: "Donostia, España",
+        degree: "Grado en Ingeniería Informática",
+        dates: "Sep 2021 – Feb 2026",
+        bullets: [
+          "Nota media: 6,2 / 10.",
+          "Trabajo de Fin de Grado (8,5/10): diseño y desarrollo completo de plataforma de gestión académica para el centro de FP Cebanc, integrada con Skootik. Stack: Next.js · Django · PostgreSQL · Celery · AWS · Jenkins CI/CD.",
+        ],
+      },
+    ],
+    additional: [
+      {
+        company: "Restaurante VaBene",
+        location: "Donostia, España",
+        role: "Camarero",
+        dates: "Mar 2022 – Sep 2022",
+        bullets: [
+          "Gestión simultánea de mesas en restaurante de alta afluencia en Donostia durante horas punta, manteniendo la calidad del servicio bajo presión operacional sostenida.",
+        ],
+      },
+      {
+        company: "Muka, Ixo Restauración SL",
+        location: "Donostia, España",
+        role: "Camarero de Catering",
+        dates: "Sep 2022 – Oct 2023",
+        bullets: [
+          "Servicio de sala en eventos de catering — galas, cenas corporativas y celebraciones privadas — en jornadas largas e intensas manteniendo actitud profesional en todo momento.",
+        ],
+      },
+      {
+        company: "MCC Graphics S. Coop",
+        location: "Donostia, España",
+        role: "Operario de Producción — Imprenta",
+        dates: "Jul 2023 – Ago 2023",
+        bullets: [
+          "Manipulación de materiales, control de calidad de impresión y apoyo en línea de producción en cooperativa de impresión.",
+        ],
+      },
+    ],
+    skills: {
+      left: [
+        { cat: "Lenguajes: ", val: "TypeScript, Python, JavaScript, Bash" },
+        { cat: "Frontend: ", val: "React, Next.js, Tailwind CSS" },
+        { cat: "Backend: ", val: "Django REST Framework, APIs REST" },
+        { cat: "Bases de datos: ", val: "PostgreSQL, SQL" },
+        { cat: "Cloud y DevOps: ", val: "AWS (EC2, S3, RDS), Jenkins (CI/CD)" },
+      ],
+      right: [
+        { cat: "Control de versiones: ", val: "Git, Bitbucket" },
+        { cat: "Metodologías: ", val: "Agile / Scrum" },
+        { cat: "Idiomas: ", val: "Español (nativo), Euskera (C1), Inglés (intermedio)" },
+        { cat: "Intereses: ", val: "Deporte, emprendimiento, familia y amigos" },
+      ],
+    },
+  },
 };
-
-function parseDateEnd(str: string): number {
-  if (/present|actualidad|gaur egun|actuellement/i.test(str)) return 999999;
-  const yearMatch = str.match(/\d{4}/);
-  const year = yearMatch ? parseInt(yearMatch[0]) : 0;
-  const month = str
-    .toLowerCase()
-    .split(/\s+/)
-    .reduce<number>((acc, w) => acc || (MONTH_NUM[w] ?? 0), 0);
-  return year * 100 + month;
-}
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 const SectionTitle = ({ label }: { label: string }) => (
-  <View style={s.sectionHeader}>
-    <Text style={s.sectionLabel}>{label}</Text>
+  <View style={s.sectionWrap}>
+    <Text style={s.sectionTitle}>{label}</Text>
     <View style={s.sectionRule} />
   </View>
 );
 
 interface EntryProps {
-  title: string;
-  org: string;
-  dateStart: string;
-  dateEnd: string;
-  description: string;
+  company: string;
+  location: string;
+  role: string;
+  dates: string;
+  bullets: string[];
+  first?: boolean;
 }
 
-const Entry: React.FC<EntryProps> = ({
-  title,
-  org,
-  dateStart,
-  dateEnd,
-  description,
-}) => {
-  const isSingle = dateStart === dateEnd;
-  const dateStr = isSingle ? dateStart : `${dateStart} — ${dateEnd}`;
-  return (
-    <View style={s.entryRow} wrap={false}>
-      <View style={s.entryDateCol}>
-        <Text style={s.entryDate}>{dateStr}</Text>
-      </View>
-      <View style={s.entryBodyCol}>
-        <Text style={s.entryTitle}>{title}</Text>
-        <Text style={s.entryOrg}>{org}</Text>
-        <Text style={s.entryDesc}>{description}</Text>
-      </View>
+const Entry: React.FC<EntryProps> = ({ company, location, role, dates, bullets, first }) => (
+  <View style={first ? {} : s.entryWrap} wrap={false}>
+    <View style={s.entryTop}>
+      <Text style={s.entryCompany}>{company}</Text>
+      <Text style={s.entryLocation}>{location}</Text>
     </View>
-  );
-};
+    <View style={s.entrySub}>
+      <Text style={s.entryRole}>{role}</Text>
+      <Text style={s.entryDates}>{dates}</Text>
+    </View>
+    {bullets.map((b, i) => (
+      <View key={i} style={s.bullet}>
+        <Text style={s.bulletDash}>-</Text>
+        <Text style={s.bulletText}>{b}</Text>
+      </View>
+    ))}
+  </View>
+);
 
-const ContactSep = () => <Text style={s.contactSep}>|</Text>;
-
-// ─── Label dictionaries ──────────────────────────────────────────────────────
-const labels = {
-  summary: {
-    en: "Professional Summary",
-    es: "Perfil Profesional",
-    eu: "Profil Profesionala",
-    fr: "Profil Professionnel",
-  },
-  work: {
-    en: "Professional Experience",
-    es: "Experiencia Profesional",
-    eu: "Esperientzia Profesionala",
-    fr: "Expérience Professionnelle",
-  },
-  education: {
-    en: "Education",
-    es: "Formación Académica",
-    eu: "Hezkuntza",
-    fr: "Formation",
-  },
-  extra: {
-    en: "Additional Experience",
-    es: "Experiencia Complementaria",
-    eu: "Esperientzia Osagarria",
-    fr: "Expérience Complémentaire",
-  },
-  languages: {
-    en: "Languages",
-    es: "Idiomas",
-    eu: "Hizkuntzak",
-    fr: "Langues",
-  },
-} as const;
-
-// ─── CV-specific professional summary (separate from portfolio) ─────────────
-const cvAbout: Record<string, string[]> = {
-  es: [
-    "Ingeniero Informático por la Universidad del País Vasco (UPV/EHU), con {age} años y experiencia profesional en el desarrollo de aplicaciones fullstack en entornos de producción. Actualmente desempeño funciones de Ingeniero de Software en el Departamento de Inteligencia Artificial de PKF Attest, donde participo en el diseño, desarrollo y mantenimiento de sistemas escalables orientados a clientes reales.",
-    "Dominio de tecnologías como Next.js, TypeScript, React, Django y Python, así como en el diseño y administración de bases de datos relacionales (PostgreSQL, MySQL). Experiencia en la implementación de pipelines CI/CD con Jenkins, control de versiones con Git, y aplicación de principios de arquitectura limpia y desarrollo ágil (Scrum).",
-    "Perfil orientado a resultados, con capacidad demostrada para trabajar de manera autónoma y en equipos multidisciplinares. Sólida base en algoritmia, estructuras de datos y buenas prácticas de ingeniería de software. Alta capacidad de aprendizaje, adaptación a nuevos entornos tecnológicos y compromiso con la mejora continua.",
-  ],
-  en: [
-    "Computer Engineer from the University of the Basque Country (UPV/EHU), {age} years old, with professional experience in fullstack application development in production environments. Currently working as a Software Engineer in the Artificial Intelligence Department at PKF Attest, where I participate in the design, development, and maintenance of scalable systems serving real clients.",
-    "Proficient in technologies such as Next.js, TypeScript, React, Django, and Python, as well as in the design and administration of relational databases (PostgreSQL, MySQL). Experienced in implementing CI/CD pipelines with Jenkins, version control with Git, and applying clean architecture principles and agile development methodologies (Scrum).",
-    "Results-oriented professional with a proven ability to work both independently and within cross-functional teams. Strong foundation in algorithms, data structures, and software engineering best practices. Highly adaptable, committed to continuous learning, and capable of rapidly integrating into new technological environments.",
-  ],
-  eu: [
-    "Informatika Ingeniaria Euskal Herriko Unibertsitatean (UPV/EHU), {age} urte, eta produkzio-inguruneetan fullstack aplikazioak garatzen esperientzia profesionala duena. Gaur egun Software Ingeniaria naiz PKF Attesteko Adimen Artifizialaren Sailean, non bezero errealei zuzendutako sistema eskalagarrien diseinuan, garapenean eta mantentze-lanetan parte hartzen dudan.",
-    "Next.js, TypeScript, React, Django eta Python bezalako teknologietan trebea, baita datu-base erlazionalen (PostgreSQL, MySQL). CI/CD pipeline-ak Jenkins-ekin inplementatzeko, Git-ekin bertsio-kontrola egiteko eta arkitektura garbiaren printzipioek eta garapen arineko metodologiak (Scrum) aplikatzeko esperientzia.",
-    "Emaitzetan oinarritutako profila, modu autonomoan eta talde anitzetan lan egiteko gaitasun egiaztatuarekin. Oinarri sendoa algoritmian, datu-egituretan eta software ingeniaritzako praktika onetan. Ikaskuntza-gaitasun handia, ingurune teknologiko berrietara egokitzeko ahalmena eta etengabeko hobekuntzarekiko konpromisoa.",
-  ],
-  fr: [
-    "Ingénieur Informaticien diplômé de l'Université du Pays Basque (UPV/EHU), {age} ans, avec une expérience professionnelle dans le développement d'applications fullstack en environnement de production. Actuellement Ingénieur Logiciel au sein du Département Intelligence Artificielle de PKF Attest, où je participe à la conception, au développement et à la maintenance de systèmes évolutifs destinés à de vrais clients.",
-    "Maîtrise de technologies telles que Next.js, TypeScript, React, Django et Python, ainsi que la conception et l'administration de bases de données relationnelles (PostgreSQL, MySQL). Expérience dans la mise en place de pipelines CI/CD avec Jenkins, le contrôle de versions avec Git, et l'application des principes d'architecture propre et de méthodologies agiles (Scrum).",
-    "Profil orienté résultats, avec une capacité avérée à travailler de manière autonome et au sein d'équipes pluridisciplinaires. Solide formation en algorithmique, structures de données et bonnes pratiques d'ingénierie logicielle. Grande capacité d'apprentissage, d'adaptation à de nouveaux environnements technologiques et engagement envers l'amélioration continue.",
-  ],
-};
-
-function label(key: keyof typeof labels, lang: string): string {
-  return (
-    labels[key][lang as keyof (typeof labels)[typeof key]] ?? labels[key].en
-  );
-}
-
-// ─── Main Document ────────────────────────────────────────────────────────────
-interface CVDocumentProps {
-  t: Translation;
-}
+// ─── Main ─────────────────────────────────────────────────────────────────────
+interface CVDocumentProps { t: Translation }
 
 export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
-  const age = getAge();
+  const lang: Lang = t.lang === "es" ? "es" : "en";
+  const d = DATA[lang];
 
-  const sortedTimeline = [...t.timeline.items].sort(
-    (a, b) => parseDateEnd(b.dateEnd) - parseDateEnd(a.dateEnd),
-  );
-  const workItems = sortedTimeline.filter((e) => e.type === "work" && !e.extra);
-  const extraItems = sortedTimeline.filter((e) => e.type === "work" && e.extra);
-  const eduItems = sortedTimeline.filter((e) => e.type === "education");
-
-  const emailSocial = t.profile.socials.find((sc) => sc.platform === "Email");
-  const githubSocial = t.profile.socials.find((sc) => sc.platform === "GitHub");
-  const linkedinSocial = t.profile.socials.find(
-    (sc) => sc.platform === "LinkedIn",
-  );
   return (
     <Document
-      title={`CV — ${t.profile.name}`}
-      author={t.profile.name}
-      subject={t.profile.subtitle}
-      language={t.lang}
+      title={`CV — Ioritz Tubio Sanchez`}
+      author="Ioritz Tubio Sanchez"
+      subject={lang === "es" ? "Currículum Vitae" : "Curriculum Vitae"}
+      language={lang}
     >
       <Page size="A4" style={s.page}>
-        {/* ── Header ── */}
-        <View style={s.header}>
-          <Text style={s.name}>{t.profile.name}</Text>
-          <Text style={s.subtitle}>{t.profile.subtitle}</Text>
-          <View style={s.contactRow}>
-            {emailSocial && (
-              <Link src={emailSocial.url} style={s.contactLink}>
-                {emailSocial.url.replace("mailto:", "")}
-              </Link>
-            )}
-            {emailSocial && githubSocial && <ContactSep />}
-            {githubSocial && (
-              <Link src={githubSocial.url} style={s.contactLink}>
-                {githubSocial.url.replace("https://", "")}
-              </Link>
-            )}
-            {githubSocial && linkedinSocial && <ContactSep />}
-            {linkedinSocial && (
-              <Link src={linkedinSocial.url} style={s.contactLink}>
-                {linkedinSocial.url.replace("https://", "")}
-              </Link>
-            )}
-          </View>
-        </View>
 
-        {/* ── Professional Summary ── */}
-        <View style={s.section}>
-          <SectionTitle label={label("summary", t.lang)} />
-          {(cvAbout[t.lang] ?? cvAbout.en).map((line, i) => (
-            <Text key={i} style={s.aboutText}>
-              {line.replace("{age}", String(age))}
-            </Text>
-          ))}
-        </View>
+        {/* ── Name ── */}
+        <Text style={s.name}>Ioritz Tubio Sanchez</Text>
+
+        {/* ── Contact ── */}
+        <Text style={s.contact}>
+          +34 640 676 944
+          {"  |  "}
+          <Link src="mailto:ioritztubio1@gmail.com" style={s.contactLink}>
+            ioritztubio1@gmail.com
+          </Link>
+          {"  |  "}
+          <Link src="https://linkedin.com/in/ioritz-tubio" style={s.contactLink}>
+            LinkedIn
+          </Link>
+          {"  |  "}
+          <Link src="https://ioritztubio.dev" style={s.contactLink}>
+            ioritztubio.dev
+          </Link>
+        </Text>
 
         {/* ── Professional Experience ── */}
-        <View style={s.sectionSpaced}>
-          <SectionTitle label={label("work", t.lang)} />
-          {workItems.map((ev, i) => (
-            <Entry
-              key={i}
-              title={ev.title}
-              org={ev.organization}
-              dateStart={ev.dateStart}
-              dateEnd={ev.dateEnd}
-              description={ev.description}
-            />
-          ))}
-        </View>
+        <SectionTitle label={d.sections.experience} />
+        {d.experience.map((e, i) => (
+          <Entry key={i} {...e} first={i === 0} />
+        ))}
 
         {/* ── Education ── */}
-        <View style={s.sectionSpaced}>
-          <SectionTitle label={label("education", t.lang)} />
-          {eduItems.map((ev, i) => (
-            <Entry
-              key={i}
-              title={ev.title}
-              org={ev.organization}
-              dateStart={ev.dateStart}
-              dateEnd={ev.dateEnd}
-              description={ev.description}
-            />
-          ))}
-        </View>
+        <SectionTitle label={d.sections.education} />
+        {d.education.map((e, i) => (
+          <Entry key={i} company={e.institution} role={e.degree} location={e.location} dates={e.dates} bullets={e.bullets} first={i === 0} />
+        ))}
 
         {/* ── Additional Experience ── */}
-        {extraItems.length > 0 && (
-          <View style={s.sectionSpaced}>
-            <SectionTitle label={label("extra", t.lang)} />
-            {extraItems.map((ev, i) => (
-              <Entry
-                key={i}
-                title={ev.title}
-                org={ev.organization}
-                dateStart={ev.dateStart}
-                dateEnd={ev.dateEnd}
-                description={ev.description}
-              />
+        <SectionTitle label={d.sections.additional} />
+        {d.additional.map((e, i) => (
+          <Entry key={i} {...e} first={i === 0} />
+        ))}
+
+        {/* ── Skills & Interests ── */}
+        <SectionTitle label={d.sections.skills} />
+        <View style={s.skillsRow}>
+          <View style={s.skillCol}>
+            {d.skills.left.map((sk, i) => (
+              <View key={i} style={s.skillLine}>
+                <Text style={s.skillCat}>{sk.cat}</Text>
+                <Text style={s.skillVal}>{sk.val}</Text>
+              </View>
             ))}
           </View>
-        )}
-
-        {/* ── Languages ── */}
-        <View style={s.section}>
-          <SectionTitle label={label("languages", t.lang)} />
-          <View style={s.langRow}>
-            <Text style={s.langName}>
-              {t.lang === "eu"
-                ? "Gaztelania"
-                : t.lang === "fr"
-                  ? "Espagnol"
-                  : t.lang === "en"
-                    ? "Spanish"
-                    : "Castellano"}
-            </Text>
-            <Text style={s.langLevel}>
-              {t.lang === "eu"
-                ? "Ama-hizkuntza"
-                : t.lang === "fr"
-                  ? "Langue maternelle"
-                  : t.lang === "en"
-                    ? "Native"
-                    : "Nativo"}
-            </Text>
-          </View>
-          <View style={s.langRow}>
-            <Text style={s.langName}>
-              {t.lang === "eu"
-                ? "Euskara"
-                : t.lang === "fr"
-                  ? "Basque"
-                  : t.lang === "en"
-                    ? "Basque"
-                    : "Euskera"}
-            </Text>
-            <Text style={s.langLevel}>C1</Text>
+          <View style={s.skillCol}>
+            {d.skills.right.map((sk, i) => (
+              <View key={i} style={s.skillLine}>
+                <Text style={s.skillCat}>{sk.cat}</Text>
+                <Text style={s.skillVal}>{sk.val}</Text>
+              </View>
+            ))}
           </View>
         </View>
 
         {/* ── Footer ── */}
         <View style={s.footer} fixed>
           <Text style={s.footerText}>
-            {t.profile.name} — {new Date().getFullYear()}
+            Ioritz Tubio Sanchez — {new Date().getFullYear()}
           </Text>
         </View>
       </Page>
