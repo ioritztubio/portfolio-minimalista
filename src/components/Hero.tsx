@@ -77,13 +77,13 @@ export const Hero: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
-        {/* Left: text */}
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 items-center">
+        {/* Left: text — second in DOM but first visually on desktop */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left"
+          className="md:col-span-3 md:order-first flex flex-col items-center md:items-start text-center md:text-left"
         >
           {/* Subtitle + location row */}
           <div className="flex flex-col items-center md:items-start gap-1 mb-4">
@@ -145,17 +145,19 @@ export const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right: portrait avatar with vignette */}
+        {/* Avatar — first in DOM = above text on mobile; moved right on desktop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="md:col-span-2 flex justify-center md:justify-end"
+          className="md:col-span-2 md:order-last flex justify-center md:justify-end"
         >
           <button
             onClick={() => setLightbox(true)}
-            className="group relative overflow-hidden w-full max-w-[290px]"
-            style={{ aspectRatio: "3 / 4", borderRadius: "10px 10px 0 0" }}
+            className="group relative overflow-hidden
+              w-24 rounded-full
+              md:w-full md:max-w-[290px] md:rounded-[10px_10px_0_0]
+              [aspect-ratio:1] md:[aspect-ratio:3/4]"
             aria-label="Enlarge photo"
           >
             <img
@@ -163,12 +165,10 @@ export const Hero: React.FC = () => {
               alt={profile.name}
               className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
             />
-            {/* Bottom-only vignette — blends into background */}
+            {/* Bottom vignette — desktop only */}
             <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background: "linear-gradient(to bottom, transparent 50%, var(--bg) 100%)",
-              }}
+              className="absolute inset-0 pointer-events-none hidden md:block"
+              style={{ background: "linear-gradient(to bottom, transparent 50%, var(--bg) 100%)" }}
             />
           </button>
         </motion.div>
