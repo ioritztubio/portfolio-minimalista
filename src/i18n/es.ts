@@ -6,14 +6,21 @@ export const es: Translation = {
         name: "Ioritz Tubío Sánchez",
         subtitle: "Ingeniero de Software · Desarrollador Fullstack",
         about: [
-            "Tengo {age} años, soy ingeniero informático del País Vasco y actualmente trabajo en el departamento de IA de la empresa PKF Attest, donde he desarrollado software que ya está en producción y lo usan personas reales.",
-            "Me importa escribir código que funcione de verdad, sin dejar en el olvido la calidad para conseguir un sistema mantenible y colaborar con gente que me haga mejorar y aprender algo nuevo cada día.",
-            "Me considero una persona inquieta, capaz de adaptarme a nuevas situaciones y aprender continuamente. Además del mundo tech, me apasionan el emprendimiento y me gustaría en algún momento de mi vida dedicarme a ello."
+            "Soy ingeniero de software con carrera en Ingeniería Informática y actualmente estoy cursando un máster en Inteligencia Artificial en UNIR.",
+            "Empecé en frontend y fui evolucionando hacia el desarrollo fullstack y cloud. Construyo aplicaciones web de principio a fin — desde la interfaz con React y Next.js hasta el diseño de la base de datos y el backend. Mi trabajo en backend ha sido principalmente APIs REST con Django y PostgreSQL, junto con el diseño de estructuras de datos que aguantan el crecimiento de la app. También he trabajado con AWS para desplegar y mantener aplicaciones en la nube.",
+            "El máster es el siguiente paso. Quiero moverme hacia la ingeniería de IA y lo estoy usando para construir bases sólidas, no solo para conseguir un título. Me gusta responsabilizarme de las partes difíciles de un proyecto y entender cómo encaja todo, no solo la pieza que tengo delante."
+        ],
+        aboutHighlights: [
+            "máster en Inteligencia Artificial",
+            "React y Next.js",
+            "Django y PostgreSQL",
+            "AWS",
+            "ingeniería de IA"
         ],
         avatarUrl: "https://github.com/ioritztubio.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
-            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritztubio", label: "LinkedIn" },
+            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },
             { platform: "Email", url: "mailto:ioritztubio1@gmail.com", label: "Email" }
         ]
     },
@@ -24,13 +31,23 @@ export const es: Translation = {
         legendEducation: "Formación",
         items: [
             {
+                type: "education",
+                title: "Máster en Inteligencia Artificial",
+                organization: "UNIR — Universidad Internacional de La Rioja",
+                dateStart: "Junio 2026",
+                dateEnd: "Mayo 2027",
+                description: "Máster online en Inteligencia Artificial. 60 ECTS que cubren machine learning, deep learning, NLP, visión por computador e ingeniería de IA. Orientado a construir una base sólida para evolucionar hacia el desarrollo de aplicaciones de IA aplicada.",
+                highlights: ["machine learning", "deep learning", "ingeniería de IA"]
+            },
+            {
                 type: "work",
                 title: "Ingeniero de Software Junior",
-                organization: "PKF Attest — Departamento de IA",
+                organization: "PKF Attest, Skootik — Departamento de IA",
                 dateStart: "Julio 2025",
                 dateEnd: "Actualidad",
                 description: "Trabajo en PKF Attest — una de las 10 mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
-                highlights: ["10 mejores firmas", "Skootik", "Departamento de IA"]
+                highlights: ["10 mejores firmas", "Skootik", "Departamento de IA"],
+                tags: ["Next.js", "TypeScript", "Django", "Python", "AWS"]
             },
             {
                 type: "work",
@@ -39,7 +56,8 @@ export const es: Translation = {
                 dateStart: "Julio 2024",
                 dateEnd: "Agosto 2024",
                 description: "Desarrollo de software para sistemas de drones autónomos. Soluciones en TypeScript, Python y Bash. Configuración de pipelines CI con Jenkins, gestión de repositorios con Git y Bitbucket, y trabajo en software de control de misión: procesamiento de telemetría, verificación de conectividad y comunicación middleware basada en ROS. Metodología Agile con sprints.",
-                highlights: ["drones autónomos"]
+                highlights: ["drones autónomos"],
+                tags: ["TypeScript", "Python", "Jenkins"]
             },
             {
                 type: "education",
@@ -64,7 +82,7 @@ export const es: Translation = {
                 organization: "Restaurante VaBene",
                 dateStart: "Marzo 2022",
                 dateEnd: "Septiembre 2022",
-                description: "Trabajar de camarero no es glamuroso — es rápido, exigente e implacable. Gestión simultánea de varias mesas, mantener la compostura bajo presión en los momentos de mayor afluencia y asegurar que cada cliente se fuera satisfecho. Aprendí pronto que rendir bajo presión operativa real es una habilidad que no se puede fingir y que ningún aula te enseña.",
+                description: "Trabajar de camarero no es glamuroso — es muy movido y exigente. Gestión simultánea de varias mesas, mantener la compostura bajo presión en los momentos de mayor afluencia y asegurar que cada cliente se fuera satisfecho. Aprendí pronto que rendir bajo presión es una habilidad que no se puede fingir y que ningún aula te enseña.",
                 extra: true
             },
             {
@@ -73,7 +91,7 @@ export const es: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "Septiembre 2022",
                 dateEnd: "Octubre 2023",
-                description: "El catering en eventos es donde de verdad aprendes a rendir bajo restricciones reales: espacios desconocidos, horarios ajustísimos, clientes exigentes y ningún margen para el error. Galas, cenas corporativas, celebraciones privadas — a menudo uno de los más jóvenes del equipo, pero siempre al mismo nivel que los veteranos. Demostré que la adaptabilidad y el profesionalismo no son rasgos de personalidad; son hábitos que construyes apareciendo y haciendo el trabajo.",
+                description: "Atención al cliente y servicio de sala en eventos de catering: galas, cenas corporativas y celebraciones privadas. Trabajo en jornadas largas e intensas manteniendo una actitud profesional en todo momento.",
                 extra: true
             },
             {
@@ -82,7 +100,7 @@ export const es: Translation = {
                 organization: "MCC Graphics S. Coop",
                 dateStart: "Julio 2023",
                 dateEnd: "Julio 2023",
-                description: "Un mes en la línea de producción de una cooperativa de impresión me enseñó cosas que ningún grado enseña: la disciplina de un entorno industrial real, la precisión que exige el control de calidad, y lo que significa trabajar codo a codo con personas que llevan décadas haciéndolo. Ningún trabajo era menor para mí — materiales, calidad de impresión y cadena de producción real desde el primer día.",
+                description: "Un mes en la línea de producción de una cooperativa de impresión. Apoyo en tareas de manipulación de materiales, control de calidad de impresión y mantenimiento de la cadena de producción. Primer contacto con un entorno industrial real y trabajo en equipo con operarios experimentados.",
                 extra: true
             }
         ]
@@ -121,6 +139,8 @@ export const es: Translation = {
         showExtra: "Más allá del teclado",
         hideExtra: "Ocultar experiencia adicional",
         extraExperienceTagline: "Antes de la informática, hubo mesas llenas, eventos y turnos de producción.",
-        comingSoonBadge: "Próximamente"
+        comingSoonBadge: "Próximamente",
+        startingSoon: "Próximamente",
+        inProgress: "En curso"
     }
 };

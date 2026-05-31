@@ -6,14 +6,21 @@ export const fr: Translation = {
         name: "Ioritz Tubío Sánchez",
         subtitle: "Ingénieur Logiciel · Développeur Fullstack",
         about: [
-            "J'ai {age} ans, ingénieur informaticien du Pays Basque — actuellement en poste au département IA de PKF Attest, où j'ai développé des logiciels en production utilisés par de vraies personnes chaque jour.",
-            "Je tiens à écrire du code qui fonctionne vraiment, sans sacrifier la qualité — parce que les systèmes maintenables comptent. J'aime collaborer avec des personnes qui me poussent à progresser et apprendre quelque chose de nouveau chaque jour.",
-            "Je me considère comme quelqu'un de curieux et déterminé, capable de m'adapter à de nouvelles situations et de grandir en permanence. Au-delà de la tech, l'entrepreneuriat me passionne et j'espère m'y consacrer à un moment de ma vie."
+            "Je suis ingénieur logiciel diplômé en Ingénierie Informatique, et je prépare actuellement un master en Intelligence Artificielle à UNIR.",
+            "J'ai commencé par le frontend avant d'évoluer vers le développement fullstack et cloud. Je construis des applications web de bout en bout — de l'interface React et Next.js jusqu'à la conception de la base de données et le backend. Mon travail backend a principalement consisté en des APIs REST avec Django et PostgreSQL, ainsi que la conception de structures de données robustes qui tiennent la route à mesure que l'application grandit. J'ai également travaillé avec AWS pour déployer et maintenir des applications dans le cloud.",
+            "Le master représente ma prochaine étape. Je veux me diriger vers l'ingénierie de l'IA, et je l'utilise pour construire de vraies fondations plutôt que d'accumuler un diplôme. J'aime prendre en charge les parties difficiles d'un projet et comprendre comment tout s'articule, pas seulement la pièce qui me fait face."
+        ],
+        aboutHighlights: [
+            "master en Intelligence Artificielle",
+            "React et Next.js",
+            "Django et PostgreSQL",
+            "AWS",
+            "ingénierie de l'IA"
         ],
         avatarUrl: "https://github.com/ioritztubio.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
-            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritztubio", label: "LinkedIn" },
+            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },
             { platform: "Email", url: "mailto:ioritztubio1@gmail.com", label: "Email" }
         ]
     },
@@ -24,13 +31,23 @@ export const fr: Translation = {
         legendEducation: "Formation",
         items: [
             {
+                type: "education",
+                title: "Master en Intelligence Artificielle",
+                organization: "UNIR — Universidad Internacional de La Rioja",
+                dateStart: "Juin 2026",
+                dateEnd: "Mai 2027",
+                description: "Master en ligne en Intelligence Artificielle. 60 ECTS couvrant le machine learning, le deep learning, le NLP, la vision par ordinateur et l'ingénierie de l'IA. Orienté vers la construction de fondations pratiques pour évoluer vers le développement d'applications IA.",
+                highlights: ["machine learning", "deep learning", "ingénierie de l'IA"]
+            },
+            {
                 type: "work",
                 title: "Ingénieur Logiciel Junior",
                 organization: "PKF Attest — Département IA",
                 dateStart: "Juillet 2025",
                 dateEnd: "Présent",
                 description: "Je travaille chez PKF Attest — l'un des dix meilleurs cabinets de services professionnels d'Espagne et membre du réseau PKF Global (150+ pays, 480 bureaux). Plus précisément au sein du Département IA, qui intègre l'offre de Skootik : transformer les données des clients en avantage concurrentiel durable via le conseil, la stratégie et le développement en IA. Développement et maintenance d'applications fullstack en production avec Next.js, TypeScript, Django et Python, dans une équipe agile appliquant une architecture propre, des pipelines CI/CD avec Jenkins et une conception de systèmes évolutifs.",
-                highlights: ["dix meilleurs cabinets", "Skootik", "Département IA"]
+                highlights: ["dix meilleurs cabinets", "Skootik", "Département IA"],
+                tags: ["Next.js", "TypeScript", "Django", "Python", "AWS"]
             },
             {
                 type: "work",
@@ -39,7 +56,8 @@ export const fr: Translation = {
                 dateStart: "Juillet 2024",
                 dateEnd: "Août 2024",
                 description: "Développement de logiciels pour des systèmes de drones autonomes. Solutions en TypeScript, Python et Bash. Mise en place de pipelines CI avec Jenkins, gestion de dépôts avec Git et Bitbucket, et travail sur des logiciels de contrôle de mission : traitement de la télémétrie, vérification de la connectivité et communication middleware basée sur ROS. Méthodologie Agile en sprints.",
-                highlights: ["drones autonomes"]
+                highlights: ["drones autonomes"],
+                tags: ["TypeScript", "Python", "Jenkins"]
             },
             {
                 type: "education",
@@ -73,7 +91,7 @@ export const fr: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "Septembre 2022",
                 dateEnd: "Octobre 2023",
-                description: "Le service traiteur lors d'événements, c'est là qu'on apprend vraiment à être à la hauteur sous des contraintes réelles : lieux inconnus, horaires serrés, clients exigeants et aucune marge pour l'erreur. Galas, dîners d'entreprise, fêtes privées — souvent l'un des plus jeunes de l'équipe, toujours au niveau des vétérans. J'ai prouvé que l'adaptabilité et le professionnalisme ne sont pas des traits de caractère innés ; ce sont des habitudes que l'on construit en étant présent et en faisant le travail.",
+                description: "Accueil et service en salle lors d'événements traiteur : galas, dîners d'entreprise et célébrations privées. Travail lors de journées longues et intenses en maintenant une attitude professionnelle en toutes circonstances.",
                 extra: true
             },
             {
@@ -82,7 +100,7 @@ export const fr: Translation = {
                 organization: "MCC Graphics S. Coop",
                 dateStart: "Juillet 2023",
                 dateEnd: "Juillet 2023",
-                description: "Un mois sur une ligne de production dans une coopérative d'impression enseigne des choses qu'aucun diplôme ne donne : la discipline d'un environnement industriel réel, la précision exigée par le contrôle qualité, et ce que signifie travailler coude à coude avec des gens qui font ça depuis des décennies. Aucune tâche ne me semblait indigne — gestion des matériaux, contrôle de la qualité d'impression et chaîne de production réelle dès le premier jour.",
+                description: "Un mois sur la ligne de production d'une coopérative d'impression. Assistance à la manutention des matériaux, au contrôle qualité d'impression et à la maintenance de la chaîne de production. Première expérience dans un environnement industriel réel et travail en équipe avec des opérateurs expérimentés.",
                 extra: true
             }
         ]
@@ -121,6 +139,8 @@ export const fr: Translation = {
         showExtra: "Au-delà du clavier",
         hideExtra: "Masquer l'expérience supplémentaire",
         extraExperienceTagline: "Avant l'informatique, il y avait des salles pleines, des événements et des chaînes de production.",
-        comingSoonBadge: "Bientôt"
+        comingSoonBadge: "Bientôt",
+        startingSoon: "Bientôt",
+        inProgress: "En cours"
     }
 };

@@ -1,36 +1,20 @@
 import React from "react";
-import { LanguageProvider, useLanguage } from "./context/LanguageContext";
+import { LanguageProvider } from "./context/LanguageContext";
+import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { Timeline } from "./components/Timeline";
 import { Projects } from "./components/Projects";
 import { Footer } from "./components/Footer";
-import { CVDownloadButton } from "./components/CVDownloadButton";
-
-// TODO: set to true when all language translations have been reviewed
-const MULTI_LANG_ENABLED = false;
-
-function TopBar() {
-  const { t, toggleLang } = useLanguage();
-  return (
-    <div className="fixed top-5 right-5 z-50 flex items-center gap-2">
-      <CVDownloadButton />
-      {MULTI_LANG_ENABLED && (
-        <button
-          onClick={toggleLang}
-          className="px-3 py-1.5 text-xs font-mono font-semibold text-zinc-400 border border-zinc-700 rounded-md hover:border-zinc-400 hover:text-white transition-all duration-200 bg-[#0a0a0a]/80 backdrop-blur-sm"
-          aria-label="Switch language"
-        >
-          {t.ui.langToggle}
-        </button>
-      )}
-    </div>
-  );
-}
+import { Cursor } from "./components/Cursor";
 
 function AppContent() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-zinc-200 font-sans selection:bg-white selection:text-black">
-      <TopBar />
+    <div
+      className="min-h-screen font-sans selection:bg-white selection:text-black"
+      style={{ backgroundColor: "var(--bg)", color: "var(--ink)" }}
+    >
+      <Cursor />
+      <Header />
       <main className="max-w-5xl mx-auto w-full">
         <Hero />
         <Projects />

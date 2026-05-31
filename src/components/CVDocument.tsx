@@ -9,18 +9,17 @@ import {
 } from "@react-pdf/renderer";
 import { Translation } from "../i18n/types";
 
-// ─── Palette ────────────────────────────────────────────────────────────────
+// ─── Professional Palette ───────────────────────────────────────────────────
 const C = {
-  black: "#0f0f0f",
-  dark: "#1a1a1a",
-  mid: "#444444",
-  muted: "#777777",
-  light: "#aaaaaa",
-  rule: "#e0e0e0",
-  workDot: "#3b82f6", // blue-500
-  eduDot: "#f59e0b", // amber-500
+  black: "#1a1a1a",
+  dark: "#2d2d2d",
+  body: "#333333",
+  muted: "#555555",
+  subtle: "#888888",
+  border: "#cccccc",
+  borderLight: "#e5e5e5",
   white: "#ffffff",
-  pageBg: "#ffffff",
+  accent: "#1a1a1a",
 };
 
 const FONT_SANS = "Helvetica";
@@ -29,97 +28,145 @@ const FONT_BOLD = "Helvetica-Bold";
 // ─── Styles ──────────────────────────────────────────────────────────────────
 const s = StyleSheet.create({
   page: {
-    backgroundColor: C.pageBg,
-    paddingTop: 44,
-    paddingBottom: 44,
-    paddingHorizontal: 48,
+    backgroundColor: C.white,
+    paddingTop: 40,
+    paddingBottom: 40,
+    paddingHorizontal: 50,
     fontFamily: FONT_SANS,
-    color: C.black,
+    fontSize: 9,
+    color: C.body,
+    lineHeight: 1.5,
   },
 
   // Header
-  header: { marginBottom: 20 },
+  header: {
+    marginBottom: 6,
+    borderBottomWidth: 2,
+    borderBottomColor: C.black,
+    paddingBottom: 12,
+  },
   name: {
-    fontSize: 26,
+    fontSize: 20,
     fontFamily: FONT_BOLD,
     color: C.black,
-    marginBottom: 3,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+    marginBottom: 12,
   },
   subtitle: {
-    fontSize: 11,
-    color: C.mid,
-    marginBottom: 10,
-    letterSpacing: 0.4,
+    fontSize: 10,
+    color: C.muted,
+    marginBottom: 8,
   },
-  contactRow: { flexDirection: "row", gap: 16, flexWrap: "wrap" },
-  contactItem: { fontSize: 8.5, color: C.muted },
-  contactLink: { fontSize: 8.5, color: C.muted, textDecoration: "none" },
-
-  rule: { borderBottomWidth: 1, borderBottomColor: C.rule, marginVertical: 14 },
+  contactRow: {
+    flexDirection: "row",
+    gap: 6,
+    flexWrap: "wrap",
+    alignItems: "center",
+  },
+  contactItem: { fontSize: 8, color: C.muted },
+  contactLink: { fontSize: 8, color: C.muted, textDecoration: "none" },
+  contactSep: { fontSize: 8, color: C.border },
 
   // Section
-  sectionLabel: {
-    fontSize: 7.5,
-    fontFamily: FONT_BOLD,
-    color: C.muted,
-    letterSpacing: 1.2,
-    textTransform: "uppercase",
+  section: { marginTop: 14, marginBottom: 2 },
+  sectionSpaced: { marginTop: 18, marginBottom: 24 },
+  sectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
   },
+  sectionLabel: {
+    fontSize: 9,
+    fontFamily: FONT_BOLD,
+    color: C.black,
+    letterSpacing: 1.4,
+    textTransform: "uppercase",
+  },
+  sectionRule: {
+    flex: 1,
+    borderBottomWidth: 0.75,
+    borderBottomColor: C.border,
+    marginLeft: 8,
+    marginBottom: 2,
+  },
 
-  // About
-  aboutText: { fontSize: 9.5, color: C.mid, lineHeight: 1.65, marginBottom: 5 },
+  // Summary / About
+  aboutText: {
+    fontSize: 8.5,
+    color: C.body,
+    lineHeight: 1.6,
+    marginBottom: 3,
+    textAlign: "justify",
+  },
 
-  // Timeline entry
-  entryRow: { flexDirection: "row", marginBottom: 13, gap: 10 },
-  dotCol: { width: 10, paddingTop: 2, alignItems: "center" },
-  dot: { width: 7, height: 7, borderRadius: 4 },
-  dotWork: { backgroundColor: C.workDot },
-  dotEdu: { backgroundColor: C.eduDot },
-  entryBody: { flex: 1 },
+  // Timeline entry — two-column layout
+  entryRow: {
+    flexDirection: "row",
+    marginBottom: 10,
+  },
+  entryDateCol: {
+    width: 100,
+    paddingRight: 10,
+    paddingTop: 1,
+  },
+  entryDate: {
+    fontSize: 7.5,
+    color: C.subtle,
+    textAlign: "right",
+    lineHeight: 1.4,
+  },
+  entryBodyCol: {
+    flex: 1,
+    borderLeftWidth: 0.75,
+    borderLeftColor: C.borderLight,
+    paddingLeft: 12,
+  },
   entryTitle: {
-    fontSize: 10,
+    fontSize: 9.5,
     fontFamily: FONT_BOLD,
     color: C.black,
     marginBottom: 1,
   },
-  entryOrg: { fontSize: 9, color: C.mid, marginBottom: 2 },
-  entryDate: {
-    fontSize: 7.5,
-    color: C.light,
-    letterSpacing: 0.3,
-    marginBottom: 4,
-    fontFamily: FONT_SANS,
+  entryOrg: {
+    fontSize: 8.5,
+    color: C.muted,
+    marginBottom: 3,
   },
-  entryDesc: { fontSize: 8.5, color: C.mid, lineHeight: 1.6 },
+  entryDesc: {
+    fontSize: 8,
+    color: C.body,
+    lineHeight: 1.55,
+    textAlign: "justify",
+  },
 
-  // Project
-  projectTitle: {
-    fontSize: 10,
+  // Languages
+  langRow: {
+    flexDirection: "row",
+    marginBottom: 5,
+  },
+  langName: {
+    fontSize: 9,
     fontFamily: FONT_BOLD,
     color: C.black,
-    marginBottom: 2,
+    width: 120,
   },
-  projectDesc: {
+  langLevel: {
     fontSize: 8.5,
-    color: C.mid,
-    lineHeight: 1.6,
-    marginBottom: 4,
-  },
-  tagsRow: { flexDirection: "row", flexWrap: "wrap", gap: 4, marginBottom: 4 },
-  tag: {
-    fontSize: 7,
     color: C.muted,
-    borderWidth: 1,
-    borderColor: C.rule,
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    borderRadius: 3,
   },
-  privateNote: { fontSize: 7.5, color: C.light, fontFamily: FONT_SANS },
 
-  footer: { position: "absolute", bottom: 22, left: 48, right: 48 },
-  footerText: { fontSize: 7.5, color: C.light, textAlign: "center" },
+  // Footer
+  footer: {
+    position: "absolute",
+    bottom: 20,
+    left: 50,
+    right: 50,
+    borderTopWidth: 0.5,
+    borderTopColor: C.borderLight,
+    paddingTop: 6,
+  },
+  footerText: { fontSize: 7, color: C.subtle, textAlign: "center" },
 });
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -157,10 +204,34 @@ const MONTH_NUM: Record<string, number> = {
   octubre: 10,
   noviembre: 11,
   diciembre: 12,
+  urtarrilak: 1,
+  otsailak: 2,
+  martxoak: 3,
+  apirilak: 4,
+  maiatza: 5,
+  ekaina: 6,
+  uztaila: 7,
+  abuztua: 8,
+  iraila: 9,
+  urria: 10,
+  azaroa: 11,
+  abendua: 12,
+  janvier: 1,
+  février: 2,
+  mars: 3,
+  avril: 4,
+  mai: 5,
+  juin: 6,
+  juillet: 7,
+  août: 8,
+  septembre: 9,
+  octobre: 10,
+  novembre: 11,
+  décembre: 12,
 };
 
 function parseDateEnd(str: string): number {
-  if (/present|actualidad/i.test(str)) return 999999;
+  if (/present|actualidad|gaur egun|actuellement/i.test(str)) return 999999;
   const yearMatch = str.match(/\d{4}/);
   const year = yearMatch ? parseInt(yearMatch[0]) : 0;
   const month = str
@@ -171,10 +242,11 @@ function parseDateEnd(str: string): number {
 }
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
-const Rule = () => <View style={s.rule} />;
-
-const SectionLabel = ({ label }: { label: string }) => (
-  <Text style={s.sectionLabel}>{label}</Text>
+const SectionTitle = ({ label }: { label: string }) => (
+  <View style={s.sectionHeader}>
+    <Text style={s.sectionLabel}>{label}</Text>
+    <View style={s.sectionRule} />
+  </View>
 );
 
 interface EntryProps {
@@ -183,34 +255,96 @@ interface EntryProps {
   dateStart: string;
   dateEnd: string;
   description: string;
-  isWork: boolean;
 }
 
-const Entry = ({
+const Entry: React.FC<EntryProps> = ({
   title,
   org,
   dateStart,
   dateEnd,
   description,
-  isWork,
-}: EntryProps) => {
+}) => {
   const isSingle = dateStart === dateEnd;
+  const dateStr = isSingle ? dateStart : `${dateStart} — ${dateEnd}`;
   return (
-    <View style={s.entryRow}>
-      <View style={s.dotCol}>
-        <View style={[s.dot, isWork ? s.dotWork : s.dotEdu]} />
+    <View style={s.entryRow} wrap={false}>
+      <View style={s.entryDateCol}>
+        <Text style={s.entryDate}>{dateStr}</Text>
       </View>
-      <View style={s.entryBody}>
+      <View style={s.entryBodyCol}>
         <Text style={s.entryTitle}>{title}</Text>
         <Text style={s.entryOrg}>{org}</Text>
-        <Text style={s.entryDate}>
-          {isSingle ? dateStart : `${dateStart} — ${dateEnd}`}
-        </Text>
         <Text style={s.entryDesc}>{description}</Text>
       </View>
     </View>
   );
 };
+
+const ContactSep = () => <Text style={s.contactSep}>|</Text>;
+
+// ─── Label dictionaries ──────────────────────────────────────────────────────
+const labels = {
+  summary: {
+    en: "Professional Summary",
+    es: "Perfil Profesional",
+    eu: "Profil Profesionala",
+    fr: "Profil Professionnel",
+  },
+  work: {
+    en: "Professional Experience",
+    es: "Experiencia Profesional",
+    eu: "Esperientzia Profesionala",
+    fr: "Expérience Professionnelle",
+  },
+  education: {
+    en: "Education",
+    es: "Formación Académica",
+    eu: "Hezkuntza",
+    fr: "Formation",
+  },
+  extra: {
+    en: "Additional Experience",
+    es: "Experiencia Complementaria",
+    eu: "Esperientzia Osagarria",
+    fr: "Expérience Complémentaire",
+  },
+  languages: {
+    en: "Languages",
+    es: "Idiomas",
+    eu: "Hizkuntzak",
+    fr: "Langues",
+  },
+} as const;
+
+// ─── CV-specific professional summary (separate from portfolio) ─────────────
+const cvAbout: Record<string, string[]> = {
+  es: [
+    "Ingeniero Informático por la Universidad del País Vasco (UPV/EHU), con {age} años y experiencia profesional en el desarrollo de aplicaciones fullstack en entornos de producción. Actualmente desempeño funciones de Ingeniero de Software en el Departamento de Inteligencia Artificial de PKF Attest, donde participo en el diseño, desarrollo y mantenimiento de sistemas escalables orientados a clientes reales.",
+    "Dominio de tecnologías como Next.js, TypeScript, React, Django y Python, así como en el diseño y administración de bases de datos relacionales (PostgreSQL, MySQL). Experiencia en la implementación de pipelines CI/CD con Jenkins, control de versiones con Git, y aplicación de principios de arquitectura limpia y desarrollo ágil (Scrum).",
+    "Perfil orientado a resultados, con capacidad demostrada para trabajar de manera autónoma y en equipos multidisciplinares. Sólida base en algoritmia, estructuras de datos y buenas prácticas de ingeniería de software. Alta capacidad de aprendizaje, adaptación a nuevos entornos tecnológicos y compromiso con la mejora continua.",
+  ],
+  en: [
+    "Computer Engineer from the University of the Basque Country (UPV/EHU), {age} years old, with professional experience in fullstack application development in production environments. Currently working as a Software Engineer in the Artificial Intelligence Department at PKF Attest, where I participate in the design, development, and maintenance of scalable systems serving real clients.",
+    "Proficient in technologies such as Next.js, TypeScript, React, Django, and Python, as well as in the design and administration of relational databases (PostgreSQL, MySQL). Experienced in implementing CI/CD pipelines with Jenkins, version control with Git, and applying clean architecture principles and agile development methodologies (Scrum).",
+    "Results-oriented professional with a proven ability to work both independently and within cross-functional teams. Strong foundation in algorithms, data structures, and software engineering best practices. Highly adaptable, committed to continuous learning, and capable of rapidly integrating into new technological environments.",
+  ],
+  eu: [
+    "Informatika Ingeniaria Euskal Herriko Unibertsitatean (UPV/EHU), {age} urte, eta produkzio-inguruneetan fullstack aplikazioak garatzen esperientzia profesionala duena. Gaur egun Software Ingeniaria naiz PKF Attesteko Adimen Artifizialaren Sailean, non bezero errealei zuzendutako sistema eskalagarrien diseinuan, garapenean eta mantentze-lanetan parte hartzen dudan.",
+    "Next.js, TypeScript, React, Django eta Python bezalako teknologietan trebea, baita datu-base erlazionalen (PostgreSQL, MySQL). CI/CD pipeline-ak Jenkins-ekin inplementatzeko, Git-ekin bertsio-kontrola egiteko eta arkitektura garbiaren printzipioek eta garapen arineko metodologiak (Scrum) aplikatzeko esperientzia.",
+    "Emaitzetan oinarritutako profila, modu autonomoan eta talde anitzetan lan egiteko gaitasun egiaztatuarekin. Oinarri sendoa algoritmian, datu-egituretan eta software ingeniaritzako praktika onetan. Ikaskuntza-gaitasun handia, ingurune teknologiko berrietara egokitzeko ahalmena eta etengabeko hobekuntzarekiko konpromisoa.",
+  ],
+  fr: [
+    "Ingénieur Informaticien diplômé de l'Université du Pays Basque (UPV/EHU), {age} ans, avec une expérience professionnelle dans le développement d'applications fullstack en environnement de production. Actuellement Ingénieur Logiciel au sein du Département Intelligence Artificielle de PKF Attest, où je participe à la conception, au développement et à la maintenance de systèmes évolutifs destinés à de vrais clients.",
+    "Maîtrise de technologies telles que Next.js, TypeScript, React, Django et Python, ainsi que la conception et l'administration de bases de données relationnelles (PostgreSQL, MySQL). Expérience dans la mise en place de pipelines CI/CD avec Jenkins, le contrôle de versions avec Git, et l'application des principes d'architecture propre et de méthodologies agiles (Scrum).",
+    "Profil orienté résultats, avec une capacité avérée à travailler de manière autonome et au sein d'équipes pluridisciplinaires. Solide formation en algorithmique, structures de données et bonnes pratiques d'ingénierie logicielle. Grande capacité d'apprentissage, d'adaptation à de nouveaux environnements technologiques et engagement envers l'amélioration continue.",
+  ],
+};
+
+function label(key: keyof typeof labels, lang: string): string {
+  return (
+    labels[key][lang as keyof (typeof labels)[typeof key]] ?? labels[key].en
+  );
+}
 
 // ─── Main Document ────────────────────────────────────────────────────────────
 interface CVDocumentProps {
@@ -219,7 +353,6 @@ interface CVDocumentProps {
 
 export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
   const age = getAge();
-  const isEN = t.lang === "en";
 
   const sortedTimeline = [...t.timeline.items].sort(
     (a, b) => parseDateEnd(b.dateEnd) - parseDateEnd(a.dateEnd),
@@ -228,10 +361,13 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
   const extraItems = sortedTimeline.filter((e) => e.type === "work" && e.extra);
   const eduItems = sortedTimeline.filter((e) => e.type === "education");
 
-  const emailSocial = t.profile.socials.find((s) => s.platform === "Email");
-  const githubSocial = t.profile.socials.find((s) => s.platform === "GitHub");
+  const emailSocial = t.profile.socials.find((sc) => sc.platform === "Email");
+  const githubSocial = t.profile.socials.find((sc) => sc.platform === "GitHub");
   const linkedinSocial = t.profile.socials.find(
-    (s) => s.platform === "LinkedIn",
+    (sc) => sc.platform === "LinkedIn",
+  );
+  const websiteSocial = t.profile.socials.find(
+    (sc) => sc.platform === "Website",
   );
 
   return (
@@ -252,87 +388,71 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
                 {emailSocial.url.replace("mailto:", "")}
               </Link>
             )}
+            {emailSocial && githubSocial && <ContactSep />}
             {githubSocial && (
               <Link src={githubSocial.url} style={s.contactLink}>
-                {githubSocial.url}
+                {githubSocial.url.replace("https://", "")}
               </Link>
             )}
+            {githubSocial && linkedinSocial && <ContactSep />}
             {linkedinSocial && (
               <Link src={linkedinSocial.url} style={s.contactLink}>
-                {linkedinSocial.url}
+                {linkedinSocial.url.replace("https://", "")}
+              </Link>
+            )}
+            {linkedinSocial && websiteSocial && <ContactSep />}
+            {websiteSocial && (
+              <Link src={websiteSocial.url} style={s.contactLink}>
+                {websiteSocial.url.replace("https://", "")}
               </Link>
             )}
           </View>
         </View>
 
-        <Rule />
+        {/* ── Professional Summary ── */}
+        <View style={s.section}>
+          <SectionTitle label={label("summary", t.lang)} />
+          {(cvAbout[t.lang] ?? cvAbout.en).map((line, i) => (
+            <Text key={i} style={s.aboutText}>
+              {line.replace("{age}", String(age))}
+            </Text>
+          ))}
+        </View>
 
-        {/* ── About ── */}
-        <SectionLabel label={isEN ? "About" : "Sobre mí"} />
-        {t.profile.about.map((line, i) => (
-          <Text key={i} style={s.aboutText}>
-            {line.replace("{age}", String(age))}
-          </Text>
-        ))}
-
-        <Rule />
-
-        {/* ── Work Experience ── */}
-        <SectionLabel
-          label={
-            isEN
-              ? "Work Experience"
-              : t.lang === "eu"
-                ? "Lan Esperientzia"
-                : t.lang === "fr"
-                  ? "Expérience Professionnelle"
-                  : "Experiencia Laboral"
-          }
-        />
-        {workItems.map((ev, i) => (
-          <Entry
-            key={i}
-            title={ev.title}
-            org={ev.organization}
-            dateStart={ev.dateStart}
-            dateEnd={ev.dateEnd}
-            description={ev.description}
-            isWork
-          />
-        ))}
-
-        <Rule />
+        {/* ── Professional Experience ── */}
+        <View style={s.sectionSpaced}>
+          <SectionTitle label={label("work", t.lang)} />
+          {workItems.map((ev, i) => (
+            <Entry
+              key={i}
+              title={ev.title}
+              org={ev.organization}
+              dateStart={ev.dateStart}
+              dateEnd={ev.dateEnd}
+              description={ev.description}
+            />
+          ))}
+        </View>
 
         {/* ── Education ── */}
-        <SectionLabel
-          label={
-            isEN
-              ? "Education"
-              : t.lang === "eu"
-                ? "Hezkuntza"
-                : t.lang === "fr"
-                  ? "Formation"
-                  : "Formación"
-          }
-        />
-        {eduItems.map((ev, i) => (
-          <Entry
-            key={i}
-            title={ev.title}
-            org={ev.organization}
-            dateStart={ev.dateStart}
-            dateEnd={ev.dateEnd}
-            description={ev.description}
-            isWork={false}
-          />
-        ))}
-
-        <Rule />
+        <View style={s.sectionSpaced}>
+          <SectionTitle label={label("education", t.lang)} />
+          {eduItems.map((ev, i) => (
+            <Entry
+              key={i}
+              title={ev.title}
+              org={ev.organization}
+              dateStart={ev.dateStart}
+              dateEnd={ev.dateEnd}
+              description={ev.description}
+            />
+          ))}
+        </View>
 
         {/* ── Additional Experience ── */}
         {extraItems.length > 0 && (
-          <>
-            <SectionLabel label={t.ui.showExtra} />
+          <View style={s.sectionSpaced}>
+            <SectionTitle label={label("extra", t.lang)} />
             {extraItems.map((ev, i) => (
               <Entry
                 key={i}
@@ -341,48 +461,52 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
                 dateStart={ev.dateStart}
                 dateEnd={ev.dateEnd}
                 description={ev.description}
-                isWork
               />
             ))}
-            <Rule />
-          </>
+          </View>
         )}
 
-        <Rule />
-
-        {/* ── Projects ── */}
-        <SectionLabel label={isEN ? "Projects" : "Proyectos"} />
-        {t.projects.items
-          .filter((proj) => !proj.comingSoon)
-          .map((proj, i) => (
-            <View key={i} style={{ marginBottom: 8 }}>
-              <Text style={s.projectTitle}>{proj.title}</Text>
-              <Text style={s.projectDesc}>{proj.description}</Text>
-              <View style={s.tagsRow}>
-                {proj.tags.map((tag, j) => (
-                  <Text key={j} style={s.tag}>
-                    {tag}
-                  </Text>
-                ))}
-              </View>
-              {proj.demoUrl && (
-                <Link
-                  src={proj.demoUrl}
-                  style={[s.contactLink, { marginBottom: 2 }]}
-                >
-                  {proj.demoUrl}
-                </Link>
-              )}
-              {proj.codePrivate && (
-                <Text style={s.privateNote}>🔒 {proj.codePrivateNote}</Text>
-              )}
-            </View>
-          ))}
+        {/* ── Languages ── */}
+        <View style={s.section}>
+          <SectionTitle label={label("languages", t.lang)} />
+          <View style={s.langRow}>
+            <Text style={s.langName}>
+              {t.lang === "eu"
+                ? "Gaztelania"
+                : t.lang === "fr"
+                  ? "Espagnol"
+                  : t.lang === "en"
+                    ? "Spanish"
+                    : "Castellano"}
+            </Text>
+            <Text style={s.langLevel}>
+              {t.lang === "eu"
+                ? "Ama-hizkuntza"
+                : t.lang === "fr"
+                  ? "Langue maternelle"
+                  : t.lang === "en"
+                    ? "Native"
+                    : "Nativo"}
+            </Text>
+          </View>
+          <View style={s.langRow}>
+            <Text style={s.langName}>
+              {t.lang === "eu"
+                ? "Euskara"
+                : t.lang === "fr"
+                  ? "Basque"
+                  : t.lang === "en"
+                    ? "Basque"
+                    : "Euskera"}
+            </Text>
+            <Text style={s.langLevel}>C1</Text>
+          </View>
+        </View>
 
         {/* ── Footer ── */}
         <View style={s.footer} fixed>
           <Text style={s.footerText}>
-            {t.profile.name} · {new Date().getFullYear()}
+            {t.profile.name} — {new Date().getFullYear()}
           </Text>
         </View>
       </Page>

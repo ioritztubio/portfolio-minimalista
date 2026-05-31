@@ -9,18 +9,16 @@ export const Projects: React.FC = () => {
   const { projects } = t;
 
   return (
-    <section className="py-20 px-4 max-w-6xl mx-auto">
+    <section id="projects" className="py-20 px-4 max-w-5xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-16 text-center"
+        className="mb-16"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
-          {projects.sectionTitle}
-        </h2>
-        <p className="text-zinc-400 max-w-2xl mx-auto">
+        <p className="section-label">{projects.sectionTitle}</p>
+        <p className="text-zinc-500 text-sm max-w-2xl">
           {projects.sectionSubtitle}
         </p>
       </motion.div>

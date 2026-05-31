@@ -1,23 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import { Button } from "./ui/Button";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, X } from "lucide-react";
 import confetti from "canvas-confetti";
-import { CVDownloadButton } from "./CVDownloadButton";
+import { renderHighlights } from "../utils/highlights";
 
-const BIRTH_DATE = new Date(2003, 10, 7); // November 7, 2003 (month is 0-indexed)
+const BIRTH_DATE = new Date(2003, 10, 7);
 
 function getAge(): number {
   const today = new Date();
   let age = today.getFullYear() - BIRTH_DATE.getFullYear();
-  const monthDiff = today.getMonth() - BIRTH_DATE.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < BIRTH_DATE.getDate())
-  ) {
-    age--;
-  }
+  const m = today.getMonth() - BIRTH_DATE.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < BIRTH_DATE.getDate())) age--;
   return age;
 }
 
@@ -35,6 +30,7 @@ export const Hero: React.FC = () => {
   const age = getAge();
   const birthday = isBirthday();
   const confettiFired = useRef(false);
+  const [lightbox, setLightbox] = useState(false);
 
   useEffect(() => {
     if (birthday && !confettiFired.current) {
@@ -43,17 +39,20 @@ export const Hero: React.FC = () => {
       const end = Date.now() + duration;
       const frame = () => {
         confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 } });
-        confetti({
-          particleCount: 3,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 },
-        });
+        confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 } });
         if (Date.now() < end) requestAnimationFrame(frame);
       };
       frame();
     }
   }, [birthday]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   const iconMap: Record<string, React.ElementType> = {
     GitHub: Github,
@@ -61,8 +60,10 @@ export const Hero: React.FC = () => {
     Email: Mail,
   };
 
+  const highlights = profile.aboutHighlights ?? [];
+
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center items-center text-center px-4 pt-20 pb-10">
+    <section id="about" className="px-4 pt-16 pb-20">
       {/* Birthday banner */}
       <AnimatePresence>
         {birthday && (
@@ -70,81 +71,145 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-5 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-white text-black text-sm font-semibold rounded-full shadow-lg whitespace-nowrap"
+            className="fixed top-16 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-white text-black text-sm font-semibold rounded-full shadow-lg whitespace-nowrap"
           >
             {t.ui.birthdayMessage}
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Avatar */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.85 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mb-8"
-      >
-        <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden border-2 border-zinc-800 shadow-2xl">
-          <img
-            src={profile.avatarUrl}
-            alt={profile.name}
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-      </motion.div>
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
+        {/* Left: text */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left"
+        >
+          {/* Mono tag */}
+          <p
+            className="font-mono text-xs uppercase tracking-widest mb-4"
+            style={{ color: "var(--accent)" }}
+          >
+            {profile.subtitle}
+          </p>
 
-      {/* Name */}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-        className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4"
-      >
-        {profile.name}
-      </motion.h1>
+          {/* Name — Cormorant Garamond italic */}
+          <h1
+            className="text-5xl md:text-7xl font-bold text-white mb-8 leading-none"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontStyle: "italic",
+              letterSpacing: "-0.01em",
+              color: "var(--ink)",
+            }}
+          >
+            {profile.name}
+          </h1>
 
-      {/* Subtitle */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        className="text-xl md:text-2xl text-zinc-400 mb-8 font-light"
-      >
-        {profile.subtitle}
-      </motion.p>
+          {/* About — left accent bar, lead + body paragraphs */}
+          <div
+            className="border-l-2 pl-5 mb-8 max-w-xl space-y-3 text-left"
+            style={{ borderColor: "var(--accent)", opacity: 0.95 }}
+          >
+            {profile.about.map((line, i) => {
+              const text = line.replace("{age}", String(age));
+              const isLead = i === 0;
+              return (
+                <p
+                  key={i}
+                  className={isLead ? "font-medium text-base md:text-lg leading-relaxed" : "text-sm leading-relaxed"}
+                  style={{ color: isLead ? "var(--ink)" : "var(--ink-2)" }}
+                >
+                  {renderHighlights(text, highlights, "font-semibold text-[#E8A94C]")}
+                </p>
+              );
+            })}
+          </div>
 
-      {/* About */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-        className="max-w-2xl mx-auto mb-10 space-y-3 text-zinc-400 leading-relaxed text-base"
-      >
-        {profile.about.map((line, index) => (
-          <p key={index}>{line.replace("{age}", String(age))}</p>
-        ))}
-      </motion.div>
+          {/* Social links */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-3">
+            {profile.socials.map((social) => {
+              const Icon = iconMap[social.platform] ?? Mail;
+              return (
+                <Button key={social.platform} href={social.url} variant="outline">
+                  <Icon className="w-4 h-4 mr-2" />
+                  {social.label}
+                </Button>
+              );
+            })}
+          </div>
+        </motion.div>
 
-      {/* Social links + CV download */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-        className="flex flex-wrap justify-center gap-4"
-      >
-        {profile.socials.map((social) => {
-          const Icon = iconMap[social.platform] ?? Mail;
-          return (
-            <Button key={social.platform} href={social.url} variant="outline">
-              <Icon className="w-4 h-4 mr-2" />
-              {social.label}
-            </Button>
-          );
-        })}
+        {/* Right: avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
+          className="md:col-span-2 flex justify-center"
+        >
+          <button
+            onClick={() => setLightbox(true)}
+            className="group relative w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity duration-300 shadow-2xl"
+            style={{ border: "1px solid var(--border)" }}
+            aria-label="Enlarge photo"
+          >
+            <img
+              src={profile.avatarUrl}
+              alt={profile.name}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-3">
+              <span
+                className="opacity-0 group-hover:opacity-100 font-mono text-xs uppercase tracking-widest transition-all duration-300 px-2 py-1 rounded"
+                style={{ color: "var(--ink)", backgroundColor: "var(--bg-2)" }}
+              >
+                View
+              </span>
+            </div>
+          </button>
+        </motion.div>
+      </div>
 
-        {/* <CVDownloadButton /> */}
-      </motion.div>
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-6"
+            style={{ backgroundColor: "rgba(13,11,8,0.85)", backdropFilter: "blur(8px)" }}
+            onClick={() => setLightbox(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative max-w-sm w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={profile.avatarUrl}
+                alt={profile.name}
+                className="w-full rounded-2xl shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+              <button
+                onClick={() => setLightbox(false)}
+                className="absolute top-3 right-3 p-1.5 rounded-full transition-colors"
+                style={{ backgroundColor: "var(--bg-2)", color: "var(--ink)" }}
+                aria-label="Close"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

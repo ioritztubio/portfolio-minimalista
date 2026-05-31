@@ -6,14 +6,21 @@ export const en: Translation = {
         name: "Ioritz Tubío Sánchez",
         subtitle: "Software Engineer · Fullstack Developer",
         about: [
-            "I'm a {age}-year-old Computer Engineer from the Basque Country — currently working at PKF Attest's AI department, where I've built production software that real people use every day.",
-            "I care about writing code that actually works, without sacrificing quality — because maintainable systems matter. I like collaborating with people who push me to improve and learning something new every single day.",
-            "I consider myself a restless person, capable of adapting to new situations and continuously growing. Beyond tech, I'm passionate about entrepreneurship and hope to pursue it at some point in my life."
+            "I'm a software engineer with a degree in Computer Engineering, and right now I'm doing a master's in Artificial Intelligence at UNIR.",
+            "I started out in frontend and moved into full-stack and cloud work. I build web applications end to end — from the React and Next.js interface to the database design and the backend behind it. My backend work has mostly been REST APIs with Django and PostgreSQL, along with designing database structures that hold up as an app grows. I've also worked with AWS to get web apps deployed and running in the cloud.",
+            "The master's is where I'm heading next. I want to move into AI engineering, and I'm using it to build real foundations rather than just collect a certificate. I like owning the hard parts of a project and figuring out how everything fits together, not just the piece in front of me."
+        ],
+        aboutHighlights: [
+            "master's in Artificial Intelligence",
+            "React and Next.js",
+            "Django and PostgreSQL",
+            "AWS",
+            "AI engineering"
         ],
         avatarUrl: "https://github.com/ioritztubio.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
-            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritztubio", label: "LinkedIn" },
+            { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },
             { platform: "Email", url: "mailto:ioritztubio1@gmail.com", label: "Email" }
         ]
     },
@@ -24,13 +31,23 @@ export const en: Translation = {
         legendEducation: "Education",
         items: [
             {
+                type: "education",
+                title: "Master's in Artificial Intelligence",
+                organization: "UNIR — Universidad Internacional de La Rioja",
+                dateStart: "June 2026",
+                dateEnd: "May 2027",
+                description: "Online master's in Artificial Intelligence. 60 ECTS covering machine learning, deep learning, NLP, computer vision and AI engineering. Building real foundations to transition into applied AI development.",
+                highlights: ["machine learning", "deep learning", "AI engineering"]
+            },
+            {
                 type: "work",
                 title: "Junior Software Engineer",
-                organization: "PKF Attest — AI Department",
+                organization: "PKF Attest, Skootik — AI Department",
                 dateStart: "July 2025",
                 dateEnd: "Present",
                 description: "Working at PKF Attest — one of Spain's top 10 professional services firms and member of the PKF Global network (150+ countries, 480 offices). Specifically in the AI department, which integrates the offering of Skootik: turning clients' data into sustainable competitive advantage through AI consulting, strategy and development. Building and maintaining production-grade fullstack applications with Next.js, TypeScript, Django and Python, within an agile team applying clean architecture, CI/CD pipelines with Jenkins and scalable system design.",
-                highlights: ["Spain's top 10", "Skootik", "AI department"]
+                highlights: ["Spain's top 10", "Skootik", "AI department"],
+                tags: ["Next.js", "TypeScript", "Django", "Python", "AWS"]
             },
             {
                 type: "work",
@@ -39,7 +56,8 @@ export const en: Translation = {
                 dateStart: "July 2024",
                 dateEnd: "August 2024",
                 description: "Developed software for autonomous drone systems. Built solutions in TypeScript, Python and Bash. Set up CI pipelines with Jenkins, managed repos with Git and Bitbucket, and worked on mission control software including telemetry processing, connectivity verification and ROS-based middleware communication. Sprint-based Agile methodology.",
-                highlights: ["autonomous drone systems"]
+                highlights: ["autonomous drone systems"],
+                tags: ["TypeScript", "Python", "Jenkins"]
             },
             {
                 type: "education",
@@ -73,7 +91,7 @@ export const en: Translation = {
                 organization: "Muka, Ixo Restauración SL",
                 dateStart: "September 2022",
                 dateEnd: "October 2023",
-                description: "Catering at events is where you truly learn to perform under real-world constraints: unfamiliar venues, tight schedules, demanding clients and no margin for error. Served formal galas, corporate dinners and private celebrations — often one of the youngest on the team, always expected to deliver like a veteran. Proved that adaptability and professionalism aren't personality traits, they're habits you build by showing up and doing the work.",
+                description: "Customer service and table service at catering events: galas, corporate dinners and private celebrations. Work during long, demanding shifts maintaining a professional attitude at all times.",
                 extra: true
             },
             {
@@ -82,7 +100,7 @@ export const en: Translation = {
                 organization: "MCC Graphics S. Coop",
                 dateStart: "July 2023",
                 dateEnd: "July 2023",
-                description: "A month on a production floor in a printing cooperative teaches you things no degree does: the discipline of a real industrial environment, the precision required in quality control, and what it means to work shoulder-to-shoulder with people who've been doing this for decades. No task considered beneath me — handled materials, monitored print quality and contributed to a live production line from day one.",
+                description: "One month on the production floor of a printing cooperative. Assisted with material handling, print quality control and production line maintenance. First exposure to a real industrial environment and teamwork with experienced operators.",
                 extra: true
             }
         ]
@@ -121,6 +139,8 @@ export const en: Translation = {
         showExtra: "Beyond the Keyboard",
         hideExtra: "Hide additional experience",
         extraExperienceTagline: "Before software, there were full dining rooms, event floors and production lines.",
-        comingSoonBadge: "Coming soon"
+        comingSoonBadge: "Coming soon",
+        startingSoon: "Starting soon",
+        inProgress: "In progress"
     }
 };

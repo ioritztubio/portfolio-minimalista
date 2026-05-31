@@ -1,14 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Cormorant Garamond", Georgia, serif;
+}
+
+:root {
+  --bg:       #0D0B08;
+  --bg-2:     #181410;
+  --ink:      #ECE8DE;
+  --ink-2:    #A09A8C;
+  --ink-3:    #5A5248;
+  --border:   #2B2520;
+  --accent:   #E8A94C;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #0a0a0a;
+  background-color: var(--bg);
+  cursor: none;
 }
 
 body {
@@ -16,4 +28,61 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a, button, [role="button"] {
+  cursor: none;
+}
+
+/* Section label — mono uppercase + extending line */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 0.5px;
+  background: var(--border);
+}
+
+/* Spotlight cursor */
+#cursor-spotlight {
+  position: fixed;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(232, 169, 76, 0.06) 0%, transparent 65%);
+  transform: translate(-50%, -50%);
+  transition: background 0.4s ease;
+  will-change: transform;
+}
+
+body.cursor-hover #cursor-spotlight {
+  background: radial-gradient(circle, rgba(232, 169, 76, 0.13) 0%, transparent 60%);
+}
+
+#cursor-dot {
+  position: fixed;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--ink);
+  pointer-events: none;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  will-change: transform;
 }

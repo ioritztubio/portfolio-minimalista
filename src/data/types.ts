@@ -8,6 +8,7 @@ export interface TimelineEvent {
   dateEnd: string; // 'Present' or date
   description: string;
   highlights?: string[]; // keywords to highlight in the description
+  tags?: string[]; // tech/skill badge pills shown below description
   extra?: boolean; // marks non-tech experience (hidden by default)
 }
 
@@ -33,6 +34,7 @@ export interface ProfileData {
   name: string;
   subtitle: string;
   about: string[];
+  aboutHighlights?: string[];
   avatarUrl: string;
   socials: SocialLink[];
 }

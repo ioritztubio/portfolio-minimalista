@@ -30,5 +30,7 @@ export interface Translation {
         hideExtra: string;
         extraExperienceTagline: string;
         comingSoonBadge: string;
+        startingSoon: string;
+        inProgress: string;
     };
 }
