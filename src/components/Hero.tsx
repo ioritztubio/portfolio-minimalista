@@ -155,7 +155,7 @@ export const Hero: React.FC = () => {
           <button
             onClick={() => setLightbox(true)}
             className="group relative overflow-hidden
-              w-24 rounded-full
+              w-32 rounded-full
               md:w-full md:max-w-[290px] md:rounded-[10px_10px_0_0]
               [aspect-ratio:1] md:[aspect-ratio:3/4]"
             aria-label="Enlarge photo"
