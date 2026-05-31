@@ -20,7 +20,6 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--bg);
-  cursor: none;
 }
 
 body {
@@ -30,8 +29,45 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a, button, [role="button"] {
-  cursor: none;
+/* Cursor — only on pointer/hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  html,
+  a, button, [role="button"] {
+    cursor: none;
+  }
+
+  #cursor-spotlight {
+    position: fixed;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle, rgba(232, 169, 76, 0.06) 0%, transparent 65%);
+    transform: translate(-50%, -50%);
+    transition: background 0.4s ease;
+    will-change: transform;
+  }
+
+  body.cursor-hover #cursor-spotlight {
+    background: radial-gradient(circle, rgba(232, 169, 76, 0.13) 0%, transparent 60%);
+  }
+
+  #cursor-dot {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--ink);
+    pointer-events: none;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+  }
 }
 
 /* Section label — mono uppercase + extending line */
@@ -53,36 +89,20 @@ a, button, [role="button"] {
   background: var(--border);
 }
 
-/* Spotlight cursor */
-#cursor-spotlight {
-  position: fixed;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background: radial-gradient(circle, rgba(232, 169, 76, 0.06) 0%, transparent 65%);
-  transform: translate(-50%, -50%);
-  transition: background 0.4s ease;
-  will-change: transform;
+/* Background decor animations */
+@keyframes decor-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
-
-body.cursor-hover #cursor-spotlight {
-  background: radial-gradient(circle, rgba(232, 169, 76, 0.13) 0%, transparent 60%);
+@keyframes decor-spin-reverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
 }
-
-#cursor-dot {
-  position: fixed;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--ink);
-  pointer-events: none;
-  z-index: 9999;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  will-change: transform;
+@keyframes decor-float {
+  0%, 100% { transform: translateY(0px) rotate(45deg); }
+  50%       { transform: translateY(-18px) rotate(45deg); }
+}
+@keyframes decor-drift {
+  0%, 100% { transform: translateX(0px); }
+  50%       { transform: translateX(10px); }
 }
