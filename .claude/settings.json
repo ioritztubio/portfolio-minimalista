@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e ' *)",
+      "Bash(find /home/ioritztubio -name \"linked-in-image*\" 2>/dev/null | head -5)",
+      "Read(//home/ioritztubio/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
+    ]
+  }
+}

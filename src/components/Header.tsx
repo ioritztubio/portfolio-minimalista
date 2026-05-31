@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("about");
-  const { t, toggleLang } = useLanguage();
+  const { t, lang, toggleLang } = useLanguage();
 
   const NAV_LINKS = [
     { label: t.ui.navAbout, href: "#about", id: "about" },
@@ -98,21 +98,24 @@ export const Header: React.FC = () => {
 
         {/* Right: lang toggle + CV + hamburger */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={toggleLang}
-            className="hidden md:inline-flex px-2.5 py-1 text-xs font-mono rounded transition-all duration-200"
-            style={{ color: "var(--ink-3)", border: "0.5px solid var(--border)" }}
-            onMouseEnter={e => {
-              (e.currentTarget as HTMLElement).style.color = "var(--ink)";
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--ink-2)";
-            }}
-            onMouseLeave={e => {
-              (e.currentTarget as HTMLElement).style.color = "var(--ink-3)";
-              (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-            }}
+          <div
+            className="hidden md:flex items-center overflow-hidden rounded"
+            style={{ border: "0.5px solid var(--border)" }}
           >
-            {t.ui.langToggle}
-          </button>
+            {(["en", "es"] as const).map((l) => (
+              <button
+                key={l}
+                onClick={() => l !== lang && toggleLang()}
+                className="px-2.5 py-1 text-xs font-mono uppercase tracking-widest transition-all duration-200"
+                style={{
+                  color: lang === l ? "var(--bg)" : "var(--ink-3)",
+                  backgroundColor: lang === l ? "var(--ink)" : "transparent",
+                }}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
           <CVDownloadButton />
           <button
             className="md:hidden p-1.5 transition-colors"

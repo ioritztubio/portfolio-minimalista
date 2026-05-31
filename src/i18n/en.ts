@@ -5,6 +5,7 @@ export const en: Translation = {
     profile: {
         name: "Ioritz Tubio Sanchez",
         subtitle: "Software Engineer · Fullstack Developer",
+        location: "Donostia — San Sebastián",
         about: [
             "I'm a software engineer with a degree in Computer Engineering, and right now I'm doing a master's in Artificial Intelligence at UNIR.",
             "I started out in frontend and moved into full-stack and cloud work. I build web applications end to end — from the React and Next.js interface to the database design and the backend behind it. My backend work has mostly been REST APIs with Django and PostgreSQL, along with designing database structures that hold up as an app grows. I've also worked with AWS to get web apps deployed and running in the cloud.",
@@ -17,7 +18,7 @@ export const en: Translation = {
             "AWS",
             "AI engineering"
         ],
-        avatarUrl: "https://github.com/ioritztubio.png",
+        avatarUrl: "/images/avatar.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
             { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },

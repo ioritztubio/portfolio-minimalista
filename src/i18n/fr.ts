@@ -17,7 +17,7 @@ export const fr: Translation = {
             "AWS",
             "ingénierie de l'IA"
         ],
-        avatarUrl: "https://github.com/ioritztubio.png",
+        avatarUrl: "/images/avatar.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
             { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },

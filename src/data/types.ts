@@ -33,6 +33,7 @@ export interface SocialLink {
 export interface ProfileData {
   name: string;
   subtitle: string;
+  location?: string;
   about: string[];
   aboutHighlights?: string[];
   avatarUrl: string;

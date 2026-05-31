@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import { Button } from "./ui/Button";
-import { Github, Linkedin, Mail, X } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, X } from "lucide-react";
 import confetti from "canvas-confetti";
 import { renderHighlights } from "../utils/highlights";
 
@@ -64,7 +64,6 @@ export const Hero: React.FC = () => {
 
   return (
     <section id="about" className="px-4 pt-16 pb-20">
-      {/* Birthday banner */}
       <AnimatePresence>
         {birthday && (
           <motion.div
@@ -78,7 +77,7 @@ export const Hero: React.FC = () => {
         )}
       </AnimatePresence>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-16 items-start">
         {/* Left: text */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -86,17 +85,22 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left"
         >
-          {/* Mono tag */}
-          <p
-            className="font-mono text-xs uppercase tracking-widest mb-4"
-            style={{ color: "var(--accent)" }}
-          >
-            {profile.subtitle}
-          </p>
+          {/* Subtitle + location row */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1 mb-4">
+            <p className="font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
+              {profile.subtitle}
+            </p>
+            {profile.location && (
+              <span className="flex items-center gap-1 font-mono text-xs" style={{ color: "var(--ink-3)" }}>
+                <MapPin className="w-3 h-3" />
+                {profile.location}
+              </span>
+            )}
+          </div>
 
-          {/* Name — Cormorant Garamond italic */}
+          {/* Name */}
           <h1
-            className="text-5xl md:text-7xl font-bold text-white mb-8 leading-none"
+            className="text-5xl md:text-7xl font-bold mb-8 leading-none"
             style={{
               fontFamily: "var(--font-display)",
               fontStyle: "italic",
@@ -107,7 +111,7 @@ export const Hero: React.FC = () => {
             {profile.name}
           </h1>
 
-          {/* About — left accent bar, lead + body paragraphs */}
+          {/* About — left accent bar */}
           <div
             className="border-l-2 pl-5 mb-8 max-w-xl space-y-3 text-left"
             style={{ borderColor: "var(--accent)", opacity: 0.95 }}
@@ -141,32 +145,45 @@ export const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Right: avatar */}
+        {/* Right: portrait avatar with vignette */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.55, delay: 0.15, ease: "easeOut" }}
-          className="md:col-span-2 flex justify-center"
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="md:col-span-2 flex justify-center md:justify-end"
         >
           <button
             onClick={() => setLightbox(true)}
-            className="group relative w-52 h-52 md:w-64 md:h-64 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity duration-300 shadow-2xl"
-            style={{ border: "1px solid var(--border)" }}
+            className="group relative overflow-hidden"
+            style={{
+              width: "220px",
+              aspectRatio: "3 / 4",
+              borderRadius: "14px",
+              border: "1px solid var(--border)",
+            }}
             aria-label="Enlarge photo"
           >
             <img
               src={profile.avatarUrl}
               alt={profile.name}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-end justify-end p-3">
-              <span
-                className="opacity-0 group-hover:opacity-100 font-mono text-xs uppercase tracking-widest transition-all duration-300 px-2 py-1 rounded"
-                style={{ color: "var(--ink)", backgroundColor: "var(--bg-2)" }}
-              >
-                View
-              </span>
+            {/* Vignette — fades edges into background */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background: `
+                  linear-gradient(to bottom, transparent 55%, var(--bg) 100%),
+                  linear-gradient(to right, var(--bg) 0%, transparent 12%, transparent 88%, var(--bg) 100%)
+                `,
+              }}
+            />
+            {/* Hover hint */}
+            <div
+              className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-xs uppercase tracking-widest px-2 py-1 rounded"
+              style={{ color: "var(--ink)", backgroundColor: "rgba(13,11,8,0.7)" }}
+            >
+              View
             </div>
           </button>
         </motion.div>
@@ -181,7 +198,7 @@ export const Hero: React.FC = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-6"
-            style={{ backgroundColor: "rgba(13,11,8,0.85)", backdropFilter: "blur(8px)" }}
+            style={{ backgroundColor: "rgba(13,11,8,0.9)", backdropFilter: "blur(8px)" }}
             onClick={() => setLightbox(false)}
           >
             <motion.div
@@ -189,14 +206,15 @@ export const Hero: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative max-w-sm w-full"
+              className="relative"
+              style={{ maxWidth: "340px", width: "100%" }}
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={profile.avatarUrl}
                 alt={profile.name}
-                className="w-full rounded-2xl shadow-2xl"
-                referrerPolicy="no-referrer"
+                className="w-full shadow-2xl"
+                style={{ borderRadius: "14px" }}
               />
               <button
                 onClick={() => setLightbox(false)}

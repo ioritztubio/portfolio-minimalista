@@ -5,6 +5,7 @@ export const es: Translation = {
     profile: {
         name: "Ioritz Tubio Sanchez",
         subtitle: "Ingeniero de Software · Desarrollador Fullstack",
+        location: "Donostia — San Sebastián",
         about: [
             "Soy ingeniero de software con carrera en Ingeniería Informática y actualmente estoy cursando un máster en Inteligencia Artificial en UNIR.",
             "Empecé en frontend y fui evolucionando hacia el desarrollo fullstack y cloud. Construyo aplicaciones web de principio a fin — desde la interfaz con React y Next.js hasta el diseño de la base de datos y el backend. Mi trabajo en backend ha sido principalmente APIs REST con Django y PostgreSQL, junto con el diseño de estructuras de datos que aguantan el crecimiento de la app. También he trabajado con AWS para desplegar y mantener aplicaciones en la nube.",
@@ -17,7 +18,7 @@ export const es: Translation = {
             "AWS",
             "ingeniería de IA"
         ],
-        avatarUrl: "https://github.com/ioritztubio.png",
+        avatarUrl: "/images/avatar.png",
         socials: [
             { platform: "GitHub", url: "https://github.com/ioritztubio", label: "GitHub" },
             { platform: "LinkedIn", url: "https://linkedin.com/in/ioritz-tubio", label: "LinkedIn" },
