@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
           className="md:col-span-3 flex flex-col items-center md:items-start text-center md:text-left"
         >
           {/* Subtitle + location row */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1 mb-4">
+          <div className="flex flex-col items-center md:items-start gap-1 mb-4">
             <p className="font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
               {profile.subtitle}
             </p>
@@ -154,7 +154,7 @@ export const Hero: React.FC = () => {
         >
           <button
             onClick={() => setLightbox(true)}
-            className="group relative overflow-hidden w-full"
+            className="group relative overflow-hidden w-full max-w-[210px]"
             style={{ aspectRatio: "3 / 4", borderRadius: "10px 10px 0 0" }}
             aria-label="Enlarge photo"
           >
