@@ -78,14 +78,41 @@ export const Hero: React.FC = () => {
       </AnimatePresence>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-16 items-center">
-        {/* Left: text — second in DOM but first visually on desktop */}
+        {/* Avatar — FIRST in DOM → above text on mobile; order-last pushes it right on desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+          className="md:col-span-2 md:order-last flex justify-center md:justify-end"
+        >
+          <button
+            onClick={() => setLightbox(true)}
+            className="group relative overflow-hidden
+              w-40 rounded-full
+              md:w-full md:max-w-[290px] md:rounded-[10px_10px_0_0]
+              [aspect-ratio:1] md:[aspect-ratio:3/4]"
+            aria-label="Enlarge photo"
+          >
+            <img
+              src={profile.avatarUrl}
+              alt={profile.name}
+              className="w-full h-full object-cover object-[center_15%] md:object-center group-hover:scale-105 transition-transform duration-500"
+            />
+            {/* Bottom vignette — desktop only */}
+            <div
+              className="absolute inset-0 pointer-events-none hidden md:block"
+              style={{ background: "linear-gradient(to bottom, transparent 50%, var(--bg) 100%)" }}
+            />
+          </button>
+        </motion.div>
+
+        {/* Text — second in DOM → below avatar on mobile; order-first puts it left on desktop */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="md:col-span-3 md:order-first flex flex-col items-center md:items-start text-center md:text-left"
         >
-          {/* Subtitle + location row */}
           <div className="flex flex-col items-center md:items-start gap-1 mb-4">
             <p className="font-mono text-xs uppercase tracking-widest" style={{ color: "var(--accent)" }}>
               {profile.subtitle}
@@ -98,20 +125,13 @@ export const Hero: React.FC = () => {
             )}
           </div>
 
-          {/* Name */}
           <h1
             className="text-5xl md:text-7xl font-bold mb-8 leading-none"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontStyle: "italic",
-              letterSpacing: "-0.01em",
-              color: "var(--ink)",
-            }}
+            style={{ fontFamily: "var(--font-display)", fontStyle: "italic", letterSpacing: "-0.01em", color: "var(--ink)" }}
           >
             {profile.name}
           </h1>
 
-          {/* About — left accent bar */}
           <div
             className="border-l-2 pl-5 mb-8 max-w-xl space-y-3 text-left"
             style={{ borderColor: "var(--accent)", opacity: 0.95 }}
@@ -131,7 +151,6 @@ export const Hero: React.FC = () => {
             })}
           </div>
 
-          {/* Social links */}
           <div className="flex flex-wrap justify-center md:justify-start gap-3">
             {profile.socials.map((social) => {
               const Icon = iconMap[social.platform] ?? Mail;
@@ -143,34 +162,6 @@ export const Hero: React.FC = () => {
               );
             })}
           </div>
-        </motion.div>
-
-        {/* Avatar — first in DOM = above text on mobile; moved right on desktop */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-          className="md:col-span-2 md:order-last flex justify-center md:justify-end"
-        >
-          <button
-            onClick={() => setLightbox(true)}
-            className="group relative overflow-hidden
-              w-32 rounded-full
-              md:w-full md:max-w-[290px] md:rounded-[10px_10px_0_0]
-              [aspect-ratio:1] md:[aspect-ratio:3/4]"
-            aria-label="Enlarge photo"
-          >
-            <img
-              src={profile.avatarUrl}
-              alt={profile.name}
-              className="w-full h-full object-cover object-[center_15%] md:object-center group-hover:scale-105 transition-transform duration-500"
-            />
-            {/* Bottom vignette — desktop only */}
-            <div
-              className="absolute inset-0 pointer-events-none hidden md:block"
-              style={{ background: "linear-gradient(to bottom, transparent 50%, var(--bg) 100%)" }}
-            />
-          </button>
         </motion.div>
       </div>
 
