@@ -119,6 +119,7 @@ export const eu: Translation = {
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AA"],
                 imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",
+                detailsUrl: "/projects/oris-dental-scan.html",
                 codePrivate: true,
                 codePrivateNote: "Iturburu-kodea pribatua da enpresako politikak direla eta"
             },

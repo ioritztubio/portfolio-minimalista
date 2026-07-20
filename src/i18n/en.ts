@@ -120,6 +120,7 @@ export const en: Translation = {
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AI"],
                 imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",
+                detailsUrl: "/projects/oris-dental-scan.html",
                 codePrivate: true,
                 codePrivateNote: "Source code is private due to company policies"
             },

@@ -18,6 +18,7 @@ export interface Project {
   tags: string[];
   imageUrl: string;
   demoUrl?: string;
+  detailsUrl?: string;
   repoUrl?: string;
   codePrivate?: boolean;
   codePrivateNote?: string;

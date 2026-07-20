@@ -74,6 +74,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
               {projects.viewDemo}
             </a>
           )}
+          {project.detailsUrl && (
+            <a
+              href={project.detailsUrl}
+              className="flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white text-sm font-semibold rounded-full hover:scale-105 transition-transform border border-zinc-700"
+            >
+              Case study
+            </a>
+          )}
           {project.codePrivate ? (
             <span
               className="flex items-center gap-2 px-4 py-2 bg-zinc-900/90 text-zinc-400 text-sm font-semibold rounded-full border border-zinc-700 cursor-default"
@@ -115,6 +123,14 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 aria-label={`${projects.viewDemo}: ${project.title}`}
               >
                 <ExternalLink className="w-5 h-5" />
+              </a>
+            )}
+            {project.detailsUrl && (
+              <a
+                href={project.detailsUrl}
+                className="text-zinc-400 hover:text-white text-xs font-mono"
+              >
+                Case study
               </a>
             )}
             {project.codePrivate ? (
