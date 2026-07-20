@@ -1,16 +1,23 @@
 import React from "react";
-import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
+import {
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+  Link,
+} from "@react-pdf/renderer";
 import { Translation } from "../i18n/types";
 
 // ─── Fonts ────────────────────────────────────────────────────────────────────
-const SERIF  = "Times-Roman";
-const BOLD   = "Times-Bold";
+const SERIF = "Times-Roman";
+const BOLD = "Times-Bold";
 const ITALIC = "Times-Italic";
 
 // ─── Colours ─────────────────────────────────────────────────────────────────
-const INK  = "#000000";
+const INK = "#000000";
 const MUTED = "#333333";
-const LINK  = "#1a56c4";
+const LINK = "#1a56c4";
 
 // ─── Styles ──────────────────────────────────────────────────────────────────
 const s = StyleSheet.create({
@@ -87,8 +94,13 @@ const s = StyleSheet.create({
 
   // ── Footer
   footer: {
-    position: "absolute", bottom: 20, left: 51, right: 51,
-    borderTopWidth: 0.4, borderTopColor: "#cccccc", paddingTop: 5,
+    position: "absolute",
+    bottom: 20,
+    left: 51,
+    right: 51,
+    borderTopWidth: 0.4,
+    borderTopColor: "#cccccc",
+    paddingTop: 5,
   },
   footerText: { fontSize: 7, color: "#999999", textAlign: "center" },
 });
@@ -96,13 +108,37 @@ const s = StyleSheet.create({
 // ─── CV data ──────────────────────────────────────────────────────────────────
 type Lang = "en" | "es";
 
-const DATA: Record<Lang, {
-  sections: Record<string, string>;
-  experience: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
-  education: { institution: string; location: string; degree: string; dates: string; bullets: string[] }[];
-  additional: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
-  skills: { left: { cat: string; val: string }[]; right: { cat: string; val: string }[] };
-}> = {
+const DATA: Record<
+  Lang,
+  {
+    sections: Record<string, string>;
+    experience: {
+      company: string;
+      location: string;
+      role: string;
+      dates: string;
+      bullets: string[];
+    }[];
+    education: {
+      institution: string;
+      location: string;
+      degree: string;
+      dates: string;
+      bullets: string[];
+    }[];
+    additional: {
+      company: string;
+      location: string;
+      role: string;
+      dates: string;
+      bullets: string[];
+    }[];
+    skills: {
+      left: { cat: string; val: string }[];
+      right: { cat: string; val: string }[];
+    };
+  }
+> = {
   en: {
     sections: {
       experience: "Professional Experience",
@@ -136,7 +172,7 @@ const DATA: Record<Lang, {
       {
         institution: "UNIR — Universidad Internacional de La Rioja",
         location: "Online",
-        degree: "Master's in Artificial Intelligence (upcoming)",
+        degree: "Master's in Artificial Intelligence",
         dates: "Jun 2026 – May 2027",
         bullets: [
           "60 ECTS online programme: machine learning, deep learning, NLP, computer vision and AI engineering.",
@@ -193,8 +229,14 @@ const DATA: Record<Lang, {
       right: [
         { cat: "Version Control: ", val: "Git, Bitbucket" },
         { cat: "Methodologies: ", val: "Agile / Scrum" },
-        { cat: "Languages: ", val: "Spanish (native), Basque (C1), English (intermediate)" },
-        { cat: "Interests: ", val: "Sport, entrepreneurship, family and friends" },
+        {
+          cat: "Languages: ",
+          val: "Spanish (native), Basque (C1), English (intermediate)",
+        },
+        {
+          cat: "Interests: ",
+          val: "Sport, entrepreneurship, family and friends",
+        },
       ],
     },
   },
@@ -289,8 +331,14 @@ const DATA: Record<Lang, {
       right: [
         { cat: "Control de versiones: ", val: "Git, Bitbucket" },
         { cat: "Metodologías: ", val: "Agile / Scrum" },
-        { cat: "Idiomas: ", val: "Español (nativo), Euskera (C1), Inglés (intermedio)" },
-        { cat: "Intereses: ", val: "Deporte, emprendimiento, familia y amigos" },
+        {
+          cat: "Idiomas: ",
+          val: "Español (nativo), Euskera (C1), Inglés (intermedio)",
+        },
+        {
+          cat: "Intereses: ",
+          val: "Deporte, emprendimiento, familia y amigos",
+        },
       ],
     },
   },
@@ -313,7 +361,14 @@ interface EntryProps {
   first?: boolean;
 }
 
-const Entry: React.FC<EntryProps> = ({ company, location, role, dates, bullets, first }) => (
+const Entry: React.FC<EntryProps> = ({
+  company,
+  location,
+  role,
+  dates,
+  bullets,
+  first,
+}) => (
   <View style={first ? {} : s.entryWrap} wrap={false}>
     <View style={s.entryTop}>
       <Text style={s.entryCompany}>{company}</Text>
@@ -333,7 +388,9 @@ const Entry: React.FC<EntryProps> = ({ company, location, role, dates, bullets, 
 );
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
-interface CVDocumentProps { t: Translation }
+interface CVDocumentProps {
+  t: Translation;
+}
 
 export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
   const lang: Lang = t.lang === "es" ? "es" : "en";
@@ -347,7 +404,6 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
       language={lang}
     >
       <Page size="A4" style={s.page}>
-
         {/* ── Name ── */}
         <Text style={s.name}>Ioritz Tubio Sanchez</Text>
 
@@ -359,7 +415,10 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
             ioritztubio1@gmail.com
           </Link>
           {"  |  "}
-          <Link src="https://linkedin.com/in/ioritz-tubio" style={s.contactLink}>
+          <Link
+            src="https://linkedin.com/in/ioritz-tubio"
+            style={s.contactLink}
+          >
             LinkedIn
           </Link>
           {"  |  "}
@@ -377,7 +436,15 @@ export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
         {/* ── Education ── */}
         <SectionTitle label={d.sections.education} />
         {d.education.map((e, i) => (
-          <Entry key={i} company={e.institution} role={e.degree} location={e.location} dates={e.dates} bullets={e.bullets} first={i === 0} />
+          <Entry
+            key={i}
+            company={e.institution}
+            role={e.degree}
+            location={e.location}
+            dates={e.dates}
+            bullets={e.bullets}
+            first={i === 0}
+          />
         ))}
 
         {/* ── Additional Experience ── */}
