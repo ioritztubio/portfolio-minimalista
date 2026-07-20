@@ -9,41 +9,122 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"ProfilePage","mainEntity":{"@type":"Person","name":"Ioritz Tubio Sanchez","url":"https://ioritztubio.dev/","jobTitle":"Software Engineer - Fullstack Developer","sameAs":["https://github.com/ioritztubio","https://www.linkedin.com/in/ioritz-tubio"]}}
     </script>
+    <style>
+      :root {
+        --bg: #0d0b08;
+        --surface: #15120e;
+        --ink: #f2ede4;
+        --muted: #a09a90;
+        --faint: #655f56;
+        --line: rgba(242, 237, 228, .14);
+        --accent: #e8a94c;
+      }
+
+      * { box-sizing: border-box; }
+      html { background: var(--bg); scroll-behavior: smooth; }
+      body { max-width: 1120px; min-height: 100vh; margin: 0 auto; padding: 1.5rem clamp(1rem, 4vw, 3rem); color: var(--ink); background: var(--bg); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; line-height: 1.6; }
+      a { color: inherit; }
+      a:hover, a:focus-visible { color: var(--accent); }
+      .topbar, footer { display: flex; justify-content: space-between; gap: 1rem; color: var(--faint); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
+      .topbar { margin-bottom: clamp(4rem, 10vh, 7rem); }
+      .topbar a { color: var(--ink); text-decoration: none; }
+      header.hero { max-width: 850px; padding-bottom: 4rem; }
+      .eyebrow, .meta, .section-label { color: var(--accent); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; }
+      .eyebrow { margin: 0 0 1rem; }
+      h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; }
+      h1 { max-width: 780px; margin: 0; font-size: clamp(3.5rem, 9vw, 7.5rem); letter-spacing: -.07em; line-height: .9; }
+      .role { margin: 1.5rem 0 .5rem; color: var(--muted); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.25rem, 2.5vw, 1.8rem); }
+      .contact { margin: 0; color: var(--faint); font-size: .75rem; }
+      .contact a { text-decoration: none; }
+      .intro { max-width: 650px; margin: 2rem 0 0; color: var(--muted); font-family: Georgia, 'Times New Roman', serif; font-size: 1.1rem; line-height: 1.55; }
+      .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+      .button { display: inline-block; padding: .65rem .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: .68rem; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, border-color .2s ease, color .2s ease; }
+      .button:first-child { border-color: var(--accent); background: var(--accent); color: var(--bg); }
+      .button:hover, .button:focus-visible { border-color: var(--accent); outline: none; transform: translateY(-2px); }
+      .button:first-child:hover, .button:first-child:focus-visible { color: var(--bg); }
+      section { position: relative; margin: 0 0 4.5rem; padding-left: clamp(1.5rem, 5vw, 4rem); border-left: 1px solid var(--line); }
+      section::before { content: ''; position: absolute; top: 0; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px rgba(232, 169, 76, .08); }
+      .section-label { margin: 0 0 2rem; }
+      h2 { margin: 0 0 2rem; color: var(--ink); font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -.04em; line-height: 1; }
+      article { margin: 0 0 2.8rem; }
+      article:last-child { margin-bottom: 0; }
+      h3 { margin: 0 0 .35rem; color: var(--ink); font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.15; }
+      .meta { margin: 0 0 1rem; color: var(--faint); font-size: .68rem; letter-spacing: .1em; }
+      ul { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--muted); font-family: Georgia, 'Times New Roman', serif; }
+      li { margin: .35rem 0; padding-left: .25rem; }
+      .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem 2rem; }
+      .skill { margin: 0; color: var(--muted); font-family: Georgia, 'Times New Roman', serif; }
+      .skill strong { color: var(--ink); font-family: inherit; font-weight: 700; }
+      footer { padding: 1.25rem 0 .5rem; border-top: 1px solid var(--line); }
+      @media (max-width: 640px) {
+        body { padding-top: 1rem; }
+        .topbar, footer { flex-direction: column; align-items: flex-start; }
+        .topbar { margin-bottom: 4rem; }
+        .skills { grid-template-columns: 1fr; }
+        section { margin-bottom: 3.5rem; }
+      }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    </style>
   </head>
   <body>
+    <div class="topbar">
+      <a href="/">ioritz.tubio</a>
+      <span>Curriculum Vitae / 2026</span>
+    </div>
+
     <main>
-      <header>
+      <header class="hero">
+        <p class="eyebrow">Software engineering · AI direction</p>
         <h1>Ioritz Tubio Sanchez</h1>
-        <p>Software Engineer - Fullstack Developer</p>
-        <p>Donostia - San Sebastian, Spain · <a href="mailto:ioritztubio1@gmail.com">ioritztubio1@gmail.com</a></p>
-        <p><a href="https://github.com/ioritztubio">GitHub</a> · <a href="https://www.linkedin.com/in/ioritz-tubio">LinkedIn</a> · <a href="/">Portfolio</a></p>
+        <p class="role">Software Engineer - Fullstack Developer</p>
+        <p class="contact">Donostia - San Sebastian, Spain · <a href="mailto:ioritztubio1@gmail.com">ioritztubio1@gmail.com</a></p>
+        <p class="contact"><a href="https://github.com/ioritztubio">GitHub</a> · <a href="https://www.linkedin.com/in/ioritz-tubio">LinkedIn</a></p>
+        <p class="intro">I build production web applications across the stack, from React and Next.js interfaces to Django APIs, PostgreSQL data models and AWS deployments. I am developing toward applied AI engineering.</p>
+        <nav class="actions" aria-label="CV links">
+          <a class="button" href="/">Back to portfolio</a>
+          <a class="button" href="mailto:ioritztubio1@gmail.com">Get in touch</a>
+        </nav>
       </header>
+
       <section aria-labelledby="experience-heading">
+        <p class="section-label">01 / Experience</p>
         <h2 id="experience-heading">Professional Experience</h2>
         <article>
           <h3>Junior Software Engineer - PKF Attest, Skootik AI Department</h3>
-          <p><time datetime="2025-07">July 2025</time> - Present · Donostia, Spain</p>
+          <p class="meta"><time datetime="2025-07">July 2025</time> - Present · Donostia, Spain</p>
           <ul><li>Build and maintain production fullstack applications with Next.js, TypeScript, Django, Python, PostgreSQL and AWS.</li><li>Contribute to clean architecture, REST APIs, Jenkins CI/CD and scalable system design.</li></ul>
         </article>
         <article>
           <h3>Software Developer Intern - Alerion Technologies</h3>
-          <p><time datetime="2024-07">July 2024</time> - <time datetime="2024-08">August 2024</time> · Donostia, Spain</p>
+          <p class="meta"><time datetime="2024-07">July 2024</time> - <time datetime="2024-08">August 2024</time> · Donostia, Spain</p>
           <ul><li>Developed mission-control software for autonomous drone systems.</li><li>Worked with TypeScript, Python, Bash, Jenkins, Git, Bitbucket and ROS-based middleware.</li></ul>
         </article>
       </section>
+
       <section aria-labelledby="education-heading">
+        <p class="section-label">02 / Education</p>
         <h2 id="education-heading">Education</h2>
-        <article><h3>Master's in Artificial Intelligence - UNIR</h3><p><time datetime="2026-06">June 2026</time> - <time datetime="2027-05">May 2027</time> · Online</p></article>
-        <article><h3>Bachelor's in Computer Engineering - University of the Basque Country (UPV/EHU)</h3><p><time datetime="2021-09">September 2021</time> - <time datetime="2026-02">February 2026</time> · Donostia, Spain</p></article>
+        <article><h3>Master's in Artificial Intelligence - UNIR</h3><p class="meta"><time datetime="2026-06">June 2026</time> - <time datetime="2027-05">May 2027</time> · Online</p></article>
+        <article><h3>Bachelor's in Computer Engineering - University of the Basque Country (UPV/EHU)</h3><p class="meta"><time datetime="2021-09">September 2021</time> - <time datetime="2026-02">February 2026</time> · Donostia, Spain</p></article>
       </section>
+
       <section aria-labelledby="skills-heading">
+        <p class="section-label">03 / Toolkit</p>
         <h2 id="skills-heading">Skills</h2>
-        <p><strong>Languages:</strong> TypeScript, Python, JavaScript, Bash</p>
-        <p><strong>Frontend:</strong> React, Next.js, Tailwind CSS</p>
-        <p><strong>Backend:</strong> Django REST Framework, REST APIs</p>
-        <p><strong>Cloud and DevOps:</strong> AWS, Jenkins CI/CD</p>
-        <p><strong>Databases:</strong> PostgreSQL, SQL</p>
+        <div class="skills">
+          <p class="skill"><strong>Languages:</strong> TypeScript, Python, JavaScript, Bash</p>
+          <p class="skill"><strong>Frontend:</strong> React, Next.js, Tailwind CSS</p>
+          <p class="skill"><strong>Backend:</strong> Django REST Framework, REST APIs</p>
+          <p class="skill"><strong>Cloud and DevOps:</strong> AWS, Jenkins CI/CD</p>
+          <p class="skill"><strong>Databases:</strong> PostgreSQL, SQL</p>
+          <p class="skill"><strong>Languages:</strong> Spanish (native), Basque (C1), English (intermediate)</p>
+        </div>
       </section>
     </main>
+
+    <footer>
+      <span>Last updated: 2026</span>
+      <span><a href="/">ioritztubio.dev</a></span>
+    </footer>
   </body>
 </html>
