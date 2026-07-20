@@ -153,7 +153,7 @@ const DATA: Record<
         role: "Junior Software Engineer · AI Department",
         dates: "Jul 2025 – Present",
         bullets: [
-          "Designed and developed Oris Dental Scan end-to-end: an EU- and government-funded AI dental pre-diagnosis tool in production, used by real patients. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
+          "Contributed across the product end-to-end as part of the engineering team: an EU- and government-funded AI dental pre-diagnosis tool in production, used by real patients. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
           "Built and maintained multiple client-facing fullstack applications within an Agile/Scrum team: clean architecture, REST APIs, CI/CD pipelines with Jenkins, scalable system design on AWS.",
         ],
       },
@@ -255,7 +255,7 @@ const DATA: Record<
         role: "Ingeniero de Software Junior · Departamento de IA",
         dates: "Jul 2025 – Actualidad",
         bullets: [
-          "Diseño y desarrollo completo de Oris Dental Scan: herramienta de prediagnóstico dental con IA, financiada por la UE, el Gobierno de España y el Gobierno Vasco, en producción con pacientes reales. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
+          "Contribución de extremo a extremo como parte del equipo de ingeniería en Oris Dental Scan: herramienta de prediagnóstico dental con IA, financiada por la UE, el Gobierno de España y el Gobierno Vasco, en producción con pacientes reales. Stack: Next.js (TypeScript), Django (Python), PostgreSQL, AWS.",
           "Desarrollo y mantenimiento de aplicaciones web orientadas a cliente en equipo ágil (Scrum): arquitectura limpia, APIs REST, pipelines CI/CD con Jenkins y diseño de sistemas escalables en AWS.",
         ],
       },
