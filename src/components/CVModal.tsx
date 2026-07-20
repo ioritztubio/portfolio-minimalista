@@ -49,6 +49,9 @@ export const CVModal: React.FC<Props> = ({ open, onClose }) => {
           className="fixed inset-0 z-[200] flex items-start justify-center overflow-y-auto py-8 px-4"
           style={{ backgroundColor: "rgba(13,11,8,0.88)", backdropFilter: "blur(8px)" }}
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Curriculum Vitae preview"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}

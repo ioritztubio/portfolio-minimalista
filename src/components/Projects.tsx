@@ -17,7 +17,7 @@ export const Projects: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="mb-16"
       >
-        <p className="section-label">{projects.sectionTitle}</p>
+        <h2 className="section-label">{projects.sectionTitle}</h2>
         <p className="text-zinc-500 text-sm max-w-2xl">
           {projects.sectionSubtitle}
         </p>
@@ -44,7 +44,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
   const { projects } = t;
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -112,6 +112,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white"
+                aria-label={`${projects.viewDemo}: ${project.title}`}
               >
                 <ExternalLink className="w-5 h-5" />
               </a>
@@ -129,6 +130,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white"
+                aria-label={`${projects.viewCode}: ${project.title}`}
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -160,7 +162,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({
           ))}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 
@@ -171,7 +173,7 @@ const ComingSoonCard: React.FC<{ project: Project; index: number }> = ({
   const { t } = useLanguage();
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -212,6 +214,6 @@ const ComingSoonCard: React.FC<{ project: Project; index: number }> = ({
           {project.description}
         </p>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };

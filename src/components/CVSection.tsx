@@ -20,9 +20,9 @@ export const CVSection: React.FC = () => {
     <>
       <section id="cv" className="py-16 px-4 flex flex-col items-center gap-4">
         {/* Label */}
-        <p className="section-label w-full max-w-4xl">
+        <h2 className="section-label w-full max-w-4xl">
           {lang === "es" ? "Currículum" : "Curriculum Vitae"}
-        </p>
+        </h2>
 
         <motion.div
           className="relative rounded-2xl overflow-hidden"
@@ -94,6 +94,13 @@ export const CVSection: React.FC = () => {
         <p className="font-mono" style={{ fontSize: "10px", color: "var(--ink-3)", letterSpacing: "0.06em" }}>
           {lang === "es" ? "Hover para descargar" : "Hover to download"}
         </p>
+        <a
+          href="/cv.html"
+          className="font-mono text-xs underline underline-offset-4"
+          style={{ color: "var(--ink-2)" }}
+        >
+          {lang === "es" ? "Ver CV en formato texto" : "View text CV"}
+        </a>
       </section>
 
       <CVModal open={modalOpen} onClose={() => setModalOpen(false)} />

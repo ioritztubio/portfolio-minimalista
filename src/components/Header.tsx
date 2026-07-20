@@ -72,7 +72,7 @@ export const Header: React.FC = () => {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => {
             const isActive = active === link.id;
             return (
@@ -107,6 +107,7 @@ export const Header: React.FC = () => {
               <button
                 key={l}
                 onClick={() => l !== lang && toggleLang()}
+                aria-pressed={lang === l}
                 className="px-2.5 py-1 text-xs font-mono uppercase tracking-widest transition-all duration-200"
                 style={{
                   color: lang === l ? "var(--bg)" : "var(--ink-3)",
@@ -122,7 +123,8 @@ export const Header: React.FC = () => {
             className="md:hidden p-1.5 transition-colors"
             style={{ color: "var(--ink-2)" }}
             onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -139,7 +141,7 @@ export const Header: React.FC = () => {
             backdropFilter: "blur(12px)",
           }}
         >
-          <nav className="flex flex-col px-4 py-3 gap-1">
+          <nav aria-label="Mobile navigation" className="flex flex-col px-4 py-3 gap-1">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -162,6 +164,7 @@ export const Header: React.FC = () => {
                 <button
                   key={l}
                   onClick={() => { if (l !== lang) { toggleLang(); setOpen(false); } }}
+                  aria-pressed={lang === l}
                   className="px-3 py-1 text-xs font-mono uppercase tracking-widest rounded transition-all duration-200"
                   style={{
                     color: lang === l ? "var(--bg)" : "var(--ink-3)",

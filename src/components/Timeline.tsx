@@ -62,7 +62,7 @@ export const Timeline: React.FC = () => {
 
   return (
     <section id="experience" className="py-20 px-4 max-w-4xl mx-auto">
-      <p className="section-label">{timeline.sectionTitle}</p>
+      <h2 className="section-label">{timeline.sectionTitle}</h2>
 
       <div className="flex justify-center gap-6 mb-16 text-xs font-mono uppercase tracking-wider" style={{ color: "var(--ink-3)" }}>
         <span className="flex items-center gap-1.5">
@@ -88,6 +88,8 @@ export const Timeline: React.FC = () => {
         <div className="mt-16 flex flex-col items-center gap-6">
           <button
             onClick={() => setShowExtra((v) => !v)}
+            aria-expanded={showExtra}
+            aria-controls="additional-experience"
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
             style={{ border: "1px solid var(--border)", color: "var(--ink-2)" }}
           >
@@ -102,6 +104,7 @@ export const Timeline: React.FC = () => {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
+                id="additional-experience"
                 className="w-full overflow-hidden"
               >
                 <p className="text-center text-xs font-mono uppercase tracking-widest mb-12" style={{ color: "var(--ink-3)" }}>
@@ -196,7 +199,7 @@ const TimelineItem: React.FC<{ event: TimelineEvent; index: number }> = ({ event
         </div>
 
         <h3 className="text-xl font-bold mb-1" style={{ color: "var(--ink)" }}>{event.title}</h3>
-        <h4 className="text-md mb-3 font-medium" style={{ color: "var(--ink-2)" }}>{event.organization}</h4>
+        <p className="text-md mb-3 font-medium" style={{ color: "var(--ink-2)" }}>{event.organization}</p>
 
         <p className="leading-relaxed text-sm" style={{ color: "var(--ink-3)" }}>
           {renderHighlights(event.description, event.highlights ?? [], highlightClass)}
