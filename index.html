@@ -89,14 +89,61 @@
   </head>
 
   <body>
-    <div id="root"></div>
-    <noscript>
-      <main>
-        <h1>Ioritz Tubio Sanchez - Software &amp; AI Engineer</h1>
-        <p>Software engineer focused on fullstack development, cloud systems and applied AI engineering.</p>
-        <p>This portfolio requires JavaScript for its interactive presentation. A text version of the CV is available at <a href="/cv.html">ioritztubio.dev/cv.html</a>.</p>
+    <div id="root">
+      <header>
+        <nav aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="/cv.html">CV</a>
+        </nav>
+      </header>
+      <main id="main-content">
+        <section id="about" aria-labelledby="about-heading">
+          <p>Software Engineer · Fullstack Developer</p>
+          <h1 id="about-heading">Ioritz Tubio Sanchez</h1>
+          <p>Software engineer focused on fullstack development, cloud systems and applied AI engineering.</p>
+          <p>Based in Donostia - San Sebastian, Spain.</p>
+          <p>
+            <a href="https://github.com/ioritztubio">GitHub</a> ·
+            <a href="https://linkedin.com/in/ioritz-tubio">LinkedIn</a> ·
+            <a href="mailto:ioritztubio1@gmail.com">Email</a>
+          </p>
+        </section>
+
+        <section id="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Selected Works</h2>
+          <article>
+            <h3>Oris Dental Scan</h3>
+            <p>AI-powered dental pre-diagnosis tool. Users upload a photo and receive a preliminary oral health assessment. Built with Next.js, TypeScript, Django, Python and AI.</p>
+            <p><a href="https://orisdentalscan.com">View live project</a></p>
+          </article>
+        </section>
+
+        <section id="experience" aria-labelledby="experience-heading">
+          <h2 id="experience-heading">Experience &amp; Education</h2>
+          <article>
+            <h3>Junior Software Engineer - PKF Attest, Skootik AI Department</h3>
+            <p><time datetime="2025-07">July 2025</time> - Present · Donostia, Spain</p>
+            <p>Building and maintaining production fullstack applications with Next.js, TypeScript, Django, Python, PostgreSQL and AWS.</p>
+          </article>
+          <article>
+            <h3>Software Developer Intern - Alerion Technologies</h3>
+            <p><time datetime="2024-07">July 2024</time> - <time datetime="2024-08">August 2024</time> · Donostia, Spain</p>
+            <p>Developed mission-control software for autonomous drone systems with TypeScript, Python, Bash, Jenkins, Git and ROS-based middleware.</p>
+          </article>
+          <article>
+            <h3>Bachelor's in Computer Engineering - University of the Basque Country (UPV/EHU)</h3>
+            <p><time datetime="2021-09">September 2021</time> - <time datetime="2026-02">February 2026</time></p>
+          </article>
+          <article>
+            <h3>Master's in Artificial Intelligence - UNIR</h3>
+            <p><time datetime="2026-06">June 2026</time> - <time datetime="2027-05">May 2027</time> · Online</p>
+          </article>
+        </section>
       </main>
-    </noscript>
+      <footer><p><a href="/cv.html">Read the full text CV</a></p></footer>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
