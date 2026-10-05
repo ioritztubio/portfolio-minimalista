@@ -21,6 +21,7 @@ export interface Project {
   repoUrl?: string;
   codePrivate?: boolean;
   codePrivateNote?: string;
+  note?: string; // one short supporting line, e.g. funding
   comingSoon?: boolean;
 }
 

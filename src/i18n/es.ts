@@ -5,10 +5,10 @@ export const es: Translation = {
     profile: {
         name: "Ioritz Tubio Sanchez",
         subtitle: "Ingeniero de Software · Desarrollador Fullstack",
-        location: "Donostia — San Sebastián",
+        location: "Donostia-San Sebastián",
         about: [
             "Soy ingeniero de software con carrera en Ingeniería Informática y actualmente estoy cursando un máster en Inteligencia Artificial en UNIR.",
-            "Empecé en frontend y fui evolucionando hacia el desarrollo fullstack y cloud. Construyo aplicaciones web de principio a fin — desde la interfaz con React y Next.js hasta el diseño de la base de datos y el backend. Mi trabajo en backend ha sido principalmente APIs REST con Django y PostgreSQL, junto con el diseño de estructuras de datos que aguantan el crecimiento de la app. También he trabajado con AWS para desplegar y mantener aplicaciones en la nube.",
+            "Empecé en frontend y fui evolucionando hacia el desarrollo fullstack y cloud. Construyo aplicaciones web de principio a fin: desde la interfaz con React y Next.js hasta el diseño de la base de datos y el backend. Mi trabajo en backend ha sido principalmente APIs REST con Django y PostgreSQL, junto con el diseño de estructuras de datos que aguantan el crecimiento de la app. También he trabajado con AWS para desplegar y mantener aplicaciones en la nube.",
             "El máster es el siguiente paso. Quiero moverme hacia la ingeniería de IA y lo estoy usando para construir bases sólidas, no solo para conseguir un título. Me gusta responsabilizarme de las partes difíciles de un proyecto y entender cómo encaja todo, no solo la pieza que tengo delante."
         ],
         aboutHighlights: [
@@ -34,7 +34,7 @@ export const es: Translation = {
             {
                 type: "education",
                 title: "Máster en Inteligencia Artificial",
-                organization: "UNIR — Universidad Internacional de La Rioja",
+                organization: "UNIR, Universidad Internacional de La Rioja",
                 dateStart: "Junio 2026",
                 dateEnd: "Mayo 2027",
                 description: "Máster online en Inteligencia Artificial. 60 ECTS que cubren machine learning, deep learning, NLP, visión por computador e ingeniería de IA. Orientado a construir una base sólida para evolucionar hacia el desarrollo de aplicaciones de IA aplicada.",
@@ -43,10 +43,10 @@ export const es: Translation = {
             {
                 type: "work",
                 title: "Ingeniero de Software Junior",
-                organization: "PKF Attest, Skootik — Departamento de IA",
+                organization: "PKF Attest, Skootik (Departamento de IA)",
                 dateStart: "Julio 2025",
                 dateEnd: "Actualidad",
-                description: "Trabajo en PKF Attest — una de las 10 mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
+                description: "Trabajo en PKF Attest, una de las 10 mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
                 highlights: ["10 mejores firmas", "Skootik", "Departamento de IA"],
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AWS"]
             },
@@ -71,7 +71,7 @@ export const es: Translation = {
             },
             {
                 type: "education",
-                title: "Bachillerato — Ciencia y Tecnología",
+                title: "Bachillerato de Ciencia y Tecnología",
                 organization: "Pasaia Lezo Lizeoa",
                 dateStart: "Septiembre 2019",
                 dateEnd: "Junio 2021",
@@ -83,7 +83,7 @@ export const es: Translation = {
                 organization: "Restaurante VaBene",
                 dateStart: "Marzo 2022",
                 dateEnd: "Septiembre 2022",
-                description: "Trabajar de camarero no es glamuroso — es muy movido y exigente. Gestión simultánea de varias mesas, mantener la compostura bajo presión en los momentos de mayor afluencia y asegurar que cada cliente se fuera satisfecho. Aprendí pronto que rendir bajo presión es una habilidad que no se puede fingir y que ningún aula te enseña.",
+                description: "Trabajar de camarero no es glamuroso. Es muy movido y exigente. Gestión simultánea de varias mesas, mantener la compostura bajo presión en los momentos de mayor afluencia y asegurar que cada cliente se fuera satisfecho. Aprendí pronto que rendir bajo presión es una habilidad que no se puede fingir y que ningún aula te enseña.",
                 extra: true
             },
             {
@@ -97,7 +97,7 @@ export const es: Translation = {
             },
             {
                 type: "work",
-                title: "Oficial de 3ª — Imprenta",
+                title: "Oficial de 3ª, Imprenta",
                 organization: "MCC Graphics S. Coop",
                 dateStart: "Julio 2023",
                 dateEnd: "Julio 2023",
@@ -108,7 +108,7 @@ export const es: Translation = {
     },
     projects: {
         sectionTitle: "Proyectos",
-        sectionSubtitle: "Proyectos reales que han salido a producción, están disponibles públicamente y los usan personas reales — no side-projects que nunca salieron del localhost.",
+        sectionSubtitle: "Proyectos reales que han salido a producción, están disponibles públicamente y los usan personas reales. No son side-projects que nunca salieron del localhost.",
         privateCodeBadge: "Código privado",
         privateCodeTooltip: "El código fuente es privado por políticas de empresa",
         viewDemo: "Ver en vivo",
@@ -116,7 +116,8 @@ export const es: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Herramienta de prediagnóstico dental impulsada por IA y respaldada por doctores, pensada principalmente para móvil. Los usuarios suben una foto y reciben una evaluación preliminar de su salud bucodental en minutos, generada por un pipeline de IA personalizado. Colaboré tanto en el frontend (Next.js + TypeScript) como en el backend (Django + Python). La aplicación está activa, la usan pacientes reales y está financiada por la UE, el Gobierno de España y el Gobierno Vasco (Eusko Jaurlaritza). El código fuente es privado por políticas de empresa — pero puedes probar la aplicación en vivo.",
+                description: "Prediagnóstico dental con IA, pensado para móvil. Subes una foto y recibes una evaluación preliminar de tu salud bucodental en minutos. Trabajé en el frontend (Next.js, TypeScript) y el backend (Django, Python). En producción y usado por pacientes reales.",
+                note: "Financiado por la UE, el Gobierno de España y el Gobierno Vasco",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "IA"],
                 imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",
@@ -125,7 +126,7 @@ export const es: Translation = {
             },
             {
                 title: "Algo se está cocinando",
-                description: "Siempre hay algo en marcha. Más proyectos en construcción — trabajo para clientes, experimentos personales que empujan los límites de lo que sé. Nada se queda en el localhost para siempre.",
+                description: "Siempre hay algo en marcha. Más proyectos en construcción: trabajo para clientes, experimentos personales que empujan los límites de lo que sé. Nada se queda en el localhost para siempre.",
                 tags: [],
                 imageUrl: "",
                 comingSoon: true

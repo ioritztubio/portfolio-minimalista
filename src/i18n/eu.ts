@@ -5,6 +5,7 @@ export const eu: Translation = {
     profile: {
         name: "Ioritz Tubio Sanchez",
         subtitle: "Software Ingeniari · Fullstack Garatzaile",
+        location: "Donostia",
         about: [
             "Software ingeniaria naiz Informatika Ingeniaritzako graduarekin, eta gaur egun Adimen Artifizialeko masterra egiten ari naiz UNIRen.",
             "Frontendean hasi eta fullstack eta cloud lanera igaro nintzen. Web aplikazioak eraikitzen ditut hasieratik amaierara — React eta Next.js interfazeetatik datu-base diseinura eta atzeko alderaino. Nire backend lana nagusiki Django eta PostgreSQL-rekin REST API-ak dira, eta aplikazioak hazten diren heinean irauten duten datu-base egiturak diseinatuz. AWS-rekin ere lan egin dut web aplikazioak hodeiean hedatzeko eta martxan mantentzeko.",
@@ -115,7 +116,8 @@ export const eu: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Adimen artifizialak bultzatutako hortz aurrediagnosi tresna, batez ere mugikorrerako pentsatua. Erabiltzaileek argazki bat igotzen dute eta minutu gutxitan ahoko osasunaren aurrebalioespen bat jasotzen dute, AI pipeline pertsonalizatu batek sortua. Frontend-ean (Next.js + TypeScript) zein backend-ean (Django + Python) lagundu nuen. Aplikazioa aktibo dago, benetako pazienteek erabiltzen dute, eta EBk, Espainiako Gobernuak eta Eusko Jaurlaritzak finantzatua dago. Iturburu-kodea pribatua da enpresako politikak direla eta — baina zuzeneko aplikazioa proba dezakezu.",
+                description: "Adimen artifizialeko hortz aurrediagnostikoa, mugikorrerako pentsatua. Argazki bat igo eta aho-osasunaren aurretiazko ebaluazioa jasotzen duzu minututan. Frontendean (Next.js, TypeScript) eta backendean (Django, Python) lan egin nuen. Martxan dago eta benetako pazienteek erabiltzen dute.",
+                note: "EBk, Espainiako Gobernuak eta Eusko Jaurlaritzak finantzatua",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AA"],
                 imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",

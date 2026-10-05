@@ -1,0 +1,807 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T18:39:49+00:00",
+  "title": "Design System: Ioritz Tubio Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Silver Mist",
+        "canonical": "oklch(93.5% 0.0067 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Graphite Ink",
+        "canonical": "oklch(16.5% 0.0042 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "oklch(39.3% 0.0100 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink-tertiary": {
+        "role": "neutral",
+        "displayName": "Pewter Ink",
+        "canonical": "oklch(43.4% 0.0114 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "rgba(14, 14, 16, 0.10)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "rgba(14, 14, 16, 0.18)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-frost": {
+        "role": "neutral",
+        "displayName": "Frost",
+        "canonical": "rgba(255, 255, 255, 0.52)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-frost-strong": {
+        "role": "neutral",
+        "displayName": "Strong Frost",
+        "canonical": "rgba(255, 255, 255, 0.66)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-liquid": {
+        "role": "neutral",
+        "displayName": "Liquid Frost",
+        "canonical": "rgba(255, 255, 255, 0.32)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-rim": {
+        "role": "neutral",
+        "displayName": "Rim Light",
+        "canonical": "rgba(255, 255, 255, 0.85)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-edge": {
+        "role": "neutral",
+        "displayName": "Glass Edge",
+        "canonical": "rgba(14, 14, 16, 0.07)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "solid": {
+        "role": "primary",
+        "displayName": "Graphite Ink (solid fill)",
+        "canonical": "oklch(16.5% 0.0042 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "on-solid": {
+        "role": "neutral",
+        "displayName": "On Solid",
+        "canonical": "oklch(97.6% 0.0013 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "danger": {
+        "role": "error",
+        "displayName": "Signal Red",
+        "canonical": "oklch(50.0% 0.1821 30)",
+        "tonalRamp": [
+          "oklch(15% 0.16 30)",
+          "oklch(25% 0.16 30)",
+          "oklch(35% 0.16 30)",
+          "oklch(45% 0.16 30)",
+          "oklch(55% 0.16 30)",
+          "oklch(65% 0.16 30)",
+          "oklch(80% 0.16 30)",
+          "oklch(95% 0.16 30)"
+        ]
+      },
+      "canvas-dark": {
+        "role": "neutral",
+        "displayName": "Night Glass",
+        "canonical": "oklch(12.3% 0.0029 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink-dark": {
+        "role": "primary",
+        "displayName": "Moonlit Silver",
+        "canonical": "oklch(96.5% 0.0027 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink-secondary-dark": {
+        "role": "neutral",
+        "displayName": "Slate Ink (dark)",
+        "canonical": "oklch(77.2% 0.0113 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "ink-tertiary-dark": {
+        "role": "neutral",
+        "displayName": "Pewter Ink (dark)",
+        "canonical": "oklch(65.0% 0.0132 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "hairline-dark": {
+        "role": "neutral",
+        "displayName": "Hairline (dark)",
+        "canonical": "rgba(255, 255, 255, 0.09)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "hairline-strong-dark": {
+        "role": "neutral",
+        "displayName": "Strong Hairline (dark)",
+        "canonical": "rgba(255, 255, 255, 0.16)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-frost-dark": {
+        "role": "neutral",
+        "displayName": "Frost (dark)",
+        "canonical": "rgba(30, 30, 34, 0.42)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-frost-strong-dark": {
+        "role": "neutral",
+        "displayName": "Strong Frost (dark)",
+        "canonical": "rgba(36, 36, 40, 0.58)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-liquid-dark": {
+        "role": "neutral",
+        "displayName": "Liquid Frost (dark)",
+        "canonical": "rgba(40, 40, 46, 0.30)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-rim-dark": {
+        "role": "neutral",
+        "displayName": "Rim Light (dark)",
+        "canonical": "rgba(255, 255, 255, 0.16)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "glass-edge-dark": {
+        "role": "neutral",
+        "displayName": "Glass Edge (dark)",
+        "canonical": "rgba(255, 255, 255, 0.06)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "solid-dark": {
+        "role": "primary",
+        "displayName": "Moonlit Silver (solid fill)",
+        "canonical": "oklch(96.5% 0.0027 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "on-solid-dark": {
+        "role": "neutral",
+        "displayName": "On Solid (dark)",
+        "canonical": "oklch(15.0% 0.0021 286)",
+        "tonalRamp": [
+          "oklch(15% 0.009 286)",
+          "oklch(25% 0.009 286)",
+          "oklch(35% 0.009 286)",
+          "oklch(45% 0.009 286)",
+          "oklch(55% 0.009 286)",
+          "oklch(65% 0.009 286)",
+          "oklch(80% 0.009 286)",
+          "oklch(95% 0.009 286)"
+        ]
+      },
+      "danger-dark": {
+        "role": "error",
+        "displayName": "Signal Red (dark)",
+        "canonical": "oklch(80.1% 0.1094 25)",
+        "tonalRamp": [
+          "oklch(15% 0.16 30)",
+          "oklch(25% 0.16 30)",
+          "oklch(35% 0.16 30)",
+          "oklch(45% 0.16 30)",
+          "oklch(55% 0.16 30)",
+          "oklch(65% 0.16 30)",
+          "oklch(80% 0.16 30)",
+          "oklch(95% 0.16 30)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Full-screen closing statement only."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Sticky timeline year, tabular figures."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles and the hero statement."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "About lead paragraph, lit word by word on scroll."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project, timeline entry and form titles."
+      },
+      "body-large": {
+        "displayName": "Body Large",
+        "purpose": "Section intros and About paragraphs."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Descriptions; max 62ch in the timeline."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "All pill controls."
+      },
+      "label": {
+        "displayName": "Label (mono)",
+        "purpose": "Uppercase fact-strip terms; lowercase for tags and hostnames."
+      },
+      "data": {
+        "displayName": "Data (mono)",
+        "purpose": "Date ranges and project counters."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-ambient",
+        "value": "0 1px 1px rgba(14, 14, 16, 0.04), 0 12px 40px -12px rgba(14, 14, 16, 0.18)",
+        "purpose": "Single lift shadow for every glass pane, the CV document and the project screenshot (light)."
+      },
+      {
+        "name": "glass-ambient-dark",
+        "value": "0 1px 1px rgba(0, 0, 0, 0.3), 0 18px 50px -14px rgba(0, 0, 0, 0.7)",
+        "purpose": "Dark-theme lift shadow."
+      },
+      {
+        "name": "rim-inset",
+        "value": "inset 0 1px 0 0 var(--glass-rim), inset 0 0 0 1px var(--glass-edge)",
+        "purpose": "Top rim highlight plus 1px inner edge that makes a pane read as glass."
+      },
+      {
+        "name": "liquid-rim",
+        "value": "inset 0 1px 1px 0 var(--glass-rim), inset 0 -1px 1px 0 var(--glass-edge), inset 0 0 0 1px var(--glass-edge)",
+        "purpose": "Liquid glass edge; paired with a 140deg gradient ring brightest top-left and bottom-right."
+      },
+      {
+        "name": "specular",
+        "value": "radial-gradient(420px circle at var(--mx) var(--my), var(--specular), transparent 55%)",
+        "purpose": "Pointer/gyro-following light on tilting media frames; soft-light in light mode, screen in dark."
+      },
+      {
+        "name": "frost-blur",
+        "value": "blur(24px) saturate(160%)",
+        "purpose": "backdrop-filter for frosted content glass."
+      },
+      {
+        "name": "liquid-blur",
+        "value": "blur(30px) saturate(190%) brightness(1.04)",
+        "purpose": "backdrop-filter for liquid chrome glass."
+      },
+      {
+        "name": "modal-scrim",
+        "value": "color-mix(in oklab, var(--bg) 55%, transparent) + blur(18px) saturate(140%)",
+        "purpose": "Backdrop behind the CV modal."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Default curve for entrances, presses, nav settle and theme icon swap."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "Defined token for symmetric on-screen moves."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Defined token for sheet/drawer motion."
+      },
+      {
+        "name": "press",
+        "value": "scale(0.97) over 160ms ease-out",
+        "purpose": "Active state for every button and pressable."
+      },
+      {
+        "name": "entrance",
+        "value": "opacity 0->1, blur(8-12px)->0, translateY(12-24px)->0, 0.7-0.9s ease-out",
+        "purpose": "Standard in-view and load entrance; hero words stagger 45ms."
+      },
+      {
+        "name": "spring-indicator",
+        "value": "spring duration 0.35-0.4s, bounce 0.15",
+        "purpose": "Sliding active pill in nav, tab bar and language switch."
+      },
+      {
+        "name": "spring-modal",
+        "value": "spring duration 0.5s, bounce 0.12",
+        "purpose": "CV modal open; exits in 0.18s."
+      },
+      {
+        "name": "spring-tilt",
+        "value": "stiffness 150, damping 18, mass 0.6",
+        "purpose": "Pointer/gyro tilt (portrait 7deg, CV 5deg, screenshot 3deg)."
+      },
+      {
+        "name": "spring-magnetic",
+        "value": "stiffness 220, damping 16, mass 0.4; pull 22%",
+        "purpose": "Hero CTA magnetic pull on fine pointers."
+      },
+      {
+        "name": "field",
+        "value": "30% render scale, 30fps cap, time*0.03 drift, palette lerp 0.08/frame",
+        "purpose": "Background field budget; paused when the tab is hidden."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Keeps fades, drops transforms, blur scrubs, pinning, tilt, magnetic pull, cursor and loops."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "fine-pointer",
+        "value": "(hover: hover) and (pointer: fine)"
+      }
+    ],
+    "themes": {
+      "switch": "data-theme=\"light\" | \"dark\" on :root",
+      "cssVariables": "--bg, --ink, --ink-2, --ink-3, --line, --line-2, --glass, --glass-strong, --glass-liquid, --glass-rim, --glass-edge, --glass-shadow, --specular, --solid, --on-solid, --danger (src/index.css)"
+    },
+    "fieldPalettes": {
+      "light": [
+        {
+          "section": "hero",
+          "name": "cool silver",
+          "bg": "#E9E9EE",
+          "c1": "#D9DDE6",
+          "c2": "#C5CBD8",
+          "c3": "#FCFCFD"
+        },
+        {
+          "section": "about",
+          "name": "lilac mist",
+          "bg": "#EAE9EF",
+          "c1": "#DCD6E8",
+          "c2": "#C6BEDC",
+          "c3": "#FCFCFD"
+        },
+        {
+          "section": "projects",
+          "name": "sea glass",
+          "bg": "#E8EBEC",
+          "c1": "#D3E1E3",
+          "c2": "#B9D2D5",
+          "c3": "#FCFDFD"
+        },
+        {
+          "section": "experience",
+          "name": "pale steel",
+          "bg": "#E9EAEF",
+          "c1": "#D5DEEB",
+          "c2": "#BCC9E0",
+          "c3": "#FCFCFD"
+        },
+        {
+          "section": "contact",
+          "name": "neutral",
+          "bg": "#EBEBEE",
+          "c1": "#DDDDE2",
+          "c2": "#C9C9D1",
+          "c3": "#FFFFFF"
+        }
+      ],
+      "dark": [
+        {
+          "section": "hero",
+          "name": "cool silver",
+          "bg": "#060607",
+          "c1": "#1A1D25",
+          "c2": "#262B37",
+          "c3": "#3B4150"
+        },
+        {
+          "section": "about",
+          "name": "lilac mist",
+          "bg": "#060607",
+          "c1": "#1E1928",
+          "c2": "#2E253F",
+          "c3": "#47395C"
+        },
+        {
+          "section": "projects",
+          "name": "sea glass",
+          "bg": "#060607",
+          "c1": "#152224",
+          "c2": "#1E3538",
+          "c3": "#2F4B4E"
+        },
+        {
+          "section": "experience",
+          "name": "pale steel",
+          "bg": "#060607",
+          "c1": "#161D2E",
+          "c2": "#202D46",
+          "c3": "#344466"
+        },
+        {
+          "section": "contact",
+          "name": "neutral",
+          "bg": "#060607",
+          "c1": "#1C1C1F",
+          "c2": "#29292E",
+          "c3": "#404047"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The one primary action per cluster: View CV, View demo, Send, Accept.",
+      "html": "<button class=\"ds-btn-solid\">View CV <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></button>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 2.875rem; padding: 0 1.25rem; border: 0; border-radius: 999px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; text-decoration: none; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease, color 200ms ease; background: var(--solid); color: var(--on-solid); } .ds-btn-solid:hover { background: color-mix(in oklab, var(--solid) 86%, var(--bg)); } .ds-btn-solid:active { transform: scale(0.97); } .ds-btn-solid:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Glass Button",
+      "kind": "button",
+      "refersTo": "button-glass",
+      "description": "Secondary exits beside the solid pill: LinkedIn, Email, View code, Show more.",
+      "html": "<a href=\"#\" class=\"ds-btn-glass\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"2\" y=\"4\" width=\"20\" height=\"16\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg> Email</a>",
+      "css": ".ds-btn-glass { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 2.875rem; padding: 0 1.25rem; border: 0; border-radius: 999px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; text-decoration: none; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease, color 200ms ease; background: var(--glass); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); box-shadow: inset 0 1px 0 0 var(--glass-rim), inset 0 0 0 1px var(--glass-edge), var(--glass-shadow); color: var(--ink); } .ds-btn-glass:hover { background: var(--glass-strong); } .ds-btn-glass:active { transform: scale(0.97); } .ds-btn-glass:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Equal-weight alternative to a solid pill (consent Decline); same size, hairline ring.",
+      "html": "<button class=\"ds-btn-outline\">Decline</button>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; height: 2.875rem; padding: 0 1.25rem; border: 0; border-radius: 999px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; letter-spacing: -0.01em; white-space: nowrap; cursor: pointer; text-decoration: none; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 200ms ease, color 200ms ease; height: 2.5rem; font-size: 0.875rem; background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-2); } .ds-btn-outline:hover { background: var(--line); } .ds-btn-outline:active { transform: scale(0.97); } .ds-btn-outline:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Frosted content surface for projects, the CV card and the contact form.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-data\">2023 – Present</span><h3 class=\"ds-card-title\">Project title</h3><p class=\"ds-card-body\">Short description of what was built and why it matters.</p></article>",
+      "css": ".ds-card { position: relative; background: var(--glass); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); box-shadow: inset 0 1px 0 0 var(--glass-rim), inset 0 0 0 1px var(--glass-edge), var(--glass-shadow); border-radius: 28px; padding: 32px; max-width: 420px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; } .ds-card-data { font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ink-3); } .ds-card-title { margin: 12px 0 0; font-size: 1.75rem; font-weight: 600; line-height: 1.15; letter-spacing: -0.025em; color: var(--ink); } .ds-card-body { margin: 12px 0 0; font-size: 15px; line-height: 1.625; color: var(--ink-2); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Contact form input on strong frost with a hairline stroke; red stroke on error.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Email <span class=\"ds-field-req\">(required)</span></span><input class=\"ds-input\" type=\"email\" placeholder=\"you@company.com\"></label>",
+      "css": ".ds-field { display: grid; gap: 8px; max-width: 320px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; } .ds-field-label { font-size: 14px; font-weight: 500; color: var(--ink); } .ds-field-req { font-weight: 400; color: var(--ink-3); } .ds-input { width: 100%; padding: 12px 16px; font: inherit; font-size: 16px; border-radius: 16px; background: var(--glass-strong); color: var(--ink); border: 1px solid var(--line-2); transition: border-color 200ms, background-color 200ms; } .ds-input::placeholder { color: var(--ink-3); } .ds-input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; } .ds-input[aria-invalid='true'] { border-color: var(--danger); }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "Mono stack tag on a hairline fill.",
+      "html": "<ul class=\"ds-tags\"><li class=\"ds-tag\">React</li><li class=\"ds-tag\">Django</li><li class=\"ds-tag\">AWS</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; } .ds-tag { border-radius: 999px; padding: 4px 10px; font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 11px; background: var(--line); color: var(--ink-2); }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "refersTo": "chip-tag",
+      "description": "In progress / Starting soon / Coming soon badge with an ink dot.",
+      "html": "<span class=\"ds-status\"><span class=\"ds-status-dot\"></span>In progress</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 10px; font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; font-size: 12px; font-weight: 500; background: var(--line); color: var(--ink); } .ds-status-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--ink); }"
+    },
+    {
+      "name": "Nav Pill",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Floating liquid-glass desktop nav with a sliding hairline active indicator and a compact solid CV button.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-nav-name\">Ioritz Tubio</a><span class=\"ds-nav-sep\"></span><a href=\"#\" class=\"ds-nav-link\">About</a><a href=\"#\" class=\"ds-nav-link\" aria-current=\"true\">Projects</a><a href=\"#\" class=\"ds-nav-link\">Experience</a><button class=\"ds-nav-cv\">CV</button></nav>",
+      "css": ".ds-nav { position: relative; display: inline-flex; align-items: center; gap: 4px; padding: 5px; border-radius: 999px; background: var(--glass-liquid); -webkit-backdrop-filter: blur(30px) saturate(190%) brightness(1.04); backdrop-filter: blur(30px) saturate(190%) brightness(1.04); box-shadow: inset 0 1px 1px 0 var(--glass-rim), inset 0 -1px 1px 0 var(--glass-edge), inset 0 0 0 1px var(--glass-edge), var(--glass-shadow); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; } .ds-nav-name { display: grid; place-items: center; height: 32px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; } .ds-nav-sep { width: 1px; height: 16px; margin: 0 4px; background: var(--line-2); } .ds-nav-link { display: grid; place-items: center; height: 32px; padding: 0 14px; border-radius: 999px; font-size: 13px; color: var(--ink-2); text-decoration: none; transition: color 200ms, background-color 200ms; } .ds-nav-link:hover { color: var(--ink); } .ds-nav-link[aria-current='true'] { background: var(--line); color: var(--ink); } .ds-nav-link:focus-visible, .ds-nav-cv:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; } .ds-nav-cv { height: 32px; margin-left: 4px; padding: 0 14px; border: 0; border-radius: 999px; font: inherit; font-size: 13px; font-weight: 500; background: var(--solid); color: var(--on-solid); cursor: pointer; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-nav-cv:active { transform: scale(0.97); }"
+    },
+    {
+      "name": "Fact Strip",
+      "kind": "custom",
+      "refersTo": "card-glass",
+      "description": "Hero glass strip of three facts (Now / Studying / Based) divided by 1px hairline gaps.",
+      "html": "<dl class=\"ds-facts\"><div class=\"ds-fact\"><dt>Now</dt><dd>Junior Software Engineer<span>PKF Attest</span></dd></div><div class=\"ds-fact\"><dt>Studying</dt><dd>Master in AI<span>UNIR</span></dd></div><div class=\"ds-fact\"><dt>Based</dt><dd>Donostia</dd></div></dl>",
+      "css": ".ds-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: 0; overflow: hidden; border-radius: 16px; background: var(--glass); -webkit-backdrop-filter: blur(24px) saturate(160%); backdrop-filter: blur(24px) saturate(160%); box-shadow: inset 0 1px 0 0 var(--glass-rim), inset 0 0 0 1px var(--glass-edge), var(--glass-shadow); background: var(--line); font-family: 'Geist Variable', ui-sans-serif, system-ui, sans-serif; } .ds-fact { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--glass); } .ds-fact dt { font-family: 'Geist Mono Variable', ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); } .ds-fact dd { margin: 0; font-size: 15px; font-weight: 500; line-height: 1.375; color: var(--ink); } .ds-fact dd span { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--ink-2); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Glass Over a Living Field",
+    "overview": "The page is one continuous surface, not a stack of bands. Behind everything runs a single WebGL field of soft, domain-warped shapes that drift slowly, flow upward with scroll, and shift their faint cool tint as each section takes the viewport. In front of it sits a strictly monochrome interface: graphite and silver ink, frosted glass panels with a bright top rim, and one solid ink pill per cluster for the action that matters. Colour exists only in the field; the interface itself never carries a hue.\n\nDensity is low and the voice is Apple-product-page cinematic but restrained. Sections own a full viewport or close to it, headings are large, tight and semibold, and the motion grammar is consistent everywhere: content arrives out of a soft blur, rising a few pixels on a long ease-out curve; scroll-linked scenes (the receding hero, the pinned project stage, the sticky year, the closing statement) scale and unblur with scroll position rather than playing on a timer. Pointer and gyroscope drive a gentle tilt and a specular light on framed media. Every one of these has a reduced-motion path that keeps fades and drops movement.\n\nThe system explicitly rejects the dark-plus-neon developer portfolio, any warm or orange accent, and the name-as-hero template: the owner's name and portrait never dominate, information comes first.",
+    "keyCharacteristics": [
+      "Monochrome UI over one animated, softly tinted background field shared by the whole page.",
+      "Two glass materials: calm frosted glass for content, thicker liquid glass for floating chrome.",
+      "Geist for everything readable; Geist Mono only for data (dates, counters, tags, hosts, fact labels).",
+      "Pill-shaped controls, generously rounded cards (28px), no hard borders.",
+      "Blur-to-focus entrances on cubic-bezier(0.23, 1, 0.32, 1); scroll-linked scenes on desktop; full reduced-motion support.",
+      "Light and dark themes are equal citizens, switched by `data-theme` on the root."
+    ],
+    "rules": [
+      {
+        "name": "The Colour Lives in the Field Rule",
+        "body": "Hue appears only in the background field. Text, buttons, borders, chips, icons and focus rings are drawn from the neutral tokens; the only exception is Signal Red for errors.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Solid Rule",
+        "body": "Each cluster of actions has at most one solid ink pill; every sibling is glass or outlined at the same size. Equal-weight choices (consent Accept/Decline) keep identical dimensions and differ only in fill.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tight Display Rule",
+        "body": "Anything 2.25rem and larger is semibold with negative tracking between -0.035em and -0.04em and a line height at or under 1.02.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Is Data Rule",
+        "body": "Geist Mono sets only machine-like facts: dates, counters, tags, hostnames, fact labels. Never headings, never prose, never buttons.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Glasses Rule",
+        "body": "Frosted glass (24px blur, 160% saturate) is for content: cards, the fact strip, secondary buttons, the contact form. Liquid glass (30px blur, 190% saturate, brighter rim) is for floating chrome and the portrait frame only: nav pill, mobile tab bar, settings chip, CV modal toolbar, consent banner.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Hard Border Rule",
+        "body": "Glass edges are inset shadows and hairlines are 10 to 18% ink. No opaque borders on surfaces.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep every UI token neutral and let the background field carry all colour; per-section tints stay faint and cool.",
+      "Do use exactly one solid ink pill per action cluster and make its siblings glass or outlined at the same 46px height.",
+      "Do use frosted glass for content and liquid glass only for floating chrome and the portrait frame.",
+      "Do enter content with opacity, blur(8 to 12px) and a 12 to 24px rise on cubic-bezier(0.23, 1, 0.32, 1) over 0.7 to 0.9s, and give every motion a reduced-motion path that keeps the fade and drops the movement.",
+      "Do set dates, counters, tags and hostnames in Geist Mono with tabular figures.",
+      "Do keep nested radii concentric (outer radius minus padding).",
+      "Do pair every theme value: each light token has a dark counterpart switched by `data-theme`."
+    ],
+    "donts": [
+      "Don't introduce an accent hue, orange, or any warm \"Claude-like\" palette into the interface.",
+      "Don't drift toward the dark-plus-neon developer portfolio look.",
+      "Don't let the owner's name or face become the hero; information leads, the portrait stays at or under a third of the width.",
+      "Don't put liquid glass on content cards or stack glass inside glass beyond a single inset fill.",
+      "Don't draw opaque borders on surfaces; use hairlines and inset edges.",
+      "Don't add eyebrow or kicker labels above headings.",
+      "Don't use glyph or emoji icons; icons are lucide strokes at 16 to 20px.",
+      "Don't run heavy effects on the main thread; the field renders at 30% resolution, caps at 30fps and pauses when hidden."
+    ]
+  }
+}

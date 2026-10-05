@@ -1,108 +1,280 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, monospace;
+}
+
+/*
+  Monochrome system. Colour lives only in the flowing background field;
+  every UI token is a neutral. All text tokens pass WCAG AA on --bg and on glass.
+*/
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg:        #E9E9EE;
+  --ink:       #0E0E10;
+  --ink-2:     #45454B;
+  --ink-3:     #505057;
+  --line:      rgba(14, 14, 16, 0.10);
+  --line-2:    rgba(14, 14, 16, 0.18);
+
+  --glass:        rgba(255, 255, 255, 0.52);
+  --glass-strong: rgba(255, 255, 255, 0.66);
+  --glass-liquid: rgba(255, 255, 255, 0.32);
+  --glass-rim:    rgba(255, 255, 255, 0.85);
+  --glass-edge:   rgba(14, 14, 16, 0.07);
+  --glass-shadow: 0 1px 1px rgba(14, 14, 16, 0.04), 0 12px 40px -12px rgba(14, 14, 16, 0.18);
+  --specular:     rgba(255, 255, 255, 0.75);
+
+  --solid:     #0E0E10;
+  --on-solid:  #F7F7F8;
+  --danger:    #B42318;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:        #060607;
+  --ink:       #F3F3F5;
+  --ink-2:     #B4B4BC;
+  --ink-3:     #8E8E97;
+  --line:      rgba(255, 255, 255, 0.09);
+  --line-2:    rgba(255, 255, 255, 0.16);
+
+  --glass:        rgba(30, 30, 34, 0.42);
+  --glass-strong: rgba(36, 36, 40, 0.58);
+  --glass-liquid: rgba(40, 40, 46, 0.30);
+  --glass-rim:    rgba(255, 255, 255, 0.16);
+  --glass-edge:   rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 18px 50px -14px rgba(0, 0, 0, 0.7);
+  --specular:     rgba(255, 255, 255, 0.14);
+
+  --solid:     #F3F3F5;
+  --on-solid:  #0B0B0C;
+  --danger:    #FDA29B;
 }
 
 :root {
-  --bg:       #0D0B08;
-  --bg-2:     #181410;
-  --ink:      #ECE8DE;
-  --ink-2:    #A09A8C;
-  --ink-3:    #5A5248;
-  --border:   #2B2520;
-  --accent:   #E8A94C;
+  --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--bg);
+  scroll-padding-top: 6rem;
 }
 
 body {
   margin: 0;
-  padding: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
 }
 
-/* Cursor — only on pointer/hover-capable devices */
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Scrollbar in the palette */
+html {
+  scrollbar-color: var(--line-2) transparent;
+  scrollbar-width: thin;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Skip link: hidden until focused */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 300;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  background: var(--solid);
+  color: var(--on-solid);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transform: translateY(-200%);
+  transition: transform 200ms var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+@layer components {
+/* ── Glass ─────────────────────────────────────────────── */
+
+/* Frosted: the calm default for panels and cards */
+.glass {
+  position: relative;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  backdrop-filter: blur(24px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 0 var(--glass-rim),
+    inset 0 0 0 1px var(--glass-edge),
+    var(--glass-shadow);
+}
+
+/* Liquid: thicker glass with a bright rim, reserved for nav and portrait */
+.glass-liquid {
+  position: relative;
+  background: var(--glass-liquid);
+  -webkit-backdrop-filter: blur(30px) saturate(190%) brightness(1.04);
+  backdrop-filter: blur(30px) saturate(190%) brightness(1.04);
+  box-shadow:
+    inset 0 1px 1px 0 var(--glass-rim),
+    inset 0 -1px 1px 0 var(--glass-edge),
+    inset 0 0 0 1px var(--glass-edge),
+    var(--glass-shadow);
+}
+.glass-liquid::before {
+  /* Rim light: brightest on the top-left edge, like light through a lens */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, var(--glass-rim), transparent 38%, transparent 62%, var(--glass-rim));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Specular light that follows the pointer (fed by --mx / --my) */
+.specular::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--spec-o, 0);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--specular), transparent 55%);
+  transition: opacity 400ms ease;
+  mix-blend-mode: soft-light;
+}
+:root[data-theme="dark"] .specular::after { mix-blend-mode: screen; }
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-liquid { background: var(--bg); }
+}
+
+/* ── Controls ──────────────────────────────────────────── */
+
+.pressable {
+  transition: transform 160ms var(--ease-out);
+}
+.pressable:active { transform: scale(0.97); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.875rem;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 160ms var(--ease-out), background-color 200ms ease, color 200ms ease;
+}
+.btn:active { transform: scale(0.97); }
+.btn-solid {
+  background: var(--solid);
+  color: var(--on-solid);
+}
+.btn-glass { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) {
-  html,
-  a, button, [role="button"] {
+  .btn-solid:hover { background: color-mix(in oklab, var(--solid) 86%, var(--bg)); }
+  .btn-glass:hover { background: var(--glass-strong); }
+}
+
+.link-quiet {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--line-2);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  transition: text-decoration-color 200ms ease;
+}
+.link-quiet:hover { text-decoration-color: var(--ink); }
+}
+
+/* ── Cursor (fine pointers that allow motion) ──────────── */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button,
+  html.has-cursor [role="button"],
+  html.has-cursor label {
     cursor: none;
   }
+  html.has-cursor input[type="text"],
+  html.has-cursor input[type="email"],
+  html.has-cursor textarea { cursor: text; }
+}
 
-  #cursor-spotlight {
-    position: fixed;
-    width: 380px;
-    height: 380px;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background: radial-gradient(circle, rgba(232, 169, 76, 0.06) 0%, transparent 65%);
-    transform: translate(-50%, -50%);
-    transition: background 0.4s ease;
-    will-change: transform;
-  }
-
-  body.cursor-hover #cursor-spotlight {
-    background: radial-gradient(circle, rgba(232, 169, 76, 0.13) 0%, transparent 60%);
-  }
-
-  #cursor-dot {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--ink);
-    pointer-events: none;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    will-change: transform;
+/* Reduced motion: keep fades, drop movement and loops */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }
 
-/* Section label — mono uppercase + extending line */
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--ink-3);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 2.5rem;
+/* ── Long-form legal pages ─────────────────────────────── */
+.prose-legal h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 2.75rem 0 0.75rem;
 }
-.section-label::after {
-  content: "";
-  flex: 1;
-  height: 0.5px;
-  background: var(--border);
+.prose-legal p,
+.prose-legal li {
+  color: var(--ink-2);
+  line-height: 1.75;
+  font-size: 0.975rem;
+  max-width: 68ch;
 }
+.prose-legal p + p { margin-top: 0.75rem; }
+.prose-legal ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.75rem 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.prose-legal a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-legal strong { color: var(--ink); font-weight: 600; }
 
-/* Background decor animations */
-@keyframes decor-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-@keyframes decor-spin-reverse {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
-}
-@keyframes decor-float {
-  0%, 100% { transform: translateY(0px) rotate(45deg); }
-  50%       { transform: translateY(-18px) rotate(45deg); }
-}
-@keyframes decor-drift {
-  0%, 100% { transform: translateX(0px); }
-  50%       { transform: translateX(10px); }
+/* No WebGL: a still version of the field */
+.flow-bg[data-fallback] {
+  background:
+    radial-gradient(60% 50% at 20% 15%, color-mix(in oklab, var(--ink) 7%, transparent), transparent 70%),
+    radial-gradient(50% 45% at 85% 60%, color-mix(in oklab, var(--ink) 5%, transparent), transparent 70%),
+    var(--bg);
 }

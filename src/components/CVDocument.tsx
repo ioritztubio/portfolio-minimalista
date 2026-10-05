@@ -336,7 +336,7 @@ const Entry: React.FC<EntryProps> = ({ company, location, role, dates, bullets, 
 interface CVDocumentProps { t: Translation }
 
 export const CVDocument: React.FC<CVDocumentProps> = ({ t }) => {
-  const lang: Lang = t.lang === "es" ? "es" : "en";
+  const lang: Lang = t.lang === "es" || t.lang === "eu" ? "es" : "en";
   const d = DATA[lang];
 
   return (

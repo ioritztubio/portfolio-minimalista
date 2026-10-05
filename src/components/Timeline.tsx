@@ -1,221 +1,181 @@
-import React, { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "motion/react";
+import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
+import { Briefcase, ChevronDown, GraduationCap } from "lucide-react";
 import { TimelineEvent } from "../data/types";
-import { Briefcase, GraduationCap, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { renderHighlights } from "../utils/highlights";
+import { isFuture, isOngoing, parseDateVal, yearOf } from "../utils/dates";
 
-const MONTH_NUM: Record<string, number> = {
-  january: 1, february: 2, march: 3, april: 4, may: 5, june: 6,
-  july: 7, august: 8, september: 9, october: 10, november: 11, december: 12,
-  enero: 1, febrero: 2, marzo: 3, abril: 4, mayo: 5, junio: 6,
-  julio: 7, agosto: 8, septiembre: 9, octubre: 10, noviembre: 11, diciembre: 12,
-  janvier: 1, février: 2, mars: 3, avril: 4, mai: 5, juin: 6,
-  juillet: 7, août: 8, septembre: 9, octobre: 10, novembre: 11, décembre: 12,
-  urtarrila: 1, otsaila: 2, martxoa: 3, apirila: 4, maiatza: 5, ekaina: 6,
-  uztaila: 7, abuztua: 8, iraila: 9, urria: 10, azaroa: 11, abendua: 12,
-};
+const EASE = [0.23, 1, 0.32, 1] as const;
 
-function parseDateVal(str: string): number {
-  if (/present|pr[eé]sent|actualidad|gaur egun/i.test(str)) return 999999;
-  const yearMatch = str.match(/\d{4}/);
-  const year = yearMatch ? parseInt(yearMatch[0]) : 0;
-  const normalized = str.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
-  const origWords = str.toLowerCase().split(/\s+/);
-  const normWords = normalized.split(/\s+/);
-  const month = normWords.reduce<number>((acc, w, i) => {
-    if (acc) return acc;
-    return MONTH_NUM[origWords[i]] ?? MONTH_NUM[w] ?? 0;
-  }, 0);
-  return year * 100 + month;
-}
-
-function currentYearMonth(): number {
-  const now = new Date();
-  return now.getFullYear() * 100 + (now.getMonth() + 1);
-}
-
-function isDateInFuture(str: string): boolean {
-  const val = parseDateVal(str);
-  if (val === 0 || val === 999999) return false;
-  return val > currentYearMonth();
-}
-
-function isInProgress(dateStart: string, dateEnd: string): boolean {
-  const start = parseDateVal(dateStart);
-  const end = parseDateVal(dateEnd);
-  if (end === 999999) return false;
-  const now = currentYearMonth();
-  return start <= now && end >= now;
-}
-
+// Keynote-style: the year of the entry in focus stays pinned on the left
+// while entries scroll past on the right.
 export const Timeline: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { timeline } = t;
+  const reduce = useReducedMotion();
   const [showExtra, setShowExtra] = useState(false);
+  const [active, setActive] = useState(0);
 
-  const sorted = [...timeline.items].sort(
-    (a, b) => parseDateVal(b.dateEnd) - parseDateVal(a.dateEnd),
-  );
-  const mainItems = sorted.filter((e) => !e.extra);
-  const extraItems = sorted.filter((e) => e.extra);
+  // Newest start first, so the pinned year counts down as you scroll
+  const sorted = [...timeline.items].sort((a, b) => parseDateVal(b.dateStart) - parseDateVal(a.dateStart));
+  const main = sorted.filter((e) => !e.extra);
+  const extra = sorted.filter((e) => e.extra);
+  const visible = showExtra ? [...main, ...extra] : main;
+  const current = visible[Math.min(active, visible.length - 1)];
+
+  useEffect(() => setActive(0), [lang]);
 
   return (
-    <section id="experience" className="py-20 px-4 max-w-4xl mx-auto">
-      <p className="section-label">{timeline.sectionTitle}</p>
+    <section id="experience" aria-labelledby="experience-title" className="relative px-5 py-28 md:px-10 md:py-40">
+      <div className="mx-auto max-w-6xl">
+        <motion.h2
+          id="experience-title"
+          initial={reduce ? false : { opacity: 0, filter: "blur(8px)", transform: "translateY(16px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0px)" }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.9, ease: EASE }}
+          className="max-w-3xl font-semibold"
+          style={{ fontSize: "clamp(2.25rem, 5vw, 4.25rem)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "var(--ink)" }}
+        >
+          {timeline.sectionTitle}
+        </motion.h2>
 
-      <div className="flex justify-center gap-6 mb-16 text-xs font-mono uppercase tracking-wider" style={{ color: "var(--ink-3)" }}>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
-          {t.timeline.legendWork}
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
-          {t.timeline.legendEducation}
-        </span>
-      </div>
+        <div className="mt-14 grid gap-x-10 md:mt-20 md:grid-cols-12">
+          {/* Pinned year (desktop) */}
+          <div className="hidden md:col-span-4 md:block">
+            <div className="sticky top-[34vh]" aria-hidden="true">
+              <div className="relative h-[clamp(4.5rem,8vw,6rem)] overflow-hidden">
+                <AnimatePresence initial={false} mode="popLayout">
+                  <motion.span
+                    key={yearOf(current.dateStart) ?? current.dateStart}
+                    initial={reduce ? { opacity: 0 } : { opacity: 0, filter: "blur(12px)", transform: "translateY(40%)" }}
+                    animate={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0%)" }}
+                    exit={reduce ? { opacity: 0 } : { opacity: 0, filter: "blur(12px)", transform: "translateY(-40%)" }}
+                    transition={{ duration: 0.55, ease: EASE }}
+                    className="tabular absolute left-0 top-0 block font-semibold"
+                    style={{ fontSize: "clamp(4.5rem, 8vw, 6rem)", lineHeight: 1, letterSpacing: "-0.04em", color: "var(--ink)" }}
+                  >
+                    {yearOf(current.dateStart)}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+              <TypeLabel type={current.type} work={timeline.legendWork} education={timeline.legendEducation} />
+            </div>
+          </div>
 
-      <div className="relative">
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px transform md:-translate-x-1/2" style={{ backgroundColor: "var(--border)" }} />
-        <div className="space-y-12">
-          {mainItems.map((event, index) => (
-            <TimelineItem key={index} event={event} index={index} />
-          ))}
+          <ol className="md:col-span-8">
+            {visible.map((e, i) => (
+              <React.Fragment key={`${lang}-${e.title}-${e.dateStart}`}>
+                {i === main.length && showExtra && (
+                  <li className="py-10 text-[15px] italic" style={{ color: "var(--ink-3)" }} aria-hidden="false">
+                    {t.ui.extraExperienceTagline}
+                  </li>
+                )}
+                <Entry event={e} focused={i === active} onFocusChange={() => setActive(i)} />
+              </React.Fragment>
+            ))}
+          </ol>
         </div>
+
+        {extra.length > 0 && (
+          <div className="mt-12 flex md:justify-end">
+            <button
+              onClick={() => setShowExtra((v) => !v)}
+              aria-expanded={showExtra}
+              className="btn btn-glass glass md:mr-0"
+            >
+              {showExtra ? t.ui.hideExtra : t.ui.showExtra}
+              <ChevronDown
+                className="h-4 w-4 transition-transform duration-300"
+                style={{ transform: showExtra ? "rotate(180deg)" : "none", transitionTimingFunction: "var(--ease-out)" }}
+                aria-hidden="true"
+              />
+            </button>
+          </div>
+        )}
       </div>
-
-      {extraItems.length > 0 && (
-        <div className="mt-16 flex flex-col items-center gap-6">
-          <button
-            onClick={() => setShowExtra((v) => !v)}
-            className="group flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
-            style={{ border: "1px solid var(--border)", color: "var(--ink-2)" }}
-          >
-            <span>{showExtra ? t.ui.hideExtra : t.ui.showExtra}</span>
-            <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${showExtra ? "rotate-180" : ""}`} />
-          </button>
-
-          <AnimatePresence>
-            {showExtra && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="w-full overflow-hidden"
-              >
-                <p className="text-center text-xs font-mono uppercase tracking-widest mb-12" style={{ color: "var(--ink-3)" }}>
-                  {t.ui.extraExperienceTagline}
-                </p>
-                <div className="relative">
-                  <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px transform md:-translate-x-1/2" style={{ backgroundColor: "var(--border)", opacity: 0.5 }} />
-                  <div className="space-y-12">
-                    {extraItems.map((event, i) => (
-                      <TimelineItem key={i} event={event} index={mainItems.length + i} />
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
     </section>
   );
 };
 
-const TimelineItem: React.FC<{ event: TimelineEvent; index: number }> = ({ event, index }) => {
+const TypeLabel: React.FC<{ type: TimelineEvent["type"]; work: string; education: string }> = ({ type, work, education }) => {
+  const Icon = type === "work" ? Briefcase : GraduationCap;
+  return (
+    <span className="mt-4 inline-flex items-center gap-2 text-sm" style={{ color: "var(--ink-3)" }}>
+      <Icon className="h-4 w-4" aria-hidden="true" strokeWidth={1.75} />
+      {type === "work" ? work : education}
+    </span>
+  );
+};
+
+const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: () => void }> = ({ event, focused, onFocusChange }) => {
   const { t } = useLanguage();
-  const isEven = index % 2 === 0;
-  const isWork = event.type === "work";
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLLIElement>(null);
+  const inBand = useInView(ref, { margin: "-42% 0px -42% 0px" });
 
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: false, margin: "-80px 0px" });
+  useEffect(() => {
+    if (inBand) onFocusChange();
+  }, [inBand]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const future = isDateInFuture(event.dateStart);
-  const inProgress = !future && isInProgress(event.dateStart, event.dateEnd);
-
-  const dotActiveClass = isWork
-    ? "border-blue-500 shadow-[0_0_8px_2px_rgba(59,130,246,0.4)] scale-125"
-    : "border-amber-500 shadow-[0_0_8px_2px_rgba(245,158,11,0.4)] scale-125";
-
-  const badgeClass = isWork
-    ? "bg-blue-500/10 text-blue-400 border-blue-500/30"
-    : "bg-amber-500/10 text-amber-400 border-amber-500/30";
-
-  const iconColorClass = isWork ? "text-blue-400" : "text-amber-400";
-
-  const isSingleMonth = event.dateStart === event.dateEnd;
-  const dateLabel = future
-    ? `Starting ${event.dateStart}`
-    : isSingleMonth
-      ? event.dateStart
-      : `${event.dateStart} — ${event.dateEnd}`;
-
-  const highlightClass = isWork ? "text-blue-400 font-semibold" : "text-amber-400 font-semibold";
+  const future = isFuture(event.dateStart);
+  const ongoing = !future && isOngoing(event) && parseDateVal(event.dateEnd) !== 999999;
+  const single = event.dateStart === event.dateEnd;
+  const dates = single ? event.dateStart : `${event.dateStart} – ${event.dateEnd}`;
+  const Icon = event.type === "work" ? Briefcase : GraduationCap;
 
   return (
-    <motion.div
+    <motion.li
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className={`relative flex flex-col md:flex-row ${isEven ? "md:flex-row-reverse" : ""} items-start md:items-center group`}
+      initial={reduce ? false : { opacity: 0, transform: "translateY(20px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.7, ease: EASE }}
+      className="border-t py-10 first:border-t-0 first:pt-0 md:py-12"
+      style={{ borderColor: "var(--line)" }}
     >
-      {/* Checkpoint dot */}
-      <div
-        className={`absolute left-4 md:left-1/2 w-4 h-4 border-2 rounded-full transform -translate-x-1/2 mt-1.5 md:mt-0 z-10 transition-all duration-500 ${inView ? dotActiveClass : "border-zinc-700"} ${future ? "animate-pulse" : ""}`}
-        style={{ backgroundColor: "var(--bg)" }}
-      />
+      <div className="transition-opacity duration-500 md:[opacity:var(--o)]" style={{ "--o": focused ? 1 : 0.8 } as React.CSSProperties}>
+        {/* Mobile: year inline */}
+        <span className="tabular mb-3 block text-5xl font-semibold md:hidden" style={{ letterSpacing: "-0.04em", color: "var(--ink)" }}>
+          {yearOf(event.dateStart)}
+        </span>
 
-      <div className="hidden md:block md:w-1/2" />
-
-      <div className={`pl-12 md:pl-0 md:w-1/2 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"} w-full`}>
-        {/* Date badge row */}
-        <div className={`flex items-center gap-2 mb-2 text-xs font-mono uppercase tracking-wider flex-wrap ${isEven ? "md:justify-end" : "md:justify-start"}`} style={{ color: "var(--ink-3)" }}>
-          <span className={`flex items-center gap-1 px-2 py-0.5 rounded-full border ${badgeClass}`}>
-            {isWork
-              ? <Briefcase className={`w-3 h-3 ${iconColorClass}`} />
-              : <GraduationCap className={`w-3 h-3 ${iconColorClass}`} />
-            }
-            {dateLabel}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+          <span className="tabular font-mono text-xs" style={{ color: "var(--ink-3)" }}>
+            {dates}
           </span>
-
-          {future && (
-            <span className="px-2 py-0.5 rounded-full border border-amber-500/40 bg-amber-500/10 text-amber-400 text-xs font-mono animate-pulse">
-              {t.ui.startingSoon}
-            </span>
-          )}
-
-          {inProgress && (
-            <span className="px-2 py-0.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-xs font-mono">
-              {t.ui.inProgress}
+          <span className="inline-flex items-center gap-1.5 text-xs md:hidden" style={{ color: "var(--ink-3)" }}>
+            <Icon className="h-3.5 w-3.5" aria-hidden="true" strokeWidth={1.75} />
+            {event.type === "work" ? t.timeline.legendWork : t.timeline.legendEducation}
+          </span>
+          {(future || ongoing) && (
+            <span className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium" style={{ background: "var(--line)", color: "var(--ink)" }}>
+              <span className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--ink)" }} />
+              {future ? t.ui.startingSoon : t.ui.inProgress}
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-bold mb-1" style={{ color: "var(--ink)" }}>{event.title}</h3>
-        <h4 className="text-md mb-3 font-medium" style={{ color: "var(--ink-2)" }}>{event.organization}</h4>
-
-        <p className="leading-relaxed text-sm" style={{ color: "var(--ink-3)" }}>
-          {renderHighlights(event.description, event.highlights ?? [], highlightClass)}
+        <h3 className="mt-3 text-2xl font-semibold md:text-[1.75rem]" style={{ letterSpacing: "-0.025em", lineHeight: 1.15, color: "var(--ink)" }}>
+          {event.title}
+        </h3>
+        <p className="mt-1 text-[15px] font-medium" style={{ color: "var(--ink-2)" }}>
+          {event.organization}
         </p>
-
+        <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
+          {renderHighlights(event.description, event.highlights ?? [], "font-medium text-[var(--ink)]")}
+        </p>
         {event.tags && event.tags.length > 0 && (
-          <div className={`flex flex-wrap gap-1.5 mt-3 ${isEven ? "md:justify-end" : "md:justify-start"}`}>
-            {event.tags.map((tag, i) => (
-              <span
-                key={i}
-                className="px-2 py-0.5 text-xs font-mono rounded"
-                style={{ border: "1px solid var(--border)", backgroundColor: "var(--bg-2)", color: "var(--ink-2)" }}
-              >
+          <ul className="mt-4 flex flex-wrap gap-1.5">
+            {event.tags.map((tag) => (
+              <li key={tag} className="rounded-full px-2.5 py-1 font-mono text-[11px]" style={{ background: "var(--line)", color: "var(--ink-2)" }}>
                 {tag}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
-    </motion.div>
+    </motion.li>
   );
 };

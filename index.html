@@ -12,7 +12,16 @@
     <meta name="keywords" content="Ioritz Tubio Sanchez, Ioritz Tubio, software engineer, AI engineer, fullstack developer, Next.js, Django, Python, AWS, TypeScript, React, Donostia, San Sebastián, Basque Country, Spain, Pais Vasco" />
     <meta name="author" content="Ioritz Tubio Sanchez" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0D0B08" />
+    <meta name="theme-color" content="#EEEEF1" />
+    <script>
+      // Set the theme before first paint so there is no flash.
+      (function () {
+        var t;
+        try { t = localStorage.getItem("theme"); } catch (e) {}
+        if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
     <link rel="canonical" href="https://ioritztubio.dev/" />
 
     <!-- ─── Open Graph ─── -->

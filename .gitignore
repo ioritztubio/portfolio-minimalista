@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Local design-review captures and browser automation logs
+.impeccable/review/
+.playwright-mcp/

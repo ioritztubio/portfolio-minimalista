@@ -1,63 +1,77 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion, useSpring } from "motion/react";
+import { useFinePointer } from "../lib/interaction";
 
+const RING = 52;
+const INTERACTIVE = "a, button, [role='button'], label, summary, input[type='checkbox']";
+const TEXT = "input[type='text'], input[type='email'], textarea";
+
+// A precise dot plus a soft ring that trails on a spring and swells over anything pressable.
 export const Cursor: React.FC = () => {
-  const dotRef = useRef<HTMLDivElement>(null);
-  const spotRef = useRef<HTMLDivElement>(null);
-  const [isTouch, setIsTouch] = useState(true);
+  const fine = useFinePointer();
+  const reduce = useReducedMotion();
+  const enabled = fine && !reduce;
+  const dot = useRef<HTMLDivElement>(null);
+  const x = useSpring(-100, { stiffness: 500, damping: 40, mass: 0.5 });
+  const y = useSpring(-100, { stiffness: 500, damping: 40, mass: 0.5 });
+  const [state, setState] = useState<"idle" | "hover" | "text" | "down">("idle");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setIsTouch(!window.matchMedia("(hover: hover) and (pointer: fine)").matches);
-  }, []);
-
-  useEffect(() => {
-    if (isTouch) return;
-
-    let curX = 0, curY = 0;
-    let spotX = 0, spotY = 0;
-    let raf: number;
-
-    const onMove = (e: MouseEvent) => {
-      curX = e.clientX;
-      curY = e.clientY;
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${curX}px, ${curY}px) translate(-50%, -50%)`;
-      }
+    if (!enabled) return;
+    document.documentElement.classList.add("has-cursor");
+    const move = (e: PointerEvent) => {
+      if (e.pointerType !== "mouse") return;
+      if (dot.current) dot.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+      x.set(e.clientX);
+      y.set(e.clientY);
+      setVisible(true);
+      const el = e.target as Element | null;
+      setState((prev) => (prev === "down" ? prev : el?.closest(TEXT) ? "text" : el?.closest(INTERACTIVE) ? "hover" : "idle"));
     };
-
-    const tick = () => {
-      spotX += (curX - spotX) * 0.07;
-      spotY += (curY - spotY) * 0.07;
-      if (spotRef.current) {
-        spotRef.current.style.transform = `translate(${spotX}px, ${spotY}px) translate(-50%, -50%)`;
-      }
-      raf = requestAnimationFrame(tick);
+    const down = () => setState("down");
+    const up = (e: PointerEvent) => {
+      const el = e.target as Element | null;
+      setState(el?.closest(INTERACTIVE) ? "hover" : "idle");
     };
-
-    const onOver = (e: MouseEvent) => {
-      const el = (e.target as Element).closest("a, button, [role='button']");
-      if (el) document.body.classList.add("cursor-hover");
-      else document.body.classList.remove("cursor-hover");
-    };
-
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseover", onOver);
-    raf = requestAnimationFrame(tick);
-
+    const leave = () => setVisible(false);
+    window.addEventListener("pointermove", move, { passive: true });
+    window.addEventListener("pointerdown", down);
+    window.addEventListener("pointerup", up);
+    document.documentElement.addEventListener("pointerleave", leave);
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseover", onOver);
-      cancelAnimationFrame(raf);
+      document.documentElement.classList.remove("has-cursor");
+      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointerdown", down);
+      window.removeEventListener("pointerup", up);
+      document.documentElement.removeEventListener("pointerleave", leave);
     };
-  }, [isTouch]);
+  }, [enabled, x, y]);
 
-  if (isTouch) return null;
+  if (!enabled) return null;
+
+  const ring = { idle: 28, hover: 52, text: 4, down: 22 }[state];
 
   return (
-    <>
-      <div ref={spotRef} id="cursor-spotlight" />
-      <div ref={dotRef} id="cursor-dot" />
-    </>
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[9999]" style={{ opacity: visible ? 1 : 0, transition: "opacity 200ms ease" }}>
+      <motion.div className="absolute left-0 top-0" style={{ x, y }}>
+        <div
+          className="rounded-full"
+          style={{
+            width: RING,
+            height: RING,
+            transform: `translate(-50%, -50%) scale(${ring / RING})`,
+            border: "1px solid var(--line-2)",
+            background: state === "hover" ? "color-mix(in oklab, var(--ink) 6%, transparent)" : "transparent",
+            transition: "transform 300ms var(--ease-out), background-color 200ms ease",
+          }}
+        />
+      </motion.div>
+      <div
+        ref={dot}
+        className="absolute left-0 top-0 h-1.5 w-1.5 rounded-full"
+        style={{ background: "var(--ink)", opacity: state === "text" ? 0 : 1, transition: "opacity 150ms ease" }}
+      />
+    </div>
   );
 };
-
-export default Cursor;
