@@ -19,6 +19,13 @@ export function useMediaQuery(query: string): boolean {
 
 export const useFinePointer = () => useMediaQuery(FINE_POINTER);
 
+/**
+ * Screens big enough for pinned, scroll-scrubbed scenes: wide AND tall, so a
+ * landscape phone or small tablet gets the plain stacked layout instead of a
+ * pinned card that crops its own text.
+ */
+export const useCinematic = () => useMediaQuery("(min-width: 768px) and (min-height: 700px)");
+
 // ── Device orientation (phones) ─────────────────────────────
 // One shared listener feeds normalised tilt in [-1, 1] to every card.
 

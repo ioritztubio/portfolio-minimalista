@@ -6,7 +6,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useCV } from "../context/CVContext";
 import { uiStrings } from "../i18n/ui";
 import { siteStrings } from "../i18n/site";
-import { gyroNeedsPermission, requestGyro, useFinePointer, useGyroActive, useMagnetic, useMediaQuery, useTilt } from "../lib/interaction";
+import { gyroNeedsPermission, requestGyro, useFinePointer, useGyroActive, useMagnetic, useCinematic, useTilt } from "../lib/interaction";
 import { isOngoing } from "../utils/dates";
 
 const BIRTH_DATE = new Date(2003, 10, 7);
@@ -34,7 +34,7 @@ export const Hero: React.FC = () => {
   const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
   // Only recede when the whole hero fits on screen; on phones it is taller than
   // the viewport and the info below the fold must stay readable while scrolling.
-  const recede = useMediaQuery("(min-width: 768px)") && !reduce;
+  const recede = useCinematic() && !reduce;
 
   const now = timeline.items.find((e) => e.type === "work" && isOngoing(e));
   const studying = timeline.items.find((e) => e.type === "education" && isOngoing(e));

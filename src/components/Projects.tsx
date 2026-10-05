@@ -5,7 +5,7 @@ import { Project } from "../data/types";
 import { useLanguage } from "../context/LanguageContext";
 import { uiStrings } from "../i18n/ui";
 import { siteStrings } from "../i18n/site";
-import { useMediaQuery, useTilt } from "../lib/interaction";
+import { useCinematic, useTilt } from "../lib/interaction";
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
@@ -57,8 +57,7 @@ const ProjectStage: React.FC<{ project: Project; index: number; total: number }>
   const s = uiStrings(lang);
   const site = siteStrings(lang);
   const reduce = useReducedMotion();
-  const wide = useMediaQuery("(min-width: 768px)");
-  const pinned = wide && !reduce;
+  const pinned = useCinematic() && !reduce;
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
 
