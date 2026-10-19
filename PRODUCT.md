@@ -12,7 +12,7 @@ web
 - AI-focused companies: Ioritz is moving from full-stack into AI engineering; the site must signal that direction.
 
 ## Product Purpose
-Personal portfolio of Ioritz Tubio Sanchez, software engineer (full-stack: React/Next.js, Django/PostgreSQL, AWS) based in Donostia-San Sebastián, currently Junior Software Engineer in the AI department of PKF Attest / Skootik and studying a master's in AI at UNIR. Success = the visitor remembers him and reaches him.
+Personal portfolio of Ioritz Tubio Sanchez, software engineer (full-stack: React/Next.js, Django/PostgreSQL, AWS) based in Donostia-San Sebastián, currently Software Developer at Swap Energía (previously Skootik) and studying a master's in AI at UNIR. Success = the visitor remembers him and reaches him.
 
 ## Positioning
 A full-stack engineer who owns projects end to end and is deliberately building foundations to become an AI engineer, not a certificate collector.

@@ -2,7 +2,7 @@ import { Lang } from "./types";
 
 // Copy introduced with the glass redesign: hero statement, fact strip, closing and controls.
 const en = {
-  statement: "I build web apps end to end, and I'm moving into AI.",
+  statement: "I build complete web applications and I'm specialising in artificial intelligence.",
   factNow: "Now",
   factStudying: "Studying",
   factBased: "Based in",
@@ -12,8 +12,8 @@ const en = {
   enableMotion: "Tilt to explore",
   aboutTitle: "About",
   projectCount: (i: number, n: number) => `${i} of ${n}`,
-  closingTitle: "Let's build something.",
-  closingBody: "My CV, LinkedIn and email are all here. Pick whichever suits you.",
+  closingTitle: "Let's talk.",
+  closingBody: "Here you'll find my CV, my LinkedIn profile and my email.",
   cvCaption: "Curriculum Vitae · PDF",
   navContact: "Contact",
   navWork: "Work",
@@ -24,7 +24,7 @@ const en = {
 export type UIStrings = typeof en;
 
 const es: UIStrings = {
-  statement: "Construyo aplicaciones web de principio a fin, y estoy dando el salto a la IA.",
+  statement: "Desarrollo aplicaciones web completas y me estoy especializando en inteligencia artificial.",
   factNow: "Ahora",
   factStudying: "Estudiando",
   factBased: "Desde",
@@ -34,8 +34,8 @@ const es: UIStrings = {
   enableMotion: "Inclina para explorar",
   aboutTitle: "Sobre mí",
   projectCount: (i, n) => `${i} de ${n}`,
-  closingTitle: "Construyamos algo.",
-  closingBody: "Mi CV, LinkedIn y email, todo aquí. Elige lo que te venga mejor.",
+  closingTitle: "Hablemos.",
+  closingBody: "Aquí tienes mi CV, mi perfil de LinkedIn y mi correo electrónico.",
   cvCaption: "Curriculum Vitae · PDF",
   navContact: "Contacto",
   navWork: "Proyectos",
@@ -44,7 +44,7 @@ const es: UIStrings = {
 };
 
 const eu: UIStrings = {
-  statement: "Web aplikazioak hasieratik bukaerara eraikitzen ditut, eta adimen artifizialera noa.",
+  statement: "Web aplikazio osoak garatzen ditut eta adimen artifizialean espezializatzen ari naiz.",
   factNow: "Orain",
   factStudying: "Ikasten",
   factBased: "Non",
@@ -54,8 +54,8 @@ const eu: UIStrings = {
   enableMotion: "Okertu esploratzeko",
   aboutTitle: "Niri buruz",
   projectCount: (i, n) => `${i} / ${n}`,
-  closingTitle: "Eraiki dezagun zerbait.",
-  closingBody: "Nire CVa, LinkedIn eta emaila, denak hemen. Aukeratu nahiago duzuna.",
+  closingTitle: "Hitz egin dezagun.",
+  closingBody: "Hemen dituzu nire CVa, LinkedIn profila eta helbide elektronikoa.",
   cvCaption: "Curriculum Vitae · PDF",
   navContact: "Harremana",
   navWork: "Proiektuak",

@@ -166,6 +166,15 @@ const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: (
         <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
           {renderHighlights(event.description, event.highlights ?? [], "font-medium text-[var(--ink)]")}
         </p>
+        {event.examples && event.examples.length > 0 && (
+          <ul className="mt-4 grid max-w-[62ch] gap-2.5">
+            {event.examples.map((ex) => (
+              <li key={ex} className="border-l pl-4 text-[15px] leading-relaxed" style={{ borderColor: "var(--line-2)", color: "var(--ink-2)" }}>
+                {ex}
+              </li>
+            ))}
+          </ul>
+        )}
         {event.tags && event.tags.length > 0 && (
           <ul className="mt-4 flex flex-wrap gap-1.5">
             {event.tags.map((tag) => (

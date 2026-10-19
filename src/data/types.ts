@@ -8,6 +8,7 @@ export interface TimelineEvent {
   dateEnd: string; // 'Present' or date
   description: string;
   highlights?: string[]; // keywords to highlight in the description
+  examples?: string[]; // concrete pieces of work, listed under the description
   tags?: string[]; // tech/skill badge pills shown below description
   extra?: boolean; // marks non-tech experience (hidden by default)
 }

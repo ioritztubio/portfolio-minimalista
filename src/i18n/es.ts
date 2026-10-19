@@ -4,18 +4,17 @@ export const es: Translation = {
     lang: 'es',
     profile: {
         name: "Ioritz Tubio Sanchez",
-        subtitle: "Ingeniero de Software · Desarrollador Fullstack",
+        subtitle: "Ingeniero de software especializado en desarrollo web",
         location: "Donostia-San Sebastián",
         about: [
-            "Soy ingeniero de software con carrera en Ingeniería Informática y actualmente estoy cursando un máster en Inteligencia Artificial en UNIR.",
-            "Empecé en frontend y fui evolucionando hacia el desarrollo fullstack y cloud. Construyo aplicaciones web de principio a fin: desde la interfaz con React y Next.js hasta el diseño de la base de datos y el backend. Mi trabajo en backend ha sido principalmente APIs REST con Django y PostgreSQL, junto con el diseño de estructuras de datos que aguantan el crecimiento de la app. También he trabajado con AWS para desplegar y mantener aplicaciones en la nube.",
-            "El máster es el siguiente paso. Quiero moverme hacia la ingeniería de IA y lo estoy usando para construir bases sólidas, no solo para conseguir un título. Me gusta responsabilizarme de las partes difíciles de un proyecto y entender cómo encaja todo, no solo la pieza que tengo delante."
+            "Soy ingeniero informático y desarrollo aplicaciones web. Ahora estoy cursando un máster en inteligencia artificial (IA).",
+            "Empecé desarrollando interfaces con React y Next.js y con el tiempo he pasado a trabajar en todas las capas de una aplicación. En la parte de servidor he creado interfaces de programación de aplicaciones (API, por sus siglas en inglés) de tipo REST con Django, FastAPI y Node, sobre bases de datos PostgreSQL y MySQL. También he configurado y mantenido servidores en Amazon Web Services (AWS) con Docker para desplegar aplicaciones en producción.",
+            "En mi trabajo actual uso la IA a diario dentro del proceso de desarrollo, y el máster me sirve para entender cómo funcionan por dentro los modelos que utilizo. Mi objetivo es dedicarme a la ingeniería de IA."
         ],
         aboutHighlights: [
-            "máster en Inteligencia Artificial",
             "React y Next.js",
-            "Django y PostgreSQL",
-            "AWS",
+            "Django, FastAPI y Node",
+            "Amazon Web Services (AWS)",
             "ingeniería de IA"
         ],
         avatarUrl: "/images/avatar.png",
@@ -26,7 +25,7 @@ export const es: Translation = {
         ]
     },
     timeline: {
-        sectionTitle: "Experiencia & Formación",
+        sectionTitle: "Experiencia y formación",
         present: "Actualidad",
         legendWork: "Laboral",
         legendEducation: "Formación",
@@ -34,29 +33,40 @@ export const es: Translation = {
             {
                 type: "education",
                 title: "Máster en Inteligencia Artificial",
-                organization: "UNIR, Universidad Internacional de La Rioja",
-                dateStart: "Junio 2026",
-                dateEnd: "Mayo 2027",
-                description: "Máster online en Inteligencia Artificial. 60 ECTS que cubren machine learning, deep learning, NLP, visión por computador e ingeniería de IA. Orientado a construir una base sólida para evolucionar hacia el desarrollo de aplicaciones de IA aplicada.",
-                highlights: ["machine learning", "deep learning", "ingeniería de IA"]
+                organization: "Universidad Internacional de La Rioja (UNIR)",
+                dateStart: "junio de 2026",
+                dateEnd: "mayo de 2027",
+                description: "Máster en línea de 60 créditos ECTS. El programa incluye aprendizaje automático, aprendizaje profundo, procesamiento del lenguaje natural, visión por computador e ingeniería de IA. Lo curso para orientar mi carrera hacia el desarrollo de aplicaciones con IA.",
+                highlights: ["aprendizaje automático", "aprendizaje profundo", "ingeniería de IA"]
             },
             {
                 type: "work",
-                title: "Ingeniero de Software Junior",
-                organization: "PKF Attest, Skootik (Departamento de IA)",
-                dateStart: "Julio 2025",
+                title: "Desarrollador de software",
+                organization: "Swap Energía",
+                dateStart: "septiembre de 2026",
                 dateEnd: "Actualidad",
-                description: "Trabajo en PKF Attest, una de las 10 mejores firmas de servicios profesionales de España y miembro de la red PKF Global (más de 150 países, 480 oficinas). Concretamente en el Departamento de IA, que integra la propuesta de Skootik: convertir los datos de los clientes en ventaja competitiva sostenible mediante consultoría, estrategia y desarrollo de IA. Desarrollo y mantenimiento de aplicaciones fullstack en producción con Next.js, TypeScript, Django y Python, en un equipo ágil con arquitectura limpia, pipelines CI/CD mediante Jenkins y diseño de sistemas escalables.",
-                highlights: ["10 mejores firmas", "Skootik", "Departamento de IA"],
-                tags: ["Next.js", "TypeScript", "Django", "Python", "AWS"]
+                description: "Formo parte del equipo de desarrollo de Swap Energía, donde trabajo en un sistema de planificación de recursos empresariales (ERP, por sus siglas en inglés) de uso interno. Desarrollo con PHP y Vue en la aplicación y con Python, FastAPI y MySQL en los servicios. Participo en todas las fases de cada funcionalidad, desde el diseño de la arquitectura y de la interfaz hasta el desarrollo, las pruebas y el despliegue en producción. El equipo trabaja con la IA integrada en el proceso de desarrollo. Usamos Claude y flujos de trabajo automatizados que se encargan de parte de la revisión de código y de la corrección de los errores detectados en las pruebas.",
+                highlights: ["todas las fases"],
+                tags: ["PHP", "Vue", "Python", "FastAPI", "MySQL", "Claude"]
             },
             {
                 type: "work",
-                title: "Desarrollador de Software en Prácticas",
+                title: "Ingeniero de software júnior",
+                organization: "Skootik",
+                dateStart: "julio de 2025",
+                dateEnd: "agosto de 2026",
+                description: "He trabajado directamente con clientes, he preparado reuniones y he redactado sus actas. También he diseñado y desarrollado aplicaciones con Next.js, Node y Django REST, y he montado servidores en AWS con Docker para desplegarlas en producción.",
+                highlights: ["directamente con clientes", "servidores en AWS"],
+                examples: ["Oris Dental Scan es una herramienta de prediagnóstico dental con IA. En este proyecto he desarrollado la interfaz web, una parte de la lógica de servidor y la infraestructura en AWS.", "He participado en la renovación de la aplicación de gestión de un laboratorio de análisis, que se ha migrado desde un sistema heredado a tecnologías actuales. La aplicación realiza los cálculos necesarios para el análisis y la recogida de muestras, y gestiona entidades con relaciones complejas mediante una estructura modular y escalable. La nueva versión tiene un diseño mejorado y, en algunos casos, carga más del triple de rápido."],
+                tags: ["Next.js", "TypeScript", "Node.js", "Django REST", "Docker", "AWS"]
+            },
+            {
+                type: "work",
+                title: "Desarrollador de software en prácticas",
                 organization: "Alerion Technologies",
-                dateStart: "Julio 2024",
-                dateEnd: "Agosto 2024",
-                description: "Desarrollo de software para sistemas de drones autónomos. Soluciones en TypeScript, Python y Bash. Configuración de pipelines CI con Jenkins, gestión de repositorios con Git y Bitbucket, y trabajo en software de control de misión: procesamiento de telemetría, verificación de conectividad y comunicación middleware basada en ROS. Metodología Agile con sprints.",
+                dateStart: "julio de 2024",
+                dateEnd: "agosto de 2024",
+                description: "Prácticas de desarrollo de software para sistemas de drones autónomos. He trabajado con TypeScript, Python y Bash en el software de control de misión, en concreto en el procesamiento de telemetría, la verificación de la conectividad y la comunicación entre componentes mediante Robot Operating System (ROS). También he configurado la integración continua con Jenkins y he gestionado repositorios con Git y Bitbucket. El equipo seguía una metodología ágil organizada en iteraciones cortas.",
                 highlights: ["drones autónomos"],
                 tags: ["TypeScript", "Python", "Jenkins"]
             },
@@ -64,60 +74,60 @@ export const es: Translation = {
                 type: "education",
                 title: "Grado en Ingeniería Informática",
                 organization: "Universidad del País Vasco (UPV/EHU)",
-                dateStart: "Septiembre 2021",
-                dateEnd: "Febrero 2026",
-                description: "Grado en Ingeniería Informática. Especialización en desarrollo de software, algoritmos, programación de sistemas y prácticas de ingeniería colaborativa. Proyecto de fin de carrera relacionado con la planificación de recursos de un centro académico.",
-                highlights: ["Universidad del País Vasco (UPV/EHU)", "planificación de recursos"]
+                dateStart: "septiembre de 2021",
+                dateEnd: "febrero de 2026",
+                description: "Formación en desarrollo de software, algoritmos y programación de sistemas, con proyectos de ingeniería en equipo. El trabajo de fin de grado consistió en una plataforma para planificar los recursos de un centro académico y obtuvo una calificación de 8,5.",
+                highlights: ["planificar los recursos de un centro académico"]
             },
             {
                 type: "education",
-                title: "Bachillerato de Ciencia y Tecnología",
+                title: "Bachillerato de Ciencias y Tecnología",
                 organization: "Pasaia Lezo Lizeoa",
-                dateStart: "Septiembre 2019",
-                dateEnd: "Junio 2021",
-                description: "Bachillerato con especialidad en ciencias y tecnología."
+                dateStart: "septiembre de 2019",
+                dateEnd: "junio de 2021",
+                description: "Bachillerato en la modalidad de ciencias y tecnología."
             },
             {
                 type: "work",
                 title: "Camarero",
                 organization: "Restaurante VaBene",
-                dateStart: "Marzo 2022",
-                dateEnd: "Septiembre 2022",
-                description: "Trabajar de camarero no es glamuroso. Es muy movido y exigente. Gestión simultánea de varias mesas, mantener la compostura bajo presión en los momentos de mayor afluencia y asegurar que cada cliente se fuera satisfecho. Aprendí pronto que rendir bajo presión es una habilidad que no se puede fingir y que ningún aula te enseña.",
+                dateStart: "marzo de 2022",
+                dateEnd: "septiembre de 2022",
+                description: "He atendido varias mesas a la vez en un restaurante con mucha afluencia, sobre todo en las horas punta. Fue un trabajo exigente en el que aprendí a organizarme y a mantener la calma con mucha carga de trabajo.",
                 extra: true
             },
             {
                 type: "work",
-                title: "Camarero en Catering",
+                title: "Camarero de catering",
                 organization: "Muka, Ixo Restauración SL",
-                dateStart: "Septiembre 2022",
-                dateEnd: "Octubre 2023",
-                description: "Atención al cliente y servicio de sala en eventos de catering: galas, cenas corporativas y celebraciones privadas. Trabajo en jornadas largas e intensas manteniendo una actitud profesional en todo momento.",
+                dateStart: "septiembre de 2022",
+                dateEnd: "octubre de 2023",
+                description: "He servido en eventos de catering, como galas, cenas de empresa y celebraciones privadas. Eran jornadas largas en las que había que mantener el ritmo y la atención a los invitados hasta el final.",
                 extra: true
             },
             {
                 type: "work",
-                title: "Oficial de 3ª, Imprenta",
+                title: "Oficial de tercera en imprenta",
                 organization: "MCC Graphics S. Coop",
-                dateStart: "Julio 2023",
-                dateEnd: "Julio 2023",
-                description: "Un mes en la línea de producción de una cooperativa de impresión. Apoyo en tareas de manipulación de materiales, control de calidad de impresión y mantenimiento de la cadena de producción. Primer contacto con un entorno industrial real y trabajo en equipo con operarios experimentados.",
+                dateStart: "julio de 2023",
+                dateEnd: "julio de 2023",
+                description: "He trabajado un mes en la línea de producción de una cooperativa de impresión. Me ocupaba de manipular materiales, revisar la calidad de la impresión y ayudar en el mantenimiento de la línea. Fue mi primera experiencia en un entorno industrial.",
                 extra: true
             }
         ]
     },
     projects: {
         sectionTitle: "Proyectos",
-        sectionSubtitle: "Proyectos reales que han salido a producción, están disponibles públicamente y los usan personas reales. No son side-projects que nunca salieron del localhost.",
+        sectionSubtitle: "Proyectos en producción que utilizan personas reales.",
         privateCodeBadge: "Código privado",
         privateCodeTooltip: "El código fuente es privado por políticas de empresa",
-        viewDemo: "Ver en vivo",
+        viewDemo: "Ver la web",
         viewCode: "Ver código",
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Prediagnóstico dental con IA, pensado para móvil. Subes una foto y recibes una evaluación preliminar de tu salud bucodental en minutos. Trabajé en el frontend (Next.js, TypeScript) y el backend (Django, Python). En producción y usado por pacientes reales.",
-                note: "Financiado por la UE, el Gobierno de España y el Gobierno Vasco",
+                description: "Herramienta de prediagnóstico dental con IA pensada para el móvil. El usuario sube una foto y en pocos minutos recibe una valoración preliminar de su salud bucodental. He desarrollado la interfaz web con Next.js y TypeScript, una parte del servidor con Django y Python y la infraestructura en AWS. Está en producción y la usan pacientes reales.",
+                note: "Financiado por la Unión Europea, el Gobierno de España y el Gobierno Vasco",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "IA"],
                 imageUrl: "/images/projects/oris.webp",
                 demoUrl: "https://orisdentalscan.com",
@@ -125,8 +135,8 @@ export const es: Translation = {
                 codePrivateNote: "Código fuente privado por políticas de empresa"
             },
             {
-                title: "Algo se está cocinando",
-                description: "Siempre hay algo en marcha. Más proyectos en construcción: trabajo para clientes, experimentos personales que empujan los límites de lo que sé. Nada se queda en el localhost para siempre.",
+                title: "Próximos proyectos",
+                description: "Estoy trabajando en nuevos proyectos, tanto para clientes como personales. Los publicaré aquí cuando estén terminados.",
                 tags: [],
                 imageUrl: "",
                 comingSoon: true
@@ -135,12 +145,12 @@ export const es: Translation = {
     },
     ui: {
         langToggle: "EU",
-        footerBuiltWith: "Hecho con React & Tailwind",
+        footerBuiltWith: "Hecho con React y Tailwind",
         downloadCV: "Descargar CV",
         birthdayMessage: "🎂 ¡Hoy es mi cumpleaños! Toma un poco de confeti",
-        showExtra: "Más allá del teclado",
-        hideExtra: "Ocultar experiencia adicional",
-        extraExperienceTagline: "Antes de la informática, hubo mesas llenas, eventos y turnos de producción.",
+        showExtra: "Otra experiencia laboral",
+        hideExtra: "Ocultar otra experiencia laboral",
+        extraExperienceTagline: "Trabajos que he compaginado con los estudios.",
         comingSoonBadge: "Próximamente",
         startingSoon: "Próximamente",
         inProgress: "En curso",

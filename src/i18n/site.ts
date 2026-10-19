@@ -24,7 +24,7 @@ const en = {
   },
   contact: {
     title: "Contact",
-    subtitle: "Questions about my work or a project? Send a message and I'll reply by email.",
+    subtitle: "If you have a question about my work or a project, send me a message and I'll reply by email.",
     name: "Name",
     email: "Email",
     message: "Message",
@@ -82,7 +82,7 @@ const es: SiteStrings = {
   },
   contact: {
     title: "Contacto",
-    subtitle: "¿Preguntas sobre mi trabajo o un proyecto? Envíame un mensaje y te responderé por email.",
+    subtitle: "Si tienes alguna pregunta sobre mi trabajo o sobre un proyecto, envíame un mensaje y te responderé por correo electrónico.",
     name: "Nombre",
     email: "Email",
     message: "Mensaje",
@@ -138,7 +138,7 @@ const eu: SiteStrings = {
   },
   contact: {
     title: "Harremana",
-    subtitle: "Nire lanari edo proiektu bati buruzko galderak? Bidali mezu bat eta emailez erantzungo dizut.",
+    subtitle: "Nire lanari edo proiektu bati buruzko galderarik baduzu, bidali mezu bat eta posta elektronikoz erantzungo dizut.",
     name: "Izena",
     email: "Emaila",
     message: "Mezua",
