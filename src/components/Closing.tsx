@@ -18,10 +18,9 @@ export const Closing: React.FC = () => {
   const s = uiStrings(lang);
   const reduce = useReducedMotion();
   const titleRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: titleRef, offset: ["start end", "center center"] });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.86, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [0.1, 1]);
-  const blur = useTransform(scrollYProgress, [0, 0.8], ["blur(14px)", "blur(0px)"]);
+  const { scrollYProgress } = useScroll({ target: titleRef, offset: ["start 0.9", "start 0.45"] });
+  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.35, 1]);
 
   const socials = t.profile.socials;
   const { openCV } = useCV();
@@ -31,12 +30,12 @@ export const Closing: React.FC = () => {
   const github = socials.find((x) => x.platform === "GitHub");
 
   return (
-    <section id="contact" aria-labelledby="closing-title" className="relative px-5 pb-36 md:px-10 md:pb-24">
-      {/* The closing owns a full screen: statement, then the three ways to reach me */}
-      <div ref={titleRef} className="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col items-center justify-center text-center">
+    <section id="contact" aria-labelledby="closing-title" className="relative px-5 pb-12 pt-[var(--section-y)] md:px-10 md:pb-16">
+      {/* The statement leads, then the ways to reach me */}
+      <div ref={titleRef} className="relative mx-auto flex max-w-6xl flex-col items-center justify-center pb-[var(--section-y)] text-center">
         <motion.h2
           id="closing-title"
-          style={reduce ? undefined : { scale, opacity, filter: blur }}
+          style={reduce ? undefined : { scale, opacity }}
           className="text-balance font-semibold"
         >
           <span
@@ -49,8 +48,8 @@ export const Closing: React.FC = () => {
         <motion.p
           initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
           whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.06 }}
           className="mt-6 max-w-md text-lg"
           style={{ color: "var(--ink-2)" }}
         >
@@ -59,8 +58,8 @@ export const Closing: React.FC = () => {
         <motion.div
           initial={reduce ? false : { opacity: 0, transform: "translateY(12px)" }}
           whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.12 }}
           className="mt-10 flex flex-wrap justify-center gap-3"
         >
           <button onClick={openCV} className="btn btn-solid">
@@ -111,8 +110,8 @@ const CVCard: React.FC = () => {
       id="cv"
       initial={reduce ? false : { opacity: 0, transform: "translateY(20px)" }}
       whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.8, ease: EASE }}
+      viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+      transition={{ duration: 0.5, ease: EASE }}
       className="glass flex flex-col items-center gap-5 rounded-[28px] p-5 md:col-span-5 md:p-7"
       style={{ perspective: 1000 }}
     >

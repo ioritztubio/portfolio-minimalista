@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="relative px-5 pb-32 pt-10 md:px-10 md:pb-12">
+    <footer className="relative px-5 pb-28 pt-10 md:px-10 md:pb-12">
       <div
         className="mx-auto flex max-w-6xl flex-col gap-5 border-t pt-8 text-[13px] md:flex-row md:items-center md:justify-between"
         style={{ borderColor: "var(--line)", color: "var(--ink-3)" }}

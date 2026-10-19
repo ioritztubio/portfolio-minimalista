@@ -12,11 +12,11 @@ export const About: React.FC = () => {
   const highlights = t.profile.aboutHighlights ?? [];
   const leadRef = useRef<HTMLParagraphElement>(null);
   const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: leadRef, offset: ["start 0.85", "end 0.5"] });
+  const { scrollYProgress } = useScroll({ target: leadRef, offset: ["start 0.9", "end 0.65"] });
   const words = lead.split(" ");
 
   return (
-    <section id="about" aria-labelledby="about-title" className="relative px-5 py-28 md:px-10 md:py-40">
+    <section id="about" aria-labelledby="about-title" className="relative px-5 py-[var(--section-y)] md:px-10">
       <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-12">
         <h2 id="about-title" className="sr-only">
           {s.aboutTitle}
@@ -37,14 +37,14 @@ export const About: React.FC = () => {
                 ))}
           </p>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 md:gap-10">
+          <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 md:gap-10">
             {rest.map((para, i) => (
               <motion.p
                 key={`${lang}-${i}`}
                 initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
                 whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1], delay: i * 0.08 }}
+                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: i * 0.06 }}
                 className="text-[17px] leading-relaxed"
                 style={{ color: "var(--ink-2)" }}
               >

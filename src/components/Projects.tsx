@@ -16,13 +16,13 @@ export const Projects: React.FC = () => {
   const total = projects.items.length;
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="relative px-5 pt-28 md:px-10 md:pt-40">
+    <section id="projects" aria-labelledby="projects-title" className="relative px-5 py-[var(--section-y)] md:px-10">
       <div className="mx-auto max-w-6xl">
         <motion.div
-          initial={reduce ? false : { opacity: 0, filter: "blur(8px)", transform: "translateY(16px)" }}
+          initial={reduce ? false : { opacity: 0, filter: "blur(4px)", transform: "translateY(12px)" }}
           whileInView={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0px)" }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: EASE }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}
+          transition={{ duration: 0.55, ease: EASE }}
           className="max-w-3xl"
         >
           <h2
@@ -38,7 +38,7 @@ export const Projects: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="mt-10 md:mt-0">
+      <div className="mt-8 md:mt-0">
         {projects.items.map((p, i) =>
           p.comingSoon ? (
             <ComingSoon key={p.title} project={p} index={i} total={total} />
@@ -61,25 +61,24 @@ const ProjectStage: React.FC<{ project: Project; index: number; total: number }>
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end end"] });
 
-  const scale = useTransform(scrollYProgress, [0, 0.45], [0.84, 1]);
-  const radius = useTransform(scrollYProgress, [0, 0.45], [56, 32]);
-  const imgScale = useTransform(scrollYProgress, [0, 0.55], [1.18, 1]);
-  const detailOpacity = useTransform(scrollYProgress, [0.4, 0.62], [0, 1]);
-  const detailBlur = useTransform(scrollYProgress, [0.4, 0.62], ["blur(8px)", "blur(0px)"]);
-  const detailY = useTransform(scrollYProgress, [0.4, 0.62], [24, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.35], [0.84, 1]);
+  const radius = useTransform(scrollYProgress, [0, 0.35], [56, 32]);
+  const imgScale = useTransform(scrollYProgress, [0, 0.45], [1.18, 1]);
+  const detailOpacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+  const detailY = useTransform(scrollYProgress, [0.3, 0.5], [24, 0]);
 
   const { ref: tiltRef, rotateX, rotateY } = useTilt<HTMLDivElement>({ max: 3 });
   const host = project.demoUrl ? new URL(project.demoUrl).host : null;
 
   return (
-    <div ref={ref} className={pinned ? "relative h-[200vh]" : "relative py-6"}>
+    <div ref={ref} className={pinned ? "relative h-[150vh]" : "relative py-6"}>
       <div className={pinned ? "sticky top-0 flex h-screen items-center" : ""}>
         <motion.article
           style={pinned ? { scale, borderRadius: radius } : undefined}
           initial={pinned || reduce ? false : { opacity: 0, transform: "translateY(24px)" }}
           whileInView={pinned ? undefined : { opacity: 1, transform: "translateY(0px)" }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: EASE }}
+          viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="glass mx-auto grid w-full max-w-6xl overflow-hidden rounded-[28px] md:min-h-[60vh] md:grid-cols-12"
         >
           {/* Visual */}
@@ -121,7 +120,7 @@ const ProjectStage: React.FC<{ project: Project; index: number; total: number }>
 
           {/* Details */}
           <motion.div
-            style={pinned ? { opacity: detailOpacity, filter: detailBlur, y: detailY } : undefined}
+            style={pinned ? { opacity: detailOpacity, y: detailY } : undefined}
             className="flex flex-col justify-center gap-5 p-6 pt-1 md:col-span-5 md:p-10 md:pl-2"
           >
             <span className="tabular font-mono text-xs" style={{ color: "var(--ink-3)" }}>
@@ -183,10 +182,10 @@ const ComingSoon: React.FC<{ project: Project; index: number; total: number }> =
   return (
     <div className="px-0 py-6 md:py-10">
       <motion.article
-        initial={reduce ? false : { opacity: 0, filter: "blur(8px)", transform: "translateY(24px)" }}
-        whileInView={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0px)" }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.9, ease: EASE }}
+        initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
+        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+        viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+        transition={{ duration: 0.5, ease: EASE }}
         className="glass relative mx-auto flex w-full max-w-6xl flex-col gap-4 overflow-hidden rounded-[28px] p-6 md:flex-row md:items-end md:justify-between md:gap-12 md:p-10"
       >
         <div className="max-w-2xl">

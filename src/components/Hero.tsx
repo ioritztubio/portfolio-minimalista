@@ -26,11 +26,10 @@ export const Hero: React.FC = () => {
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Scroll out: the hero recedes (scale, blur, fade) as the page takes over
+  // Scroll out: the hero recedes (scale, fade) as the page takes over
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-  const contentScale = useTransform(scrollYProgress, [0, 0.7], [1, 0.94]);
-  const contentBlur = useTransform(scrollYProgress, [0, 0.7], ["blur(0px)", "blur(10px)"]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const contentScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.96]);
   const photoY = useTransform(scrollYProgress, [0, 1], ["0%", "-12%"]);
   // Only recede when the whole hero fits on screen; on phones it is taller than
   // the viewport and the info below the fold must stay readable while scrolling.
@@ -65,13 +64,13 @@ export const Hero: React.FC = () => {
     <section
       id="top"
       ref={sectionRef}
-      className="relative flex min-h-[100svh] items-center px-5 pb-28 pt-24 md:px-10 md:pb-16 md:pt-28"
+      className="relative flex min-h-[100svh] items-center px-5 pb-12 pt-24 md:px-10 md:pb-16 md:pt-28"
     >
       <BirthdayToast message={t.ui.birthdayMessage} />
 
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-8 md:grid-cols-12 md:gap-10">
         <motion.div
-          style={recede ? { opacity: contentOpacity, scale: contentScale, filter: contentBlur } : undefined}
+          style={recede ? { opacity: contentOpacity, scale: contentScale } : undefined}
           className="order-2 md:order-1 md:col-span-7"
         >
           <h1

@@ -27,21 +27,21 @@ export const Timeline: React.FC = () => {
   useEffect(() => setActive(0), [lang]);
 
   return (
-    <section id="experience" aria-labelledby="experience-title" className="relative px-5 py-28 md:px-10 md:py-40">
+    <section id="experience" aria-labelledby="experience-title" className="relative px-5 py-[var(--section-y)] md:px-10">
       <div className="mx-auto max-w-6xl">
         <motion.h2
           id="experience-title"
-          initial={reduce ? false : { opacity: 0, filter: "blur(8px)", transform: "translateY(16px)" }}
+          initial={reduce ? false : { opacity: 0, filter: "blur(4px)", transform: "translateY(12px)" }}
           whileInView={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0px)" }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: EASE }}
+          viewport={{ once: true, amount: 0.2, margin: "0px 0px -8% 0px" }}
+          transition={{ duration: 0.55, ease: EASE }}
           className="max-w-3xl font-semibold"
           style={{ fontSize: "clamp(2.25rem, 5vw, 4.25rem)", lineHeight: 1.02, letterSpacing: "-0.035em", color: "var(--ink)" }}
         >
           {timeline.sectionTitle}
         </motion.h2>
 
-        <div className="mt-14 grid gap-x-10 md:mt-20 md:grid-cols-12">
+        <div className="mt-10 grid gap-x-10 md:mt-16 md:grid-cols-12">
           {/* Pinned year (desktop) */}
           <div className="hidden md:col-span-4 md:block">
             <div className="sticky top-[34vh]" aria-hidden="true">
@@ -79,7 +79,7 @@ export const Timeline: React.FC = () => {
         </div>
 
         {extra.length > 0 && (
-          <div className="mt-12 flex md:justify-end">
+          <div className="mt-10 flex md:mt-12 md:justify-end">
             <button
               onClick={() => setShowExtra((v) => !v)}
               aria-expanded={showExtra}
@@ -130,9 +130,9 @@ const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: (
       ref={ref}
       initial={reduce ? false : { opacity: 0, transform: "translateY(20px)" }}
       whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "0px 0px -5% 0px" }}
       transition={{ duration: 0.7, ease: EASE }}
-      className="border-t py-10 first:border-t-0 first:pt-0 md:py-12"
+      className="border-t py-7 first:border-t-0 first:pt-0 md:py-12"
       style={{ borderColor: "var(--line)" }}
     >
       <div className="transition-opacity duration-500 md:[opacity:var(--o)]" style={{ "--o": focused ? 1 : 0.8 } as React.CSSProperties}>
