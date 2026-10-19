@@ -36,7 +36,7 @@ export const eu: Translation = {
                 organization: "Universidad Internacional de La Rioja (UNIR)",
                 dateStart: "2026ko ekaina",
                 dateEnd: "2027ko maiatza",
-                description: "60 ECTS krediturreko online masterra. Programak ikasketa automatikoa, ikaskuntza sakona, hizkuntza naturalaren prozesamendua, ordenagailu bidezko ikusmena eta AA ingeniaritza lantzen ditu. Nire ibilbidea AA aplikazioen garapenera bideratzeko egiten ari naiz.",
+                description: "60 ECTS krediturreko online masterra. Programak ikasketa automatikoa, ikaskuntza sakona, hizkuntza naturalaren prozesamendua, ordenagailu bidezko ikusmena eta AA ingeniaritza lantzen ditu.\n\nNire ibilbidea AA aplikazioen garapenera bideratzeko egiten ari naiz.",
                 highlights: ["ikasketa automatikoa", "ikaskuntza sakona", "AA ingeniaritza"]
             },
             {
@@ -45,8 +45,7 @@ export const eu: Translation = {
                 organization: "Swap Energía",
                 dateStart: "2026ko iraila",
                 dateEnd: "Gaur egun",
-                description: "Swap Energía-ko garapen taldean nago, eta barne-erabilerako enpresa-baliabideen plangintza sistema (ERP) batean lan egiten dut. Aplikazioan PHP eta Vue erabiltzen ditut, eta zerbitzuetan Python, FastAPI eta MySQL. Funtzionalitate bakoitzaren fase guztietan parte hartzen dut, arkitekturaren eta interfazearen diseinutik hasi eta garapen, proba eta produkzioko hedapeneraino. Taldeak AA garapen-prozesuan txertatuta du. Claude erabiltzen dugu, baita kode-berrikuspenaren eta probetan aurkitutako akatsen zuzenketaren zati bat egiten duten lan-fluxu automatizatuak ere.",
-                highlights: ["fase guztietan"],
+                description: "Swap Energía-ko garapen taldean nago, eta barne-erabilerako enpresa-baliabideen plangintza sistema (ERP) batean lan egiten dut. Aplikazioan PHP eta Vue erabiltzen ditut, eta zerbitzuetan Python, FastAPI eta MySQL.\n\nFuntzionalitate bakoitzean arkitekturaren eta interfazearen diseinuaz, garapenaz eta probez arduratzen naiz. Produkziorako hedapena automatizatuta dago.\n\nTaldeak AA garapen-prozesuan txertatuta du. Claude erabiltzen dugu, baita kode-berrikuspenaren eta probetan aurkitutako akatsen zuzenketaren zati bat egiten duten lan-fluxu automatizatuak ere.",
                 tags: ["PHP", "Vue", "Python", "FastAPI", "MySQL", "Claude"]
             },
             {
@@ -55,9 +54,21 @@ export const eu: Translation = {
                 organization: "Skootik",
                 dateStart: "2025eko uztaila",
                 dateEnd: "2026ko abuztua",
-                description: "Bezeroekin zuzenean lan egin dut, bilerak prestatu ditut eta haien aktak idatzi ditut. Aplikazioak ere diseinatu eta garatu ditut Next.js, Node eta Django REST-ekin, eta AWS-ko zerbitzariak muntatu ditut Docker-ekin produkzioan hedatzeko.",
+                description: "Bezeroekin zuzenean lan egin dut, bilerak prestatu ditut eta haien aktak idatzi ditut. Parte hartu dudan proiektuetan, eskakizunak bezeroarekin jaso ditut eta zehaztapen tekniko bihurtu ditut.\n\nOndoren, aurrerapenak jarraipen-bileretan aurkeztu ditut eta sortzen ziren irismen-aldaketak kudeatu ditut.\n\nAplikazioak ere diseinatu eta garatu ditut Next.js, Node eta Django REST-ekin, eta AWS-ko zerbitzariak muntatu ditut Docker-ekin produkzioan hedatzeko. Produkzioan jarri ondoren, gorabeherak konpondu ditut erabiltzaileekin harreman zuzenean.",
                 highlights: ["Bezeroekin zuzenean", "AWS-ko zerbitzariak"],
-                examples: ["Oris Dental Scan AA bidezko hortz-aurrediagnostiko tresna da. Proiektu honetan web interfazea, zerbitzariaren logikaren zati bat eta AWS-ko azpiegitura garatu ditut.", "Analisi-laborategi baten kudeaketa-aplikazioaren berrikuntzan parte hartu dut, eta sistema zahar batetik egungo teknologietara migratu da. Aplikazioak laginak aztertzeko eta jasotzeko behar diren kalkuluak egiten ditu, eta harreman konplexuak dituzten entitateak egitura modular eta eskalagarri baten bidez kudeatzen ditu. Bertsio berriak diseinu hobea du eta, kasu batzuetan, hiru aldiz baino azkarrago kargatzen da."],
+                examples: [
+                {
+                    title: "Oris Dental Scan",
+                    subtitle: "AA bidezko hortz-aurrediagnostikoa",
+                    body: ["Erabiltzaileak argazki bat igotzen du eta minutu gutxitan aho-osasunaren aurretiazko balorazioa jasotzen du.", "Web interfazea, zerbitzariaren logikaren zati bat eta AWS-ko azpiegitura garatu ditut."],
+                    tags: ["Next.js", "TypeScript", "Django", "AWS"]
+                },
+                {
+                    title: "Laborategiko kudeaketa-aplikazioa",
+                    subtitle: "Sistema zahar baten berrikuntza",
+                    body: ["Aplikazioak laginak aztertzeko eta jasotzeko behar diren kalkuluak egiten ditu, eta harreman konplexuak dituzten entitateak egitura modular eta eskalagarri baten bidez kudeatzen ditu. Sistema zahar batetik egungo teknologietara egindako migrazioan parte hartu dut.", "Laborategiaren eguneroko lanera egokitzeko, langileei elkarrizketak egin dizkiet, aplikazioa erabiltzen zuten bitartean behatu ditut eta aurkitzen zituzten arazoetan oinarrituta aldaketak proposatu ditut. Helburuak zuzendaritzarekin adostu ditut eta lan-fluxuak erabiltzaileekin baliozkotu ditut.", "Bertsio berriak diseinu hobea du eta, kasu batzuetan, hiru aldiz baino azkarrago kargatzen da."]
+                }
+                ],
                 tags: ["Next.js", "TypeScript", "Node.js", "Django REST", "Docker", "AWS"]
             },
             {
@@ -66,7 +77,7 @@ export const eu: Translation = {
                 organization: "Alerion Technologies",
                 dateStart: "2024ko uztaila",
                 dateEnd: "2024ko abuztua",
-                description: "Drone autonomoen sistemetarako software garapeneko praktikak. TypeScript, Python eta Bash-ekin lan egin dut misio-kontroleko softwarean, zehazki telemetriaren prozesamenduan, konektibitatearen egiaztapenean eta osagaien arteko komunikazioan, Robot Operating System (ROS) bidez. Integrazio jarraitua ere konfiguratu dut Jenkins-ekin, eta biltegiak kudeatu ditut Git eta Bitbucket-ekin. Taldeak iterazio laburretan antolatutako metodologia arina erabiltzen zuen.",
+                description: "Drone autonomoen sistemetarako software garapeneko praktikak. TypeScript, Python eta Bash-ekin lan egin dut misio-kontroleko softwarean, zehazki telemetriaren prozesamenduan, konektibitatearen egiaztapenean eta osagaien arteko komunikazioan, Robot Operating System (ROS) bidez.\n\nIntegrazio jarraitua ere konfiguratu dut Jenkins-ekin, eta biltegiak kudeatu ditut Git eta Bitbucket-ekin. Taldeak iterazio laburretan antolatutako metodologia arina erabiltzen zuen.",
                 highlights: ["Drone autonomoen"],
                 tags: ["TypeScript", "Python", "Jenkins"]
             },
@@ -126,7 +137,7 @@ export const eu: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Mugikorrerako pentsatutako AA bidezko hortz-aurrediagnostiko tresna. Erabiltzaileak argazki bat igotzen du eta minutu gutxitan aho-osasunaren aurretiazko balorazioa jasotzen du. Web interfazea Next.js eta TypeScript-ekin garatu dut, zerbitzariaren zati bat Django eta Python-ekin, eta AWS-ko azpiegitura. Produkzioan dago eta benetako pazienteek erabiltzen dute.",
+                description: "Mugikorrerako pentsatutako AA bidezko hortz-aurrediagnostiko tresna. Erabiltzaileak argazki bat igotzen du eta minutu gutxitan aho-osasunaren aurretiazko balorazioa jasotzen du.\n\nWeb interfazea Next.js eta TypeScript-ekin garatu dut, zerbitzariaren zati bat Django eta Python-ekin, eta AWS-ko azpiegitura. Produkzioan dago eta benetako pazienteek erabiltzen dute.",
                 note: "Europar Batasunak, Espainiako Gobernuak eta Eusko Jaurlaritzak finantzatua",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AA"],
                 imageUrl: "/images/projects/oris.webp",
@@ -157,6 +168,8 @@ export const eu: Translation = {
         navAbout: "Niri buruz",
         navProjects: "Proiektuak",
         navExperience: "Esperientzia",
-        navCV: "CV"
+        navCV: "CV",
+        examplesShow: "Gehiago jakin",
+        examplesHide: "Gutxiago erakutsi"
     }
 };

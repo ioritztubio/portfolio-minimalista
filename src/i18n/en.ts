@@ -36,7 +36,7 @@ export const en: Translation = {
                 organization: "Universidad Internacional de La Rioja (UNIR)",
                 dateStart: "June 2026",
                 dateEnd: "May 2027",
-                description: "Online master's degree worth 60 ECTS credits. The programme covers machine learning, deep learning, natural language processing, computer vision and AI engineering. I'm taking it to steer my career towards building AI applications.",
+                description: "Online master's degree worth 60 ECTS credits. The programme covers machine learning, deep learning, natural language processing, computer vision and AI engineering.\n\nI'm taking it to steer my career towards building AI applications.",
                 highlights: ["machine learning", "deep learning", "AI engineering"]
             },
             {
@@ -45,8 +45,7 @@ export const en: Translation = {
                 organization: "Swap Energía",
                 dateStart: "September 2026",
                 dateEnd: "Present",
-                description: "I'm part of the development team at Swap Energía, where I work on an enterprise resource planning (ERP) system for internal use. I develop with PHP and Vue on the application and with Python, FastAPI and MySQL on the services. I'm involved in every phase of each feature, from architecture and interface design to development, testing and deployment to production. The team works with AI built into the development process. We use Claude and automated workflows that handle part of the code review and of fixing the errors found during testing.",
-                highlights: ["every phase"],
+                description: "I'm part of the development team at Swap Energía, where I work on an enterprise resource planning (ERP) system for internal use. I develop with PHP and Vue on the application and with Python, FastAPI and MySQL on the services.\n\nFor each feature I handle the architecture and interface design, the development and the testing. Deployment to production is automated.\n\nThe team works with AI built into the development process. We use Claude and automated workflows that handle part of the code review and of fixing the errors found during testing.",
                 tags: ["PHP", "Vue", "Python", "FastAPI", "MySQL", "Claude"]
             },
             {
@@ -55,9 +54,21 @@ export const en: Translation = {
                 organization: "Skootik",
                 dateStart: "July 2025",
                 dateEnd: "August 2026",
-                description: "I worked directly with clients, prepared meetings and wrote up their minutes. I also designed and developed applications with Next.js, Node and Django REST, and set up servers on AWS with Docker to deploy them to production.",
+                description: "I worked directly with clients, prepared meetings and wrote up their minutes. On the projects I took part in, I gathered requirements with the client and turned them into technical specifications.\n\nI then presented progress in follow-up meetings and handled the scope changes that came up.\n\nI also designed and developed applications with Next.js, Node and Django REST, and set up servers on AWS with Docker to deploy them to production. Once they were live, I resolved incidents in direct contact with the users.",
                 highlights: ["directly with clients", "servers on AWS"],
-                examples: ["Oris Dental Scan is an AI dental pre-diagnosis tool. On this project I built the web interface, part of the server logic and the AWS infrastructure.", "I worked on the renewal of a testing laboratory's management application, which was migrated from a legacy system to current technologies. The application performs the calculations needed to analyse and collect samples, and manages entities with complex relationships through a modular, scalable structure. The new version has an improved design and, in some cases, loads more than three times faster."],
+                examples: [
+                {
+                    title: "Oris Dental Scan",
+                    subtitle: "AI dental pre-diagnosis",
+                    body: ["Users upload a photo and within minutes receive a preliminary assessment of their oral health.", "I built the web interface, part of the server logic and the AWS infrastructure."],
+                    tags: ["Next.js", "TypeScript", "Django", "AWS"]
+                },
+                {
+                    title: "Laboratory management application",
+                    subtitle: "Renewal of a legacy system",
+                    body: ["The application performs the calculations needed to analyse and collect samples, and manages entities with complex relationships through a modular, scalable structure. I took part in its migration from a legacy system to current technologies.", "To fit it to the laboratory's daily work, I interviewed the staff, observed them while they used the application and proposed changes based on the problems they ran into. I agreed the goals with management and validated the workflows with the users.", "The new version has an improved design and, in some cases, loads more than three times faster."]
+                }
+                ],
                 tags: ["Next.js", "TypeScript", "Node.js", "Django REST", "Docker", "AWS"]
             },
             {
@@ -66,7 +77,7 @@ export const en: Translation = {
                 organization: "Alerion Technologies",
                 dateStart: "July 2024",
                 dateEnd: "August 2024",
-                description: "Internship developing software for autonomous drone systems. I worked with TypeScript, Python and Bash on the mission control software, specifically on telemetry processing, connectivity checks and communication between components through Robot Operating System (ROS). I also set up continuous integration with Jenkins and managed repositories with Git and Bitbucket. The team followed an agile methodology organised in short iterations.",
+                description: "Internship developing software for autonomous drone systems. I worked with TypeScript, Python and Bash on the mission control software, specifically on telemetry processing, connectivity checks and communication between components through Robot Operating System (ROS).\n\nI also set up continuous integration with Jenkins and managed repositories with Git and Bitbucket. The team followed an agile methodology organised in short iterations.",
                 highlights: ["autonomous drone systems"],
                 tags: ["TypeScript", "Python", "Jenkins"]
             },
@@ -126,7 +137,7 @@ export const en: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "AI dental pre-diagnosis tool designed for mobile. Users upload a photo and within minutes receive a preliminary assessment of their oral health. I built the web interface with Next.js and TypeScript, part of the server with Django and Python, and the AWS infrastructure. It is in production and used by real patients.",
+                description: "AI dental pre-diagnosis tool designed for mobile. Users upload a photo and within minutes receive a preliminary assessment of their oral health.\n\nI built the web interface with Next.js and TypeScript, part of the server with Django and Python, and the AWS infrastructure. It is in production and used by real patients.",
                 note: "Funded by the European Union, the Spanish Government and the Basque Government",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "AI"],
                 imageUrl: "/images/projects/oris.webp",
@@ -157,6 +168,8 @@ export const en: Translation = {
         navAbout: "About",
         navProjects: "Projects",
         navExperience: "Experience",
-        navCV: "CV"
+        navCV: "CV",
+        examplesShow: "Learn more",
+        examplesHide: "Show less"
     }
 };

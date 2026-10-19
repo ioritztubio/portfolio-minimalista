@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView, useReducedMotion } from "motion/react";
 import { Briefcase, ChevronDown, GraduationCap } from "lucide-react";
-import { TimelineEvent } from "../data/types";
+import { TimelineEvent, TimelineExample } from "../data/types";
 import { useLanguage } from "../context/LanguageContext";
 import { renderHighlights } from "../utils/highlights";
 import { isFuture, isOngoing, parseDateVal, yearOf } from "../utils/dates";
@@ -135,7 +135,11 @@ const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: (
       className="border-t py-7 first:border-t-0 first:pt-0 md:py-12"
       style={{ borderColor: "var(--line)" }}
     >
-      <div className="transition-opacity duration-500 md:[opacity:var(--o)]" style={{ "--o": focused ? 1 : 0.8 } as React.CSSProperties}>
+      {/* The entry being read grows slightly on large screens; transform keeps the layout still */}
+      <div
+        className="origin-left transition-[opacity,transform] duration-500 md:[opacity:var(--o)] lg:motion-safe:[transform:scale(var(--s))]"
+        style={{ "--o": focused ? 1 : 0.8, "--s": focused ? 1.035 : 1, transitionTimingFunction: "var(--ease-out)" } as React.CSSProperties}
+      >
         {/* Mobile: year inline */}
         <span className="tabular mb-3 block text-5xl font-semibold md:hidden" style={{ letterSpacing: "-0.04em", color: "var(--ink)" }}>
           {yearOf(event.dateStart)}
@@ -163,18 +167,13 @@ const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: (
         <p className="mt-1 text-[15px] font-medium" style={{ color: "var(--ink-2)" }}>
           {event.organization}
         </p>
-        <p className="mt-4 max-w-[62ch] text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
-          {renderHighlights(event.description, event.highlights ?? [], "font-medium text-[var(--ink)]")}
-        </p>
-        {event.examples && event.examples.length > 0 && (
-          <ul className="mt-4 grid max-w-[62ch] gap-2.5">
-            {event.examples.map((ex) => (
-              <li key={ex} className="border-l pl-4 text-[15px] leading-relaxed" style={{ borderColor: "var(--line-2)", color: "var(--ink-2)" }}>
-                {ex}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="mt-4 grid max-w-[62ch] gap-3">
+          {event.description.split("\n\n").map((para) => (
+            <p key={para} className="text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
+              {renderHighlights(para, event.highlights ?? [], "font-medium text-[var(--ink)]")}
+            </p>
+          ))}
+        </div>
         {event.tags && event.tags.length > 0 && (
           <ul className="mt-4 flex flex-wrap gap-1.5">
             {event.tags.map((tag) => (
@@ -184,7 +183,86 @@ const Entry: React.FC<{ event: TimelineEvent; focused: boolean; onFocusChange: (
             ))}
           </ul>
         )}
+        {event.examples && event.examples.length > 0 && <Examples items={event.examples} />}
       </div>
     </motion.li>
+  );
+};
+
+// Concrete projects behind an entry, folded away so the summary reads on its own.
+const Examples: React.FC<{ items: TimelineExample[] }> = ({ items }) => {
+  const { t } = useLanguage();
+  const reduce = useReducedMotion();
+  const [open, setOpen] = useState(false);
+  // Clip only while the height animates; once settled the cards' soft shadows must not be cut square.
+  const [settled, setSettled] = useState(false);
+  const id = React.useId();
+  return (
+    <div className="mt-4">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls={id}
+        className="pressable inline-flex items-center gap-1.5 rounded-full py-1 text-sm font-medium"
+        style={{ color: "var(--ink)" }}
+      >
+        {open ? t.ui.examplesHide : t.ui.examplesShow}
+        <ChevronDown
+          className="h-4 w-4 transition-transform duration-300"
+          style={{ transform: open ? "rotate(180deg)" : "none", transitionTimingFunction: "var(--ease-out)" }}
+          aria-hidden="true"
+        />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id={id}
+            initial={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            animate={reduce ? { opacity: 1 } : { height: "auto", opacity: 1 }}
+            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            onAnimationStart={() => setSettled(false)}
+            onAnimationComplete={() => setSettled(true)}
+            className="-mx-5 -mb-8 px-5 pb-8"
+            style={{ overflow: settled ? "visible" : "hidden" }}
+          >
+            <ul className="grid max-w-[62ch] gap-3 pt-4">
+              {items.map((ex, i) => (
+                <motion.li
+                  key={ex.title}
+                  initial={reduce ? false : { opacity: 0, transform: "translateY(8px)" }}
+                  animate={{ opacity: 1, transform: "translateY(0px)" }}
+                  transition={{ duration: 0.4, ease: EASE, delay: 0.08 + i * 0.06 }}
+                  className="glass rounded-[20px] p-5 md:p-6"
+                >
+                  <h4 className="text-lg font-semibold" style={{ letterSpacing: "-0.02em", lineHeight: 1.2, color: "var(--ink)" }}>
+                    {ex.title}
+                  </h4>
+                  <p className="mt-1 text-[13px]" style={{ color: "var(--ink-3)" }}>
+                    {ex.subtitle}
+                  </p>
+                  <div className="mt-4 grid gap-3">
+                    {ex.body.map((para) => (
+                      <p key={para} className="text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                  {ex.tags && ex.tags.length > 0 && (
+                    <ul className="mt-4 flex flex-wrap gap-1.5">
+                      {ex.tags.map((tag) => (
+                        <li key={tag} className="rounded-full px-2.5 py-1 font-mono text-[11px]" style={{ background: "var(--line)", color: "var(--ink-2)" }}>
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };

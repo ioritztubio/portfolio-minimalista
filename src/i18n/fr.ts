@@ -36,7 +36,7 @@ export const fr: Translation = {
                 organization: "Universidad Internacional de La Rioja (UNIR)",
                 dateStart: "juin 2026",
                 dateEnd: "mai 2027",
-                description: "Master en ligne de 60 crédits ECTS. Le programme couvre l'apprentissage automatique, l'apprentissage profond, le traitement automatique du langage naturel, la vision par ordinateur et l'ingénierie de l'IA. Je le suis pour orienter ma carrière vers le développement d'applications d'IA.",
+                description: "Master en ligne de 60 crédits ECTS. Le programme couvre l'apprentissage automatique, l'apprentissage profond, le traitement automatique du langage naturel, la vision par ordinateur et l'ingénierie de l'IA.\n\nJe le suis pour orienter ma carrière vers le développement d'applications d'IA.",
                 highlights: ["l'apprentissage automatique", "l'apprentissage profond", "l'ingénierie de l'IA"]
             },
             {
@@ -45,8 +45,7 @@ export const fr: Translation = {
                 organization: "Swap Energía",
                 dateStart: "septembre 2026",
                 dateEnd: "Présent",
-                description: "Je fais partie de l'équipe de développement de Swap Energía, où je travaille sur un progiciel de gestion intégré (ERP) à usage interne. Je développe avec PHP et Vue côté application, et avec Python, FastAPI et MySQL côté services. Je participe à toutes les phases de chaque fonctionnalité, de la conception de l'architecture et de l'interface jusqu'au développement, aux tests et au déploiement en production. L'équipe intègre l'IA dans le processus de développement. Nous utilisons Claude et des flux de travail automatisés qui prennent en charge une partie de la revue de code et de la correction des erreurs détectées lors des tests.",
-                highlights: ["toutes les phases"],
+                description: "Je fais partie de l'équipe de développement de Swap Energía, où je travaille sur un progiciel de gestion intégré (ERP) à usage interne. Je développe avec PHP et Vue côté application, et avec Python, FastAPI et MySQL côté services.\n\nPour chaque fonctionnalité, je m'occupe de la conception de l'architecture et de l'interface, du développement et des tests. Le déploiement en production est automatisé.\n\nL'équipe intègre l'IA dans le processus de développement. Nous utilisons Claude et des flux de travail automatisés qui prennent en charge une partie de la revue de code et de la correction des erreurs détectées lors des tests.",
                 tags: ["PHP", "Vue", "Python", "FastAPI", "MySQL", "Claude"]
             },
             {
@@ -55,9 +54,21 @@ export const fr: Translation = {
                 organization: "Skootik",
                 dateStart: "juillet 2025",
                 dateEnd: "août 2026",
-                description: "J'ai travaillé directement avec des clients, préparé des réunions et rédigé leurs comptes rendus. J'ai aussi conçu et développé des applications avec Next.js, Node et Django REST, et mis en place des serveurs sur AWS avec Docker pour les déployer en production.",
+                description: "J'ai travaillé directement avec des clients, préparé des réunions et rédigé leurs comptes rendus. Sur les projets auxquels j'ai participé, j'ai recueilli les besoins avec le client et je les ai traduits en spécifications techniques.\n\nJ'ai ensuite présenté l'avancement lors des réunions de suivi et géré les changements de périmètre.\n\nJ'ai aussi conçu et développé des applications avec Next.js, Node et Django REST, et mis en place des serveurs sur AWS avec Docker pour les déployer en production. Une fois en production, j'ai résolu les incidents en contact direct avec les utilisateurs.",
                 highlights: ["directement avec des clients", "serveurs sur AWS"],
-                examples: ["Oris Dental Scan est un outil de prédiagnostic dentaire par IA. Sur ce projet, j'ai développé l'interface web, une partie de la logique serveur et l'infrastructure sur AWS.", "J'ai participé à la refonte de l'application de gestion d'un laboratoire d'analyses, migrée d'un système ancien vers des technologies actuelles. L'application effectue les calculs nécessaires à l'analyse et au prélèvement des échantillons, et gère des entités aux relations complexes grâce à une structure modulaire et évolutive. La nouvelle version a un design amélioré et, dans certains cas, elle charge plus de trois fois plus vite."],
+                examples: [
+                {
+                    title: "Oris Dental Scan",
+                    subtitle: "Prédiagnostic dentaire par IA",
+                    body: ["L'utilisateur envoie une photo et reçoit en quelques minutes une évaluation préliminaire de sa santé bucco-dentaire.", "J'ai développé l'interface web, une partie de la logique serveur et l'infrastructure sur AWS."],
+                    tags: ["Next.js", "TypeScript", "Django", "AWS"]
+                },
+                {
+                    title: "Application de gestion de laboratoire",
+                    subtitle: "Refonte d'un système ancien",
+                    body: ["L'application effectue les calculs nécessaires à l'analyse et au prélèvement des échantillons, et gère des entités aux relations complexes grâce à une structure modulaire et évolutive. J'ai participé à sa migration d'un système ancien vers des technologies actuelles.", "Pour l'adapter au travail quotidien du laboratoire, j'ai mené des entretiens avec le personnel, je l'ai observé pendant qu'il utilisait l'application et j'ai proposé des changements à partir des problèmes rencontrés. J'ai défini les objectifs avec la direction et validé les flux de travail avec les utilisateurs.", "La nouvelle version a un design amélioré et, dans certains cas, elle charge plus de trois fois plus vite."]
+                }
+                ],
                 tags: ["Next.js", "TypeScript", "Node.js", "Django REST", "Docker", "AWS"]
             },
             {
@@ -66,7 +77,7 @@ export const fr: Translation = {
                 organization: "Alerion Technologies",
                 dateStart: "juillet 2024",
                 dateEnd: "août 2024",
-                description: "Stage de développement logiciel pour des systèmes de drones autonomes. J'ai travaillé avec TypeScript, Python et Bash sur le logiciel de contrôle de mission, plus précisément sur le traitement de la télémétrie, la vérification de la connectivité et la communication entre composants via Robot Operating System (ROS). J'ai aussi configuré l'intégration continue avec Jenkins et géré des dépôts avec Git et Bitbucket. L'équipe suivait une méthode agile organisée en itérations courtes.",
+                description: "Stage de développement logiciel pour des systèmes de drones autonomes. J'ai travaillé avec TypeScript, Python et Bash sur le logiciel de contrôle de mission, plus précisément sur le traitement de la télémétrie, la vérification de la connectivité et la communication entre composants via Robot Operating System (ROS).\n\nJ'ai aussi configuré l'intégration continue avec Jenkins et géré des dépôts avec Git et Bitbucket. L'équipe suivait une méthode agile organisée en itérations courtes.",
                 highlights: ["drones autonomes"],
                 tags: ["TypeScript", "Python", "Jenkins"]
             },
@@ -126,7 +137,7 @@ export const fr: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Outil de prédiagnostic dentaire par IA conçu pour le mobile. L'utilisateur envoie une photo et reçoit en quelques minutes une évaluation préliminaire de sa santé bucco-dentaire. J'ai développé l'interface web avec Next.js et TypeScript, une partie du serveur avec Django et Python, ainsi que l'infrastructure sur AWS. Il est en production et utilisé par de vrais patients.",
+                description: "Outil de prédiagnostic dentaire par IA conçu pour le mobile. L'utilisateur envoie une photo et reçoit en quelques minutes une évaluation préliminaire de sa santé bucco-dentaire.\n\nJ'ai développé l'interface web avec Next.js et TypeScript, une partie du serveur avec Django et Python, ainsi que l'infrastructure sur AWS. Il est en production et utilisé par de vrais patients.",
                 note: "Financé par l'Union européenne, le gouvernement espagnol et le gouvernement basque",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "IA"],
                 imageUrl: "/images/projects/oris.webp",
@@ -157,6 +168,8 @@ export const fr: Translation = {
         navAbout: "À propos",
         navProjects: "Projets",
         navExperience: "Expérience",
-        navCV: "CV"
+        navCV: "CV",
+        examplesShow: "En savoir plus",
+        examplesHide: "Afficher moins"
     }
 };

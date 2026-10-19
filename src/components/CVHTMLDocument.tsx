@@ -17,7 +17,7 @@ const DATA: Record<Lang, {
         role: "Software Developer", dates: "Sep 2026 – Present",
         bullets: [
           "Development of an internal ERP with PHP and Vue on the application and Python, FastAPI and MySQL on the services.",
-          "Involved in every phase of each feature, from architecture and interface design to development, testing and deployment to production.",
+          "Architecture and interface design, development and testing of each feature, with automated deployment to production.",
           "AI built into the development process, with Claude and automated workflows for part of the code review and bug fixing during testing.",
         ],
       },
@@ -26,8 +26,8 @@ const DATA: Record<Lang, {
         role: "Junior Software Engineer", dates: "Jul 2025 – Aug 2026",
         bullets: [
           "Oris Dental Scan, an AI dental pre-diagnosis tool in production, funded by the EU, the Spanish Government and the Basque Government. Built the web interface, part of the server and the AWS infrastructure with Next.js, TypeScript, Django, Python and PostgreSQL.",
-          "Renewal of a testing laboratory's management application, migrated from a legacy system. Calculations for sample analysis and collection, and modular management of entities with complex relationships. Improved design and, in some cases, load times more than three times faster.",
-          "Worked directly with clients, prepared meetings and wrote up the minutes. Designed and developed applications with Next.js, Node and Django REST, and set up AWS servers with Docker.",
+          "Renewal of a testing laboratory's management application, migrated from a legacy system. Calculations for sample analysis and collection, and modular management of entities with complex relationships. Interviews with and observation of staff to fit the application to their daily work. Improved design and, in some cases, load times more than three times faster.",
+          "Direct work with clients, from requirements gathering and follow-up meetings to minutes and scope changes. Designed and developed applications with Next.js, Node and Django REST, set up AWS servers with Docker and resolved incidents with users.",
         ],
       },
       {
@@ -83,7 +83,7 @@ const DATA: Record<Lang, {
         role: "Desarrollador de software", dates: "sep 2026 – actualidad",
         bullets: [
           "Desarrollo de un ERP de uso interno con PHP y Vue en la aplicación y con Python, FastAPI y MySQL en los servicios.",
-          "Participación en todas las fases de cada funcionalidad, desde el diseño de la arquitectura y de la interfaz hasta el desarrollo, las pruebas y el despliegue en producción.",
+          "Diseño de la arquitectura y de la interfaz, desarrollo y pruebas de cada funcionalidad, con despliegue automatizado en producción.",
           "Trabajo con la IA integrada en el proceso de desarrollo, con Claude y flujos automatizados para parte de la revisión de código y de la corrección de errores en las pruebas.",
         ],
       },
@@ -92,8 +92,8 @@ const DATA: Record<Lang, {
         role: "Ingeniero de software júnior", dates: "jul 2025 – ago 2026",
         bullets: [
           "Oris Dental Scan, herramienta de prediagnóstico dental con IA en producción, financiada por la Unión Europea, el Gobierno de España y el Gobierno Vasco. Desarrollo de la interfaz web, de parte del servidor y de la infraestructura en AWS con Next.js, TypeScript, Django, Python y PostgreSQL.",
-          "Renovación de la aplicación de gestión de un laboratorio de análisis, migrada desde un sistema heredado. Cálculos para el análisis y la recogida de muestras y gestión modular de entidades con relaciones complejas. Diseño mejorado y, en algunos casos, carga más del triple de rápida.",
-          "Trato directo con clientes, preparación de reuniones y redacción de actas. Diseño y desarrollo de aplicaciones con Next.js, Node y Django REST, y montaje de servidores en AWS con Docker.",
+          "Renovación de la aplicación de gestión de un laboratorio de análisis, migrada desde un sistema heredado. Cálculos para el análisis y la recogida de muestras y gestión modular de entidades con relaciones complejas. Entrevistas y observación de los trabajadores para adaptar la aplicación a su trabajo diario. Diseño mejorado y, en algunos casos, carga más del triple de rápida.",
+          "Trato directo con clientes, desde la recogida de requisitos y las reuniones de seguimiento hasta la redacción de actas y la gestión de cambios de alcance. Diseño y desarrollo de aplicaciones con Next.js, Node y Django REST, montaje de servidores en AWS con Docker y resolución de incidencias con los usuarios.",
         ],
       },
       {

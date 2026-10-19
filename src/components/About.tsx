@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { motion, MotionValue, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { motion, MotionValue, useInView, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useLanguage } from "../context/LanguageContext";
 import { uiStrings } from "../i18n/ui";
 import { renderHighlights } from "../utils/highlights";
@@ -39,17 +39,9 @@ export const About: React.FC = () => {
 
           <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 md:gap-10">
             {rest.map((para, i) => (
-              <motion.p
-                key={`${lang}-${i}`}
-                initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
-                whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-                viewport={{ once: true, margin: "0px 0px -5% 0px" }}
-                transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: i * 0.06 }}
-                className="text-[17px] leading-relaxed"
-                style={{ color: "var(--ink-2)" }}
-              >
+              <Paragraph key={`${lang}-${i}`} index={i} reduce={!!reduce}>
                 {renderHighlights(para, highlights, "font-medium text-[var(--ink)]")}
-              </motion.p>
+              </Paragraph>
             ))}
           </div>
         </div>
@@ -68,5 +60,29 @@ const Word: React.FC<{ progress: MotionValue<number>; range: [number, number]; c
     <>
       <motion.span style={{ opacity }}>{children}</motion.span>{" "}
     </>
+  );
+};
+
+// Supporting paragraph: fades in once, then grows slightly while it sits in the reading band (large screens).
+const Paragraph: React.FC<{ index: number; reduce: boolean; children: React.ReactNode }> = ({ index, reduce, children }) => {
+  const ref = useRef<HTMLParagraphElement>(null);
+  const reading = useInView(ref, { margin: "-35% 0px -35% 0px" });
+  return (
+    <motion.p
+      ref={ref}
+      initial={reduce ? false : { opacity: 0, transform: "translateY(16px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+      viewport={{ once: true, margin: "0px 0px -5% 0px" }}
+      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1], delay: index * 0.06 }}
+      className="text-[17px] leading-relaxed"
+      style={{ color: "var(--ink-2)" }}
+    >
+      <span
+        className="block origin-left transition-[opacity,transform] duration-500 lg:[opacity:var(--o)] lg:motion-safe:[transform:scale(var(--s))]"
+        style={{ "--o": reading ? 1 : 0.8, "--s": reading ? 1.035 : 1, transitionTimingFunction: "var(--ease-out)" } as React.CSSProperties}
+      >
+        {children}
+      </span>
+    </motion.p>
   );
 };

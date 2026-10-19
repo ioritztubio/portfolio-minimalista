@@ -36,7 +36,7 @@ export const es: Translation = {
                 organization: "Universidad Internacional de La Rioja (UNIR)",
                 dateStart: "junio de 2026",
                 dateEnd: "mayo de 2027",
-                description: "Máster en línea de 60 créditos ECTS. El programa incluye aprendizaje automático, aprendizaje profundo, procesamiento del lenguaje natural, visión por computador e ingeniería de IA. Lo curso para orientar mi carrera hacia el desarrollo de aplicaciones con IA.",
+                description: "Máster en línea de 60 créditos ECTS. El programa incluye aprendizaje automático, aprendizaje profundo, procesamiento del lenguaje natural, visión por computador e ingeniería de IA.\n\nLo curso para orientar mi carrera hacia el desarrollo de aplicaciones con IA.",
                 highlights: ["aprendizaje automático", "aprendizaje profundo", "ingeniería de IA"]
             },
             {
@@ -45,8 +45,7 @@ export const es: Translation = {
                 organization: "Swap Energía",
                 dateStart: "septiembre de 2026",
                 dateEnd: "Actualidad",
-                description: "Formo parte del equipo de desarrollo de Swap Energía, donde trabajo en un sistema de planificación de recursos empresariales (ERP, por sus siglas en inglés) de uso interno. Desarrollo con PHP y Vue en la aplicación y con Python, FastAPI y MySQL en los servicios. Participo en todas las fases de cada funcionalidad, desde el diseño de la arquitectura y de la interfaz hasta el desarrollo, las pruebas y el despliegue en producción. El equipo trabaja con la IA integrada en el proceso de desarrollo. Usamos Claude y flujos de trabajo automatizados que se encargan de parte de la revisión de código y de la corrección de los errores detectados en las pruebas.",
-                highlights: ["todas las fases"],
+                description: "Formo parte del equipo de desarrollo de Swap Energía, donde trabajo en un sistema de planificación de recursos empresariales (ERP, por sus siglas en inglés) de uso interno. Desarrollo con PHP y Vue en la aplicación y con Python, FastAPI y MySQL en los servicios.\n\nEn cada funcionalidad me encargo del diseño de la arquitectura y de la interfaz, del desarrollo y de las pruebas. El despliegue en producción está automatizado.\n\nEl equipo trabaja con la IA integrada en el proceso de desarrollo. Usamos Claude y flujos de trabajo automatizados que se encargan de parte de la revisión de código y de la corrección de los errores detectados en las pruebas.",
                 tags: ["PHP", "Vue", "Python", "FastAPI", "MySQL", "Claude"]
             },
             {
@@ -55,9 +54,21 @@ export const es: Translation = {
                 organization: "Skootik",
                 dateStart: "julio de 2025",
                 dateEnd: "agosto de 2026",
-                description: "He trabajado directamente con clientes, he preparado reuniones y he redactado sus actas. También he diseñado y desarrollado aplicaciones con Next.js, Node y Django REST, y he montado servidores en AWS con Docker para desplegarlas en producción.",
+                description: "He trabajado directamente con clientes, he preparado reuniones y he redactado sus actas. En los proyectos en los que he participado, he recogido los requisitos con el cliente y los he convertido en especificaciones técnicas.\n\nDespués he presentado los avances en las reuniones de seguimiento y he gestionado los cambios de alcance que surgían.\n\nTambién he diseñado y desarrollado aplicaciones con Next.js, Node y Django REST, y he montado servidores en AWS con Docker para desplegarlas en producción. Una vez en producción, he resuelto las incidencias en contacto directo con los usuarios.",
                 highlights: ["directamente con clientes", "servidores en AWS"],
-                examples: ["Oris Dental Scan es una herramienta de prediagnóstico dental con IA. En este proyecto he desarrollado la interfaz web, una parte de la lógica de servidor y la infraestructura en AWS.", "He participado en la renovación de la aplicación de gestión de un laboratorio de análisis, que se ha migrado desde un sistema heredado a tecnologías actuales. La aplicación realiza los cálculos necesarios para el análisis y la recogida de muestras, y gestiona entidades con relaciones complejas mediante una estructura modular y escalable. La nueva versión tiene un diseño mejorado y, en algunos casos, carga más del triple de rápido."],
+                examples: [
+                {
+                    title: "Oris Dental Scan",
+                    subtitle: "Prediagnóstico dental con IA",
+                    body: ["El usuario sube una foto y en pocos minutos recibe una valoración preliminar de su salud bucodental.", "He desarrollado la interfaz web, una parte de la lógica de servidor y la infraestructura en AWS."],
+                    tags: ["Next.js", "TypeScript", "Django", "AWS"]
+                },
+                {
+                    title: "Aplicación de gestión de laboratorio",
+                    subtitle: "Renovación de un sistema heredado",
+                    body: ["La aplicación realiza los cálculos necesarios para el análisis y la recogida de muestras, y gestiona entidades con relaciones complejas mediante una estructura modular y escalable. He participado en su migración desde un sistema heredado a tecnologías actuales.", "Para adaptarla al trabajo diario del laboratorio, he entrevistado a los trabajadores, los he observado mientras usaban la aplicación y he propuesto cambios a partir de los problemas que encontraban. He acordado los objetivos con la dirección y he validado los flujos de trabajo con los usuarios.", "La nueva versión tiene un diseño mejorado y, en algunos casos, carga más del triple de rápido."]
+                }
+                ],
                 tags: ["Next.js", "TypeScript", "Node.js", "Django REST", "Docker", "AWS"]
             },
             {
@@ -66,7 +77,7 @@ export const es: Translation = {
                 organization: "Alerion Technologies",
                 dateStart: "julio de 2024",
                 dateEnd: "agosto de 2024",
-                description: "Prácticas de desarrollo de software para sistemas de drones autónomos. He trabajado con TypeScript, Python y Bash en el software de control de misión, en concreto en el procesamiento de telemetría, la verificación de la conectividad y la comunicación entre componentes mediante Robot Operating System (ROS). También he configurado la integración continua con Jenkins y he gestionado repositorios con Git y Bitbucket. El equipo seguía una metodología ágil organizada en iteraciones cortas.",
+                description: "Prácticas de desarrollo de software para sistemas de drones autónomos. He trabajado con TypeScript, Python y Bash en el software de control de misión, en concreto en el procesamiento de telemetría, la verificación de la conectividad y la comunicación entre componentes mediante Robot Operating System (ROS).\n\nTambién he configurado la integración continua con Jenkins y he gestionado repositorios con Git y Bitbucket. El equipo seguía una metodología ágil organizada en iteraciones cortas.",
                 highlights: ["drones autónomos"],
                 tags: ["TypeScript", "Python", "Jenkins"]
             },
@@ -126,7 +137,7 @@ export const es: Translation = {
         items: [
             {
                 title: "Oris Dental Scan",
-                description: "Herramienta de prediagnóstico dental con IA pensada para el móvil. El usuario sube una foto y en pocos minutos recibe una valoración preliminar de su salud bucodental. He desarrollado la interfaz web con Next.js y TypeScript, una parte del servidor con Django y Python y la infraestructura en AWS. Está en producción y la usan pacientes reales.",
+                description: "Herramienta de prediagnóstico dental con IA pensada para el móvil. El usuario sube una foto y en pocos minutos recibe una valoración preliminar de su salud bucodental.\n\nHe desarrollado la interfaz web con Next.js y TypeScript, una parte del servidor con Django y Python y la infraestructura en AWS. Está en producción y la usan pacientes reales.",
                 note: "Financiado por la Unión Europea, el Gobierno de España y el Gobierno Vasco",
                 tags: ["Next.js", "TypeScript", "Django", "Python", "IA"],
                 imageUrl: "/images/projects/oris.webp",
@@ -157,6 +168,8 @@ export const es: Translation = {
         navAbout: "Sobre mí",
         navProjects: "Proyectos",
         navExperience: "Experiencia",
-        navCV: "CV"
+        navCV: "CV",
+        examplesShow: "Saber más",
+        examplesHide: "Mostrar menos"
     }
 };

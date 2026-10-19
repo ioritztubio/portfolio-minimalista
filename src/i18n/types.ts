@@ -36,5 +36,7 @@ export interface Translation {
         navProjects: string;
         navExperience: string;
         navCV: string;
+        examplesShow: string;
+        examplesHide: string;
     };
 }

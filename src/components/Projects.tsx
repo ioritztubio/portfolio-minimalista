@@ -129,9 +129,13 @@ const ProjectStage: React.FC<{ project: Project; index: number; total: number }>
             <h3 className="text-3xl font-semibold md:text-[2.5rem]" style={{ letterSpacing: "-0.03em", lineHeight: 1.05, color: "var(--ink)" }}>
               {project.title}
             </h3>
-            <p className="text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
-              {project.description}
-            </p>
+            <div className="grid gap-3">
+              {project.description.split("\n\n").map((para) => (
+                <p key={para} className="text-[15px] leading-relaxed" style={{ color: "var(--ink-2)" }}>
+                  {para}
+                </p>
+              ))}
+            </div>
             {project.note && (
               <p className="text-[13px]" style={{ color: "var(--ink-3)" }}>
                 {project.note}
