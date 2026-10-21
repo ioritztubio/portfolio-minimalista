@@ -6,28 +6,28 @@ const DATA: Record<Lang, {
   sections: Record<string, string>;
   experience: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
   education: { institution: string; location: string; degree: string; dates: string; bullets: string[] }[];
-  additional: { company: string; location: string; role: string; dates: string; bullets: string[] }[];
+  additional: string; // one short paragraph: non-tech jobs held while studying
   skills: { left: { cat: string; val: string }[]; right: { cat: string; val: string }[] };
 }> = {
   en: {
-    sections: { experience: "Professional Experience", education: "Education", additional: "Additional Experience", skills: "Skills & Interests" },
+    sections: { experience: "Professional Experience", education: "Education", additional: "Other work experience", skills: "Skills & Interests" },
     experience: [
       {
         company: "Swap Energía", location: "Donostia, Spain",
         role: "Software Developer", dates: "Sep 2026 – Present",
         bullets: [
           "Development of an internal ERP with PHP and Vue on the application and Python, FastAPI and MySQL on the services.",
-          "Architecture and interface design, development and testing of each feature, with automated deployment to production.",
-          "AI built into the development process, with Claude and automated workflows for part of the code review and bug fixing during testing.",
+          "Architecture and interface design, development and testing of each feature, with automated deployment.",
+          "AI built into development, with Claude and automated workflows for code review and bug fixing.",
         ],
       },
       {
         company: "Skootik", location: "Donostia, Spain",
         role: "Junior Software Engineer", dates: "Jul 2025 – Aug 2026",
         bullets: [
-          "Oris Dental Scan, an AI dental pre-diagnosis tool in production, funded by the EU, the Spanish Government and the Basque Government. Built the web interface, part of the server and the AWS infrastructure with Next.js, TypeScript, Django, Python and PostgreSQL.",
-          "Renewal of a testing laboratory's management application, migrated from a legacy system. Calculations for sample analysis and collection, and modular management of entities with complex relationships. Interviews with and observation of staff to fit the application to their daily work. Improved design and, in some cases, load times more than three times faster.",
-          "Direct work with clients, from requirements gathering and follow-up meetings to minutes and scope changes. Designed and developed applications with Next.js, Node and Django REST, set up AWS servers with Docker and resolved incidents with users.",
+          "Oris Dental Scan, AI dental pre-diagnosis in production with European, Spanish and Basque funding. Web interface, part of the server and AWS infrastructure with Next.js, Django and PostgreSQL.",
+          "Renewal of a testing laboratory's management application, migrated from a legacy system. Interviews with and observation of staff to fit it to their daily work. In some cases, it loads more than three times faster.",
+          "Direct work with clients on requirements, follow-up, minutes and scope changes. Development with Next.js, Node and Django REST, AWS servers with Docker and incident resolution.",
         ],
       },
       {
@@ -50,26 +50,22 @@ const DATA: Record<Lang, {
         degree: "Bachelor's in Computer Engineering", dates: "Sep 2021 – Feb 2026",
         bullets: [
           "Average grade 6.2 out of 10.",
-          "Final degree project graded 8.5 out of 10. Design and development of a resource planning platform for the Cebanc vocational training centre, integrated with Skootik, built with Next.js, Django, PostgreSQL, Celery, AWS and Jenkins.",
+          "Final degree project graded 8.5. Resource planning platform for the Cebanc vocational training centre, built with Next.js, Django, PostgreSQL, Celery and AWS.",
         ],
       },
     ],
-    additional: [
-      { company: "Restaurante VaBene", location: "Donostia, Spain", role: "Waiter", dates: "Mar 2022 – Sep 2022", bullets: ["Served several tables at once in a busy restaurant, especially during peak hours."] },
-      { company: "Muka, Ixo Restauración SL", location: "Donostia, Spain", role: "Catering Waiter", dates: "Sep 2022 – Oct 2023", bullets: ["Table service at catering events such as galas, company dinners and private celebrations, in long shifts."] },
-      { company: "MCC Graphics S. Coop", location: "Donostia, Spain", role: "Print Production Worker", dates: "Jul 2023 – Aug 2023", bullets: ["Material handling, print quality checks and production line support in a printing cooperative."] },
-    ],
+    additional: "While studying for my degree I worked in hospitality, as a waiter in a restaurant (2022) and at catering events (2022 to 2023), and for a month on the production line of a printing company (2023). These were demanding jobs that taught me to stay organised and work well under pressure.",
     skills: {
       left: [
         { cat: "Languages: ", val: "TypeScript, Python, PHP, JavaScript, Bash" },
         { cat: "Frontend: ", val: "React, Next.js, Vue, Tailwind CSS" },
-        { cat: "Backend: ", val: "Django REST Framework, FastAPI, Node.js, REST APIs, microservices" },
+        { cat: "Backend: ", val: "Django REST, FastAPI, Node.js, microservices" },
         { cat: "Databases: ", val: "PostgreSQL, MySQL, SQL" },
-        { cat: "Cloud & DevOps: ", val: "AWS (EC2, S3, RDS), Docker, Jenkins (CI/CD)" },
+        { cat: "Cloud & DevOps: ", val: "AWS, Docker, Jenkins" },
       ],
       right: [
         { cat: "Version Control: ", val: "Git, Bitbucket" },
-        { cat: "Methodologies: ", val: "Agile (Scrum), AI-assisted development (Claude)" },
+        { cat: "Methodologies: ", val: "Scrum, AI-assisted development" },
         { cat: "Languages: ", val: "Spanish (native), Basque (C1), English (intermediate)" },
         { cat: "Interests: ", val: "Sport, entrepreneurship, family and friends" },
       ],
@@ -83,17 +79,17 @@ const DATA: Record<Lang, {
         role: "Desarrollador de software", dates: "sep 2026 – actualidad",
         bullets: [
           "Desarrollo de un ERP de uso interno con PHP y Vue en la aplicación y con Python, FastAPI y MySQL en los servicios.",
-          "Diseño de la arquitectura y de la interfaz, desarrollo y pruebas de cada funcionalidad, con despliegue automatizado en producción.",
-          "Trabajo con la IA integrada en el proceso de desarrollo, con Claude y flujos automatizados para parte de la revisión de código y de la corrección de errores en las pruebas.",
+          "Diseño de arquitectura e interfaz, desarrollo y pruebas de cada funcionalidad, con despliegue automatizado.",
+          "IA integrada en el desarrollo, con Claude y flujos automatizados de revisión de código y corrección de errores.",
         ],
       },
       {
         company: "Skootik", location: "Donostia, España",
         role: "Ingeniero de software júnior", dates: "jul 2025 – ago 2026",
         bullets: [
-          "Oris Dental Scan, herramienta de prediagnóstico dental con IA en producción, financiada por la Unión Europea, el Gobierno de España y el Gobierno Vasco. Desarrollo de la interfaz web, de parte del servidor y de la infraestructura en AWS con Next.js, TypeScript, Django, Python y PostgreSQL.",
-          "Renovación de la aplicación de gestión de un laboratorio de análisis, migrada desde un sistema heredado. Cálculos para el análisis y la recogida de muestras y gestión modular de entidades con relaciones complejas. Entrevistas y observación de los trabajadores para adaptar la aplicación a su trabajo diario. Diseño mejorado y, en algunos casos, carga más del triple de rápida.",
-          "Trato directo con clientes, desde la recogida de requisitos y las reuniones de seguimiento hasta la redacción de actas y la gestión de cambios de alcance. Diseño y desarrollo de aplicaciones con Next.js, Node y Django REST, montaje de servidores en AWS con Docker y resolución de incidencias con los usuarios.",
+          "Oris Dental Scan, prediagnóstico dental con IA en producción y con financiación europea, estatal y vasca. Interfaz web, parte del servidor e infraestructura en AWS con Next.js, Django y PostgreSQL.",
+          "Renovación de la aplicación de gestión de un laboratorio de análisis, migrada desde un sistema heredado. Entrevistas y observación de los trabajadores para adaptarla a su trabajo diario. En algunos casos, carga más del triple de rápido.",
+          "Trato directo con clientes en requisitos, seguimiento, actas y cambios de alcance. Desarrollo con Next.js, Node y Django REST, servidores en AWS con Docker y resolución de incidencias.",
         ],
       },
       {
@@ -116,26 +112,22 @@ const DATA: Record<Lang, {
         degree: "Grado en Ingeniería Informática", dates: "sep 2021 – feb 2026",
         bullets: [
           "Nota media de 6,2 sobre 10.",
-          "Trabajo de fin de grado con una calificación de 8,5. Diseño y desarrollo de una plataforma de planificación de recursos para el centro de formación profesional Cebanc, integrada con Skootik y construida con Next.js, Django, PostgreSQL, Celery, AWS y Jenkins.",
+          "Trabajo de fin de grado con un 8,5. Plataforma de planificación de recursos para el centro de formación profesional Cebanc, con Next.js, Django, PostgreSQL, Celery y AWS.",
         ],
       },
     ],
-    additional: [
-      { company: "Restaurante VaBene", location: "Donostia, España", role: "Camarero", dates: "mar 2022 – sep 2022", bullets: ["Atención de varias mesas a la vez en un restaurante con mucha afluencia, sobre todo en horas punta."] },
-      { company: "Muka, Ixo Restauración SL", location: "Donostia, España", role: "Camarero de catering", dates: "sep 2022 – oct 2023", bullets: ["Servicio de sala en eventos de catering, como galas, cenas de empresa y celebraciones privadas, en jornadas largas."] },
-      { company: "MCC Graphics S. Coop", location: "Donostia, España", role: "Operario de producción en imprenta", dates: "jul 2023 – ago 2023", bullets: ["Manipulación de materiales, control de calidad de la impresión y apoyo en la línea de producción de una cooperativa de impresión."] },
-    ],
+    additional: "Mientras estudiaba la carrera trabajé en hostelería, como camarero en un restaurante (2022) y en eventos de catering (2022 a 2023), y durante un mes en la línea de producción de una imprenta (2023). Fueron trabajos exigentes que me enseñaron a organizarme y a trabajar bien bajo presión.",
     skills: {
       left: [
         { cat: "Lenguajes: ", val: "TypeScript, Python, PHP, JavaScript, Bash" },
         { cat: "Frontend: ", val: "React, Next.js, Vue, Tailwind CSS" },
-        { cat: "Backend: ", val: "Django REST Framework, FastAPI, Node.js, APIs REST, microservicios" },
+        { cat: "Backend: ", val: "Django REST, FastAPI, Node.js, microservicios" },
         { cat: "Bases de datos: ", val: "PostgreSQL, MySQL, SQL" },
-        { cat: "Nube y DevOps: ", val: "AWS (EC2, S3, RDS), Docker, Jenkins (CI/CD)" },
+        { cat: "Nube y DevOps: ", val: "AWS, Docker, Jenkins" },
       ],
       right: [
         { cat: "Control de versiones: ", val: "Git, Bitbucket" },
-        { cat: "Metodologías: ", val: "Metodologías ágiles (Scrum), desarrollo asistido por IA (Claude)" },
+        { cat: "Metodologías: ", val: "Scrum, desarrollo asistido por IA" },
         { cat: "Idiomas: ", val: "Español (nativo), Euskera (C1), Inglés (intermedio)" },
         { cat: "Intereses: ", val: "Deporte, emprendimiento, familia y amigos" },
       ],
@@ -212,10 +204,6 @@ export const CVHTMLDocument: React.FC<Props> = ({ lang, padding = 42 }) => {
         <Entry key={i} company={e.institution} role={e.degree} location={e.location} dates={e.dates} bullets={e.bullets} first={i === 0} />
       ))}
 
-      {/* Additional */}
-      <SectionHead title={d.sections.additional} />
-      {d.additional.map((e, i) => <Entry key={i} {...e} first={i === 0} />)}
-
       {/* Skills */}
       <SectionHead title={d.sections.skills} />
       <div style={{ display: "flex", gap: "20px" }}>
@@ -234,6 +222,10 @@ export const CVHTMLDocument: React.FC<Props> = ({ lang, padding = 42 }) => {
           ))}
         </div>
       </div>
+
+      {/* Other work: one short paragraph so the technical sections lead */}
+      <SectionHead title={d.sections.additional} />
+      <p style={{ margin: 0, fontSize: "10px", textAlign: "justify", fontFamily: "inherit" }}>{d.additional}</p>
     </div>
   );
 };
